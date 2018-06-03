@@ -4,20 +4,20 @@
     <div [hidden]="submitted">
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="username">User Name: </label>
+          User Name:
           <input type="text" id="username" required [(ngModel)]="user.userName" name="username">
         </div>
 
         <br>
         <div class="form-group">
-          <label for="password">Password: </label>
+          Password:
           <input type="text" id="password" required [(ngModel)]="user.password" name="password">
         </div>
         <br>
 
         <div class="btn-group">
           <button class="primary-button" (click)="goBack()">Back</button> &nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="primary-button" type="submit" class="btn btn-success">Login</button>
+          <button class="primary-button" type="submit">Login</button>
         </div>
       </form>
     </div>
