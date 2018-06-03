@@ -15,11 +15,12 @@ export class LoginService {
   
   doLogin(user: User) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    headers.append("Authorization", "Basic " + user.userName + ":" + user.password)
+    headers.append("Authorization", "Basic c2h5bGVuZHJhbWFkZGFAZ21haWwuY29tOjk5MDgwNjk4MDc=")
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.url, user, options)
       .subscribe(data => {
         console.log(data);
+        alert('Successfully logged in');
       });
   }
   /* doLogin(user: User): Promise<User> {

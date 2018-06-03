@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="section">
+
+      <button class="primary-button" ng-click="showHide()">Add Doner</button>
+      Search : <input type="text" ng-model="donorvo.name" placeholder="Enter name starts with..."
+                      auto-complete="applyFilter()"/>
+      <br>
+
+      <div class="col-sm-12" ng-hide="isHidden">
+          <br>
+          <h3>Create Donor:</h3>
+          <br>
+          <form>
+              <div class="col-sm-6">
+
+                  <label>Name:</label> <input type="text" placeholder="Name" name="Name" ng-model="donorvo.name"
+                                              required="required"><br><br>
+                  <label>Mobile No:</label><input type="text" placeholder="Mobile No" name="MobileNo"
+                                                  ng-model="donorvo.mobileNo"
+                                                  required="required"><br><br>
+                  <label>Email Id:</label> <input type="text" placeholder="Email Id" name="EmailId"
+                                                  ng-model="donorvo.emailId"><br><br>
+                  <label>Address:</label> <input type="text" placeholder="Address" name="Adress"
+                                                 ng-model="donorvo.address"><br><br>
+                  <label>Door No:</label> <input type="text" placeholder="Door No" name="DoorNo"
+                                                 ng-model="donorvo.doorNo"><br><br>
+                  <label>Village/Ward/Post:</label> <input type="text" placeholder="Village/Ward/Post" name="Ward"
+                                                           ng-model="donorvo.ward"><br><br>
+                  <label>Mandal:</label> <input type="text" placeholder="Mandal" name="Mandal"
+                                                ng-model="donorvo.mandal"><br><br>
+
+              </div>
+
+              <div class="col-sm-6">
+                  <label>District: </label> <input type="text" placeholder="District" name="District"
+                                                   ng-model="donorvo.district"><br><br>
+                  <label>State:</label> <input type="text" placeholder="State" name="State"
+                                               ng-model="donorvo.state"><br><br>
+                  <label>Pincode:</label> <input type="text" placeholder="Pincode" name="Pincode"
+                                                 ng-model="donorvo.pincode"><br><br>
+                  <label>Event:</label> <input type="text" placeholder="Event" name="Event"
+                                               ng-model="donorvo.event"><br><br>
+                  <label>Amount:</label> <input type="text" placeholder="Amount" name="Amount"
+                                                ng-model="donorvo.amount"><br><br>
+                  <label>Event Date:</label> <input type="text" placeholder="Event Date" name="EventDate"
+                                                    ng-model="donorvo.eventDate"><br><br>
+                  <label>Payment Type:</label> <input type="text" placeholder="Payment Type" name="PaymentType"
+                                                      ng-model="donorvo.paymentType"><br><br>
+              </div>
+              <button class="primary-button" ng-hide="first" ng-click="save(donorvo)">Create</button>
+              <button class="primary-button" ng-hide="!first" ng-click="update(donorvo)">Update</button>
+          </form>
+          <br>
+      </div>
+      <br><br>
+
+      <div class="col-sm-12">
+          <h3>Donors List:</h3>
+          <br>
+          <table class="table">
+              <thead>
+              <tr>
+                  <th>S.No</th>
+                  <th>Name</th>
+                  <th>Mobile No</th>
+                  <th>Email Id</th>
+                  <th>Village/ward/post</th>
+                  <th>Actions</th>
+
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr ng-repeat="donor in donors">
+                  <td>{{$index+1}}</td>
+                  <td>{{donor.name}}</td>
+                  <td>{{donor.mobileNo}}</td>
+                  <td>{{donor.emailId}}</td>
+                  <td>{{donor.ward}}</td>
+                  <td>
+                      <button class="primary-button" ng-click="remove($index)">Delete</button>
+                      <button class="primary-button" ng-click="updateDonor($index)">Edit</button>
+                  </td>
+              </tr>
+              </tbody>
+
+          </table>
+      </div>
+  </div>
+</div>
