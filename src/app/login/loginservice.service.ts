@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,7 @@ export class LoginService {
 
   private url = 'http://localhost:8080/api/user/login';  // URL to web API
   
-  
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
   
   doLogin(user: User) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -21,6 +21,7 @@ export class LoginService {
       .subscribe(data => {
         console.log(data);
         alert('Successfully logged in');
+        this.router.navigate(['/home']);
       });
   }
   /* doLogin(user: User): Promise<User> {

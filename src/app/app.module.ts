@@ -9,7 +9,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactusComponent } from './contactus/contactus.component';
 import { DonateComponent } from './donate/donate.component';
 import { VatsalyasindhuComponent } from './vatsalyasindhu/vatsalyasindhu.component';
@@ -33,7 +33,8 @@ import { DonerComponent } from './doner/doner.component';
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

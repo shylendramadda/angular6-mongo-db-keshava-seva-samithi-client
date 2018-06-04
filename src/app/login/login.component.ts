@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { LoginService } from 'src/app/login/loginservice.service';
 import { Location } from '@angular/common';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   user = new User;
   submitted = false;
+  loginForm
   constructor(private loginservice: LoginService,
     private location: Location) { }
 
