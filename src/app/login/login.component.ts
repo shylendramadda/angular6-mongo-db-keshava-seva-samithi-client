@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
     this.user = new User();
   }
 
-  private save(): void {
-    this.loginservice.doLogin(this.user);
+  save(): void {
+    this.loginservice.doLogin(this.user)
   }
 
   onSubmit() {

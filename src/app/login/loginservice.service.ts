@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +16,17 @@ import { Router } from '@angular/router';
 
 export class LoginService {
 
-  private url = 'http://localhost:8080/api/user/login';  // URL to web API
-  
+  private login_url = 'http://localhost:8080/api/user/login';  // URL to web API
+
   constructor(private http: Http, private router: Router) { }
-  
+
   doLogin(user: User) {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    headers.append("Authorization", "Basic c2h5bGVuZHJhbWFkZGFAZ21haWwuY29tOjk5MDgwNjk4MDc=")
-    let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.url, user, options)
+
+    return this.http.post(this.login_url, user)
       .subscribe(data => {
         console.log(data);
         alert('Successfully logged in');
-        this.router.navigate(['/home']);
+        this.router.navigate(['adminHome']);
       });
   }
   /* doLogin(user: User): Promise<User> {
@@ -64,8 +69,8 @@ export class LoginService {
     return Promise.reject(error.message || error);
   } */
 
- /*  private handleError(error: any): Promise<any> {
-    console.error('Error', error);
-    return Promise.reject(error.message || error);
-  } */
+  /*  private handleError(error: any): Promise<any> {
+     console.error('Error', error);
+     return Promise.reject(error.message || error);
+   } */
 }

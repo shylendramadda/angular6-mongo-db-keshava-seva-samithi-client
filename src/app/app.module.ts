@@ -15,6 +15,8 @@ import { DonateComponent } from './donate/donate.component';
 import { VatsalyasindhuComponent } from './vatsalyasindhu/vatsalyasindhu.component';
 import { FooterComponent } from './footer/footer.component';
 import { DonerComponent } from './doner/doner.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { RegistrationsComponent } from './registrations/registrations.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { DonerComponent } from './doner/doner.component';
     DonateComponent,
     VatsalyasindhuComponent,
     FooterComponent,
-    DonerComponent
+    DonerComponent,
+    AdminhomeComponent,
+    RegistrationsComponent
   ],
   imports: [
     BrowserModule,
