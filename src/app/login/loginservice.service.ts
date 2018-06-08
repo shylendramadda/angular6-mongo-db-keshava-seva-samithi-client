@@ -3,12 +3,13 @@ import { User } from 'src/app/model/user';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
+import {Observable} from 'rxjs';
 
-const httpOptions = {
+/* const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
-};
+}; */
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,18 @@ export class LoginService {
   constructor(private http: Http, private router: Router) { }
 
   doLogin(user: User) {
+    let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+    // headers.append("Authorization", "Basic " + user.userName + ":" + user.password)
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.login_url, user, options)
+      .subscribe(data => {
+        console.log(data);
+        alert('Successfully logged in');
+        this.router.navigate(['adminHome']);
+      });
+  }
+
+  /* doLogin(user: User) {
 
     return this.http.post(this.login_url, user)
       .subscribe(data => {
@@ -28,7 +41,7 @@ export class LoginService {
         alert('Successfully logged in');
         this.router.navigate(['adminHome']);
       });
-  }
+  } */
   /* doLogin(user: User): Promise<User> {
     return this.http.post(this.url, user, this.options)
       .toPromise()
@@ -41,7 +54,7 @@ export class LoginService {
     return this.http.post(this.url, user, options)
       .pipe(map(user => this.extractData))
       .catch(this.handleErrorObservable);
-  }
+  } */
 
   extractData(res: Response) {
     let body = res.json();
@@ -52,7 +65,7 @@ export class LoginService {
   handleErrorObservable(error: Response | any) {
     console.error(error.message || error);
     return Observable.throw(error.message || error);
-  } */
+  }
 
   /* doLogin(user: User): User {
     // this.http.get(this.url).
