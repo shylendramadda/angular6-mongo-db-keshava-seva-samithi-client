@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   user = new User;
   submitted = false;
-  loginForm
   constructor(private loginservice: LoginService,
     private location: Location) { }
 

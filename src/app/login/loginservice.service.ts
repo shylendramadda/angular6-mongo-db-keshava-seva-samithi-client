@@ -5,11 +5,8 @@ import { HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 
-/* const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-}; */
+let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+let options = new RequestOptions({ headers: headers });
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +19,7 @@ export class LoginService {
   constructor(private http: Http, private router: Router) { }
 
   doLogin(user: User) {
-    let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
-    // headers.append("Authorization", "Basic " + user.userName + ":" + user.password)
-    let options = new RequestOptions({ headers: headers });
+    
     return this.http.post(this.login_url, user, options)
       .subscribe(data => {
         console.log(data);
@@ -33,15 +28,7 @@ export class LoginService {
       });
   }
 
-  /* doLogin(user: User) {
-
-    return this.http.post(this.login_url, user)
-      .subscribe(data => {
-        console.log(data);
-        alert('Successfully logged in');
-        this.router.navigate(['adminHome']);
-      });
-  } */
+  
   /* doLogin(user: User): Promise<User> {
     return this.http.post(this.url, user, this.options)
       .toPromise()
@@ -56,7 +43,7 @@ export class LoginService {
       .catch(this.handleErrorObservable);
   } */
 
-  extractData(res: Response) {
+ /*  extractData(res: Response) {
     let body = res.json();
     console.log(body)
     return body || {};
@@ -65,25 +52,5 @@ export class LoginService {
   handleErrorObservable(error: Response | any) {
     console.error(error.message || error);
     return Observable.throw(error.message || error);
-  }
-
-  /* doLogin(user: User): User {
-    // this.http.get(this.url).
-    // map((response) ⇒ response.json()).
-    // subscribe((data) ⇒ console.log(data))
-    return this.http.get(this.url)
-      .map(response)
-      .then(response => response.json() as User)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('Error', error);
-    return Promise.reject(error.message || error);
   } */
-
-  /*  private handleError(error: any): Promise<any> {
-     console.error('Error', error);
-     return Promise.reject(error.message || error);
-   } */
 }

@@ -14,7 +14,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { DonateComponent } from './donate/donate.component';
 import { VatsalyasindhuComponent } from './vatsalyasindhu/vatsalyasindhu.component';
 import { FooterComponent } from './footer/footer.component';
-import { DonerComponent } from './doner/doner.component';
+import { DonorComponent } from './donor/donor.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { RegistrationsComponent } from './registrations/registrations.component';
 
@@ -28,7 +28,7 @@ import { RegistrationsComponent } from './registrations/registrations.component'
     DonateComponent,
     VatsalyasindhuComponent,
     FooterComponent,
-    DonerComponent,
+    DonorComponent,
     AdminhomeComponent,
     RegistrationsComponent
   ],

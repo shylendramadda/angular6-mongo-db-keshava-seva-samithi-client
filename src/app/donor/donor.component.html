@@ -1,4 +1,63 @@
-<div class="container">
+<div class="container section">
+    <div class="col-sm-12">
+        <h4>Doner Details</h4>
+        <div [hidden]="submitted">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" class="form-control" name="surname" [(ngModel)]="donor.surname" #surname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && surname.invalid }"
+                            required surname minlength="2" />
+                        <div *ngIf="f.submitted && surname.invalid" class="invalid-feedback">
+                            <div *ngIf="surname.errors.required">Surname is required</div>
+                            <div *ngIf="surname.errors.surname">Surname must be a valid one</div>
+                            <div *ngIf="surname.errors.minlength">Surname must be at least 2 characters</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" [(ngModel)]="donor.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+                            required name minlength="3" />
+                        <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                            <div *ngIf="name.errors.required">Name is required</div>
+                            <div *ngIf="name.errors.name">Name must be a valid one</div>
+                            <div *ngIf="name.errors.minlength">Name must be at least 3 characters</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="number" class="form-control" name="mobile" [(ngModel)]="donor.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+                            required mobile minlength="10" maxlength="10" />
+                        <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
+                            <div *ngIf="mobile.errors.required">Mobile Number is required</div>
+                            <div *ngIf="mobile.errors.mobile">Mobile Number must be a valid one</div>
+                            <div *ngIf="mobile.errors.minlength">Mobile Number must be at least 10 digits</div>
+                            <div *ngIf="mobile.errors.maxlength">Mobile Number must be not more than 10 digits</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="donor.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                            required email />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                            <div *ngIf="email.errors.required">Email is required</div>
+                            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
   <div class="section">
 
       <button class="primary-button" ng-click="showHide()">Add Doner</button>
@@ -88,3 +147,4 @@
       </div>
   </div>
 </div>
+ -->
