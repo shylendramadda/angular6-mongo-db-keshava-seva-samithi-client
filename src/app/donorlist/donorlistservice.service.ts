@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Donor } from 'src/app/model/donor';
 import { Headers, Http, RequestOptions } from '@angular/http';
-import { HttpHeaders } from '@angular/common/http'
+import { HttpHeaders, HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -12,10 +12,15 @@ let options = new RequestOptions({ headers: headers });
   providedIn: 'root'
 })
 
-export class DonorService {
+export class DonorListService {
 
   private donor_url = 'http://localhost:8080/api/donor';  // URL to web API
-  constructor(private http: Http, private router: Router) { }
+  
+  constructor(private http: Http, private router: Router, private httpClient:HttpClient) { }
+
+  getDonors() {
+    return this.httpClient.get<Donor[]>(this.donor_url + "/");
+  }
 
   addDonor(donor: Donor) {
     return this.http.post(this.donor_url, donor, options)
@@ -25,4 +30,5 @@ export class DonorService {
         this.router.navigate(['donorList']);
       });
   }
+
 }

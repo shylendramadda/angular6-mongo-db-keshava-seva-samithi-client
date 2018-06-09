@@ -10,7 +10,7 @@ export class Donor {
     updatedOn: String;
 
     surname: String;
-    name: String;
+    lastName: String;
     mobile: String;
     email: String;
 }

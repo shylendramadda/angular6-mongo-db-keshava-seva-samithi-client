@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Donor } from '../model/donor';
 import { DonorService } from './donorservice.service';
-import {Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -13,8 +13,7 @@ export class DonorComponent implements OnInit {
 
   donor = new Donor;
   submitted = false;
-  constructor(private donorService: DonorService,
-    private location: Location) { }
+  constructor(private donorService: DonorService, private location: Location) { }
 
   ngOnInit() {
   }
@@ -25,7 +24,7 @@ export class DonorComponent implements OnInit {
   }
 
   save(): void {
-    this.donorService.create(this.donor)
+    this.donorService.addDonor(this.donor)
   }
 
   onSubmit() {

@@ -10,6 +10,7 @@ import { VatsalyasindhuComponent } from './vatsalyasindhu/vatsalyasindhu.compone
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { RegistrationsComponent } from './registrations/registrations.component';
 import { DonorComponent } from './donor/donor.component';
+import { DonorlistComponent } from './donorlist/donorlist.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'adminHome', component: AdminhomeComponent },
   { path: 'registrations', component: RegistrationsComponent },
-  { path: 'donor', component: DonorComponent }
+  { path: 'donor', component: DonorComponent },
+  { path: 'donorList', component: DonorlistComponent}
 
 
 ];
