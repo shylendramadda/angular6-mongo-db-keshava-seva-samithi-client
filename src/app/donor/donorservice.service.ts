@@ -25,4 +25,8 @@ export class DonorService {
         this.router.navigate(['donorList']);
       });
   }
+
+  editDonor(donor: Donor) {
+
+  }
 }
