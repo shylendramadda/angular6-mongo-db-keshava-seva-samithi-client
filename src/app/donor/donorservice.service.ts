@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Donor } from 'src/app/model/donor';
 import { Headers, Http, RequestOptions } from '@angular/http';
@@ -15,18 +16,33 @@ let options = new RequestOptions({ headers: headers });
 export class DonorService {
 
   private donor_url = 'http://localhost:8080/api/donor';  // URL to web API
-  constructor(private http: Http, private router: Router) { }
+  constructor(private http: Http, private router: Router, private location: Location) { }
 
   addDonor(donor: Donor) {
     return this.http.post(this.donor_url, donor, options)
       .subscribe(data => {
         console.log(data);
-        alert('Successfully donor created');
-        this.router.navigate(['donorList']);
+        if (data.status == 200) {
+          alert('Added donor successfully');
+          // this.router.navigate(['donorList']);
+          this.location.back();
+        } else {
+          alert('Something went wrong try again');
+        }
       });
   }
 
-  editDonor(donor: Donor) {
-
+  updateDonor(donor: Donor) {
+    return this.http.put(this.donor_url, donor, options)
+      .subscribe(data => {
+        console.log(data);
+        if (data.status == 200) {
+          alert('Updated donor successfully');
+          this.location.back();
+        } else {
+          alert('Something went wrong try again');
+        }
+      });
   }
+
 }

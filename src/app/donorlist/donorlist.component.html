@@ -1,32 +1,36 @@
-<div class="col-sm-12">
+<div class="container section">
+  <div class="col-sm-12">
     <h2> Donor Details</h2>
     <button class="btn btn-primary" (click)="goBack()"> Back</button>
     <button class="btn btn-primary" (click)="getDonors()" style="margin-left: 20px;"> Refresh</button>
-    <button class="btn btn-primary" (click)="addDonor()" style="margin-left: 20px;"> Add Donor</button> 
-    <br> <br>
+    <button class="btn btn-primary" (click)="addDonor()" style="margin-left: 20px;"> Add Donor</button>
+    <br>
+    <br>
     <table class="table table-striped">
       <thead>
-      <tr>
-        <th class="hidden">Id</th>
-        <th>Surname</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th>Action</th>
-      </tr>
+        <tr>
+          <th class="hidden">Id</th>
+          <th>Surname</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Action</th>
+        </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let donor of donors">
-        <td>{{donor.id}}</td>
-        <td>{{donor.surname}}</td>
-        <td>{{donor.lastName}}</td>
-        <td>{{donor.email}}</td>
-        <td>{{donor.mobile}}</td>
-        <td>
-          <button class="btn btn-primary" (click)="viewDoner(donor)"> View</button>
-          <button class="btn btn-primary" (click)="editDonor(donor)" style="margin-left: 10px;"> Edit</button>
-          <button class="btn btn-danger" (click)="deleteDoner(donor)" style="margin-left: 10px;"> Delete</button> </td>
-      </tr>
+        <tr *ngFor="let donor of donors">
+          <td>{{donor.id}}</td>
+          <td>{{donor.surname}}</td>
+          <td>{{donor.lastName}}</td>
+          <td>{{donor.email}}</td>
+          <td>{{donor.mobile}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="viewDoner(donor)"> View</button>
+            <button class="btn btn-primary" (click)="editDonor(donor)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-danger" (click)="deleteDonor(donor)" style="margin-left: 10px;"> Delete</button>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
+</div>

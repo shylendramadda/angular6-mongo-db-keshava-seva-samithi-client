@@ -20,10 +20,14 @@ const routes: Routes = [
   { path: 'vatsalyaSindhu', component: VatsalyasindhuComponent },
   { path: 'donate', component: DonateComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'adminHome', component: AdminhomeComponent },
-  { path: 'registrations', component: RegistrationsComponent },
-  { path: 'donor', component: DonorComponent },
-  { path: 'donorList', component: DonorlistComponent}
+  {
+    path: 'adminHome', component: AdminhomeComponent,
+    children: [{
+      path: 'registrations', component: RegistrationsComponent,
+      children: [{ path: 'donorList', component: DonorlistComponent }]
+    }]
+  },
+  { path: 'donor', component: DonorComponent }
 
 
 ];

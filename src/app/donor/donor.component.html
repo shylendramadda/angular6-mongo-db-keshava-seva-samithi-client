@@ -1,7 +1,8 @@
 <div class="container section">
-    <div class="col-md-6">
+    <div class="col-md-12" style="text-align: center">
         <button class="btn btn-primary" (click)="goBack()"> Back</button>
-        <br> <br>
+        <br>
+        <br>
         <h4>Doner Registeration</h4>
         <div [hidden]="submitted">
             <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
@@ -20,7 +21,7 @@
 
                     <div class="form-group">
                         <label for="lastName">Name</label>
-                        <input type="text" class="form-control" name="lastName" [(ngModel)]="donor.lastName" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="donor.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
                             required lastName minlength="3" />
                         <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
                             <div *ngIf="lastName.errors.required">Name is required</div>
@@ -52,7 +53,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-primary">Save</button>
+                        <button class="btn btn-primary">{{isUpdate? "Update": "Save"}}</button>
                     </div>
                 </div>
             </form>

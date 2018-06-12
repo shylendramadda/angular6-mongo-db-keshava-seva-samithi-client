@@ -22,9 +22,15 @@ export class LoginService {
     
     return this.http.post(this.login_url, user, options)
       .subscribe(data => {
-        console.log(data);
-        alert('Successfully logged in');
-        this.router.navigate(['adminHome']);
+        if(data.status == 200) {
+          console.log(data);
+          alert('Successfully logged in');
+          this.router.navigate(['adminHome']);
+        } else {
+          alert('Login Failed..');
+          this.router.navigate(['login']);
+        }
+        
       });
   }
 
