@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
 
   user = new User;
   submitted = false;
-  constructor(private loginservice: LoginService,
-    private location: Location) { }
+  constructor(private loginservice: LoginService,private location: Location) { }
 
   ngOnInit() {
   }

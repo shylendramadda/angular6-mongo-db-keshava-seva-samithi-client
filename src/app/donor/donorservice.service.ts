@@ -18,16 +18,16 @@ export class DonorService {
   private donor_url = 'http://localhost:8080/api/donor';  // URL to web API
   constructor(private http: Http, private router: Router, private location: Location) { }
 
-  addDonor(donor: Donor) {
+  saveDonor(donor: Donor) {
     return this.http.post(this.donor_url, donor, options)
       .subscribe(data => {
         console.log(data);
-        if (data.status == 200) {
-          alert('Added donor successfully');
+        if (data.json().code == 200) {
+          alert(data.json().message);
           // this.router.navigate(['donorList']);
           this.location.back();
         } else {
-          alert('Something went wrong try again');
+          alert(data.json().message + ' Error code: ' + data.json().code);
         }
       });
   }
@@ -36,11 +36,11 @@ export class DonorService {
     return this.http.put(this.donor_url, donor, options)
       .subscribe(data => {
         console.log(data);
-        if (data.status == 200) {
-          alert('Updated donor successfully');
+        if (data.json().code == 200) {
+          alert(data.json().message);
           this.location.back();
         } else {
-          alert('Something went wrong try again');
+          alert(data.json().message + ' Error code: ' + data.json().code);
         }
       });
   }

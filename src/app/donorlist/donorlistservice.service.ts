@@ -22,7 +22,7 @@ export class DonorListService {
     return this.httpClient.get<Donor[]>(this.donor_url + "/");
   }
 
-  getDonor(donor : Donor) {
+  getDonor(donor: Donor) {
     return this.httpClient.get<Donor>(this.donor_url + "/" + donor.uid);
   }
 
@@ -30,12 +30,10 @@ export class DonorListService {
     return this.http.post(this.donor_url, donor, options)
       .subscribe(data => {
         console.log(data);
-        if (data.status == 200) {
-          alert('Successfully donor created');
-          this.router.navigate(['donorList']);
+        if (data.json().code == 200) {
+          alert(data.json().message);
         } else {
-          alert('Something went wrong try again');
-          this.router.navigate(['donorList']);
+          alert(data.json().message + ' Error code: ' + data.json().code);
         }
       });
   }
@@ -44,12 +42,11 @@ export class DonorListService {
     return this.http.delete(this.donor_url + '/' + donor.uid, options)
       .subscribe(data => {
         console.log(data);
-        if (data.status == 200) {
-          alert('Deleted donor successfully');
-          this.router.navigate(['donorList']);
+        if (data.json().code == 200) {
+          alert(data.json().message);
+          this.getDonors();
         } else {
-          alert('Something went wrong try again');
-          this.router.navigate(['donorList']);
+          alert(data.json().message + ' Error code: ' + data.json().code);
         }
       });
   }

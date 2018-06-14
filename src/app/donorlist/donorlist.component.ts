@@ -56,6 +56,7 @@ export class DonorlistComponent implements OnInit {
   deleteDonor(donor: Donor): void {
     if (confirm("Are you sure want to delete " + donor.surname + " " + donor.lastName)) {
       this.donorlistService.deleteDonor(donor)
+      this.router.navigate(['donorList']);
     }
   }
 

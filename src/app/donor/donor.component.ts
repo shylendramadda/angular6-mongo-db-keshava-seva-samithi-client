@@ -12,9 +12,9 @@ import { isUndefined } from 'util';
 })
 export class DonorComponent implements OnInit {
 
-  isUpdate: boolean;
-  donor = new Donor;
+  donor : any = {};
   submitted = false;
+  isUpdate = false;
 
   constructor(private donorService: DonorService, private location: Location) {
     this.donor = new Donor();
@@ -22,9 +22,10 @@ export class DonorComponent implements OnInit {
 
   ngOnInit() {
     let donor = JSON.parse(localStorage.getItem("donor"));
-    if (isUndefined(donor)) {
+    if (isUndefined(donor) || donor == null) {
       this.donor = new Donor();
       this.isUpdate = false;
+      this.newUser();
     } else {
       this.donor = donor;
       this.isUpdate = true;
@@ -37,7 +38,7 @@ export class DonorComponent implements OnInit {
   }
 
   save(): void {
-    this.donorService.addDonor(this.donor)
+    this.donorService.saveDonor(this.donor)
   }
 
   update(): void {

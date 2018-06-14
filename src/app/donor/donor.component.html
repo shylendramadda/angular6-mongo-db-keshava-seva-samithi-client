@@ -31,6 +31,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="donor.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                            required email />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                            <div *ngIf="email.errors.required">Email is required</div>
+                            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="mobile">Mobile Number</label>
                         <input type="number" class="form-control" name="mobile" [(ngModel)]="donor.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
                             required mobile minlength="10" maxlength="10" />
@@ -43,17 +53,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" [(ngModel)]="donor.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-                            required email />
-                        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                            <div *ngIf="email.errors.required">Email is required</div>
-                            <div *ngIf="email.errors.email">Email must be a valid email address</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-primary">{{isUpdate? "Update": "Save"}}</button>
+                        <button class="btn btn-primary">{{!isUpdate? "Save": "Update"}}</button>
                     </div>
                 </div>
             </form>

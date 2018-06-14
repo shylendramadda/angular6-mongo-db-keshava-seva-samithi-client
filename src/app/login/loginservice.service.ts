@@ -3,7 +3,7 @@ import { User } from 'src/app/model/user';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
 let options = new RequestOptions({ headers: headers });
@@ -19,22 +19,22 @@ export class LoginService {
   constructor(private http: Http, private router: Router) { }
 
   doLogin(user: User) {
-    
+
     return this.http.post(this.login_url, user, options)
       .subscribe(data => {
-        if(data.status == 200) {
+        if (data.json().code == 200) {
           console.log(data);
-          alert('Successfully logged in');
+          alert(data.json().message);
           this.router.navigate(['adminHome']);
         } else {
-          alert('Login Failed..');
+          alert(data.json().message + ' Error code: ' + data.json().code);
           this.router.navigate(['login']);
         }
-        
+
       });
   }
 
-  
+
   /* doLogin(user: User): Promise<User> {
     return this.http.post(this.url, user, this.options)
       .toPromise()
@@ -49,14 +49,14 @@ export class LoginService {
       .catch(this.handleErrorObservable);
   } */
 
- /*  extractData(res: Response) {
-    let body = res.json();
-    console.log(body)
-    return body || {};
-  }
-
-  handleErrorObservable(error: Response | any) {
-    console.error(error.message || error);
-    return Observable.throw(error.message || error);
-  } */
+  /*  extractData(res: Response) {
+     let body = res.json();
+     console.log(body)
+     return body || {};
+   }
+ 
+   handleErrorObservable(error: Response | any) {
+     console.error(error.message || error);
+     return Observable.throw(error.message || error);
+   } */
 }
