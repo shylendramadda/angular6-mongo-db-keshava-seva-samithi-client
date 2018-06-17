@@ -4,6 +4,7 @@ import { Headers, Http, RequestOptions } from '@angular/http';
 import { HttpHeaders, HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
 
 let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
 let options = new RequestOptions({ headers: headers });
@@ -44,7 +45,7 @@ export class DonorListService {
         console.log(data);
         if (data.json().code == 200) {
           alert(data.json().message);
-          this.getDonors();
+          window.location.reload(); // this wrong way of refreshing list need to do right thing
         } else {
           alert(data.json().message + ' Error code: ' + data.json().code);
         }

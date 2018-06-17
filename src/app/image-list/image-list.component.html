@@ -1,0 +1,36 @@
+<div class="container section">
+  <div class="col-sm-12">
+    <h2> Images List</h2>
+    <button class="btn btn-primary" (click)="goBack()"> Back</button>
+    <button class="btn btn-primary" (click)="getImages()" style="margin-left: 20px;"> Refresh</button>
+    <!-- <button class="btn btn-primary" (click)="addImage()" style="margin-left: 20px;"> Add Image</button> -->
+    <a class="btn btn-primary" routerLink="addImage" style="margin-left: 20px;">Add Image</a>
+    <br>
+    <br>
+    <router-outlet></router-outlet>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="hidden">Id</th>
+          <th>Name</th>
+          <th>Preview</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let image of images">
+          <td>{{image.id}}</td>
+          <td>{{image.name}}</td>
+          <td>
+              <img width="100" height="100" alt="{{image.name}}" src="{{image.filePath}}">
+          </td>
+          <td>
+            <button class="btn btn-primary" (click)="viewImage(image)"> View</button>
+            <button class="btn btn-primary" (click)="editImage(image)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-danger" (click)="deleteImage(image)" style="margin-left: 10px;"> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

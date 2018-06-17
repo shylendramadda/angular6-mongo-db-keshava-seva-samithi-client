@@ -11,6 +11,8 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { RegistrationsComponent } from './registrations/registrations.component';
 import { DonorComponent } from './donor/donor.component';
 import { DonorlistComponent } from './donorlist/donorlist.component';
+import { ImageListComponent } from './image-list/image-list.component';
+import { AddImageComponent } from './add-image/add-image.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,6 +27,9 @@ const routes: Routes = [
     children: [{
       path: 'registrations', component: RegistrationsComponent,
       children: [{ path: 'donorList', component: DonorlistComponent }]
+    }, {
+      path: 'images', component: ImageListComponent,
+      children: [{ path: 'addImage', component: AddImageComponent }]
     }]
   },
   { path: 'donor', component: DonorComponent }
