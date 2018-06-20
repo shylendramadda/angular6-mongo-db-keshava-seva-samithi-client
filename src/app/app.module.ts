@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
+
 
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -20,6 +22,9 @@ import { RegistrationsComponent } from './registrations/registrations.component'
 import { DonorlistComponent } from './donorlist/donorlist.component';
 import { ImageListComponent } from './image-list/image-list.component';
 import { AddImageComponent } from './add-image/add-image.component';
+import { VideosListComponent } from './videos-list/videos-list.component';
+import { AddVideoComponent } from './add-video/add-video.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,9 @@ import { AddImageComponent } from './add-image/add-image.component';
     RegistrationsComponent,
     DonorlistComponent,
     ImageListComponent,
-    AddImageComponent
+    AddImageComponent,
+    VideosListComponent,
+    AddVideoComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,8 @@ import { AddImageComponent } from './add-image/add-image.component';
     HttpModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    YoutubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

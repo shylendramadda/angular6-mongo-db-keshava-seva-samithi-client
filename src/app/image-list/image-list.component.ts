@@ -33,6 +33,17 @@ export class ImageListComponent implements OnInit {
     this.router.navigate(['addImage']);
   };
 
+  editImage(image: ImageFile): void {
+    localStorage.setItem("image", JSON.stringify(image));
+    this.router.navigate(['addImage']);
+  }
+
+  deleteImage(image: ImageFile): void {
+    if (confirm("Are you sure want to delete " + image.name)) {
+      this.imageListService.deleteImage(image);
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpResponse, HttpEventType } from '@angular/common/http';
 import { ImageUploadServiceService } from './image-upload-service.service';
+import { isUndefined } from 'util';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ImageFile } from '../model/ImageFile';
 
 @Component({
   selector: 'app-add-image',
@@ -9,13 +12,22 @@ import { ImageUploadServiceService } from './image-upload-service.service';
 })
 export class AddImageComponent implements OnInit {
 
+  image: ImageFile;
   selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };
 
-  constructor(private uploadService: ImageUploadServiceService) { }
+  constructor(private uploadService: ImageUploadServiceService) {
+    this.image = new ImageFile();
+   }
 
   ngOnInit() {
+    let image = JSON.parse(localStorage.getItem("image"));
+    if (isUndefined(image) || image == null) {
+      this.image = new ImageFile();
+    } else {
+      this.image = image;
+    }
   }
 
   selectFile(event) {

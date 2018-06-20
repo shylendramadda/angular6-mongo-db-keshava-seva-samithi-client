@@ -13,6 +13,8 @@ import { DonorComponent } from './donor/donor.component';
 import { DonorlistComponent } from './donorlist/donorlist.component';
 import { ImageListComponent } from './image-list/image-list.component';
 import { AddImageComponent } from './add-image/add-image.component';
+import { VideosListComponent } from './videos-list/videos-list.component';
+import { AddVideoComponent } from './add-video/add-video.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,6 +32,9 @@ const routes: Routes = [
     }, {
       path: 'images', component: ImageListComponent,
       children: [{ path: 'addImage', component: AddImageComponent }]
+    }, {
+      path: 'videos', component: VideosListComponent,
+      children: [{ path: 'addVideo', component: AddVideoComponent }]
     }]
   },
   { path: 'donor', component: DonorComponent }
