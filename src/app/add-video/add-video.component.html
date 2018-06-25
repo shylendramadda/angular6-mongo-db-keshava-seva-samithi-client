@@ -1,3 +1,38 @@
-<p>
-  add-video works!
-</p>
+<div class="container section">
+  <div class="col-md-12" style="text-align: center">
+      <button class="btn btn-primary" (click)="goBack()"> Back</button>
+      <br>
+      <h4>Add Video</h4>
+      <div [hidden]="submitted">
+          <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+              <div class="col-sm-6">
+
+                  <div class="form-group">
+                      <label for="url">Video Youtube URL</label>
+                      <input type="url" class="form-control" name="url" [(ngModel)]="video.url" #url="ngModel" [ngClass]="{ 'is-invalid': f.submitted && url.invalid }"
+                          required url />
+                      <div *ngIf="f.submitted && url.invalid" class="invalid-feedback">
+                          <div *ngIf="url.errors.required">URL is required</div>
+                          <div *ngIf="url.errors.url">URL must be a valid embed youtube url</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" name="description" [(ngModel)]="video.description" #description="ngModel" [ngClass]="{ 'is-invalid': f.submitted && description.invalid }"
+                        required description minlength="5" />
+                    <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
+                        <div *ngIf="description.errors.required">Description is required</div>
+                        <div *ngIf="description.errors.lastName">Description must be a valid one</div>
+                        <div *ngIf="description.errors.minlength">Description must be at least 5 characters</div>
+                    </div>
+                </div>
+
+                  <div class="form-group">
+                      <button class="btn btn-primary">{{!isUpdate? "Save": "Update"}}</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

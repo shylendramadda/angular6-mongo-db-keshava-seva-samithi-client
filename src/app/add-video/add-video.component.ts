@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoserviceService } from './videoservice.service';
+import { Video } from '../model/Video';
+import { Location } from '@angular/common';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-add-video',
@@ -7,9 +12,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddVideoComponent implements OnInit {
 
-  constructor() { }
+  video: any = {}
+  submitted = false;
+  isUpdate = false;
 
-  ngOnInit() {
+  constructor(private videoService: VideoserviceService, private location: Location) {
+    this.video = new Video();
   }
 
+  ngOnInit() {
+    let video = JSON.parse(localStorage.getItem("video"));
+    if (isUndefined(video) || video == null) {
+      this.video = new Video();
+      this.isUpdate = false;
+      this.submitted = false;
+    } else {
+      this.video = video;
+      this.isUpdate = true;
+    }
+  }
+
+  save(): void {
+    this.videoService.saveVideo(this.video)
+  }
+
+  update(): void {
+    this.videoService.updateVideo(this.video)
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.isUpdate) {
+      this.update();
+    } else {
+      this.save();
+    }
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

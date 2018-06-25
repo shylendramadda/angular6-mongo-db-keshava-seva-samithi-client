@@ -21,9 +21,12 @@
     "@angular/platform-browser": "^6.0.2",
     "@angular/platform-browser-dynamic": "^6.0.2",
     "@angular/router": "^6.0.2",
+    "@types/youtube": "0.0.33",
     "core-js": "^2.5.4",
+    "ng-youtube-embed": "^1.7.14",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.1",
+    "youtube": "^0.1.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -47,5 +50,8 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
+  },
+  "webkit": {
+    "plugin": true
   }
 }

@@ -1,4 +1,10 @@
 import { Component, OnInit, SystemJsNgModuleLoaderConfig } from '@angular/core';
+import { Video } from '../model/Video';
+import { VideoListService } from './videos-list-service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Url } from 'url';
 
 @Component({
   selector: 'app-videos-list',
@@ -7,30 +13,45 @@ import { Component, OnInit, SystemJsNgModuleLoaderConfig } from '@angular/core';
 })
 export class VideosListComponent implements OnInit {
 
-  id = 'kBSK3Hu8Fy8';
-  private player;
-  private ytEvent;
-
-  constructor() { }
+  videos: Video[];
+  constructor(private videoListService: VideoListService, private router: Router, private location: Location,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.savePlayer(this.player);
+    this.getVideos()
   }
 
-  onStateChange(event) {
-    this.ytEvent = event.data;
+  getVideos() {
+    this.videoListService.getVideos()
+      .subscribe(data => {
+        this.videos = data;
+        console.log(data);
+      });
   }
 
-  savePlayer(player) {
-    this.player = player;
+  addVideo(): void {
+    localStorage.removeItem('video');
+    this.router.navigate(['adminHome/videos/addVideo']);
+  };
+
+  editVideo(video: Video): void {
+    localStorage.setItem("video", JSON.stringify(video));
+    this.router.navigate(['adminHome/videos/addVideo']);
   }
-  
-  playVideo() {
-    this.player.playVideo();
+
+  deleteVideo(video: Video): void {
+    if (confirm("Are you sure want to delete Video " + video.id)) {
+      this.videoListService.deleteVideo(video);
+    }
   }
-  
-  pauseVideo() {
-    this.player.pauseVideo();
+
+  goBack(): void {
+    this.location.back();
   }
+
+  getTrustedURL(url : any) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
 
 }

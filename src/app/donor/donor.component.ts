@@ -25,16 +25,11 @@ export class DonorComponent implements OnInit {
     if (isUndefined(donor) || donor == null) {
       this.donor = new Donor();
       this.isUpdate = false;
-      this.newUser();
+      this.submitted = false;
     } else {
       this.donor = donor;
       this.isUpdate = true;
     }
-  }
-
-  newUser(): void {
-    this.submitted = false;
-    this.donor = new Donor();
   }
 
   save(): void {

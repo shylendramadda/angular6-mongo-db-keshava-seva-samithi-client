@@ -1,30 +1,35 @@
-<div class="container">
-  <section class="panel panel-info">
-    <div class="panel-heading">
-      <strong>Youtube Player </strong>
-    </div>
-    <div class="panel-body">
-      <youtube-player 
-        (ready)="savePlayer($event)"
-        (change)="onStateChange($event)"
-      >
-      </youtube-player>
-    </div>
-  </section>
-  
-  <div class="col-md-12">
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default" (click)="playVideo()">Play</button>
-      <button type="button" class="btn btn-default" (click)="pauseVideo()">Pause</button>
-    </div>
-  </div>
-  
-  <div class="col-md-12">
-    <section class="panel panel-success">
-      <div class="panel-heading">Player State</div>
-      <div class="panel-body">
-        <pre>{{ ytEvent }}</pre>
-      </div>
-    </section>
+<div class="container section">
+  <div class="col-sm-12">
+    <h2> Videos List</h2>
+    <button class="btn btn-primary" (click)="goBack()"> Back</button>
+    <button class="btn btn-primary" (click)="getVideos()" style="margin-left: 20px;"> Refresh</button>
+    <!-- <button class="btn btn-primary" (click)="addImage()" style="margin-left: 20px;"> Add Image</button> -->
+    <a class="btn btn-primary" (click)="addVideo()" style="margin-left: 20px;">Add Video</a>
+    <br>
+    <br>
+    <router-outlet></router-outlet>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Description</th>
+          <th>Preview</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let video of videos">
+          <td>{{video.id}}</td>
+          <td>{{video.description}}</td>
+          <td>
+            <iframe width="310" height="150" [src]="getTrustedURL(video.url)" frameborder="0" allowfullscreen></iframe>
+          </td>
+          <td>
+            <button class="btn btn-primary" (click)="editVideo(video)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-danger" (click)="deleteVideo(video)" style="margin-left: 10px;"> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
