@@ -30,6 +30,7 @@ import { AddstaffComponent } from './addstaff/addstaff.component';
 import { StafflistComponent } from './stafflist/stafflist.component';
 import { AddcommitteememberComponent } from './addcommitteemember/addcommitteemember.component';
 import { CommitteememberlistComponent } from './committeememberlist/committeememberlist.component';
+import { SearchPipe } from './search.pipe';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { CommitteememberlistComponent } from './committeememberlist/committeemem
     AddstaffComponent,
     StafflistComponent,
     AddcommitteememberComponent,
-    CommitteememberlistComponent
+    CommitteememberlistComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,7 @@ import { CommitteememberlistComponent } from './committeememberlist/committeemem
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-  //  YoutubePlayerModule
+    //  YoutubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

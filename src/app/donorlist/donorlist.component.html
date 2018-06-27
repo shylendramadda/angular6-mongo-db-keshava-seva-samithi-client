@@ -4,8 +4,9 @@
     <button class="btn btn-primary" (click)="goBack()"> Back</button>
     <button class="btn btn-primary" (click)="getDonors()" style="margin-left: 20px;"> Refresh</button>
     <button class="btn btn-primary" (click)="addDonor()" style="margin-left: 20px;"> Add Donor</button>
-    <br>
-    <br>
+    <br><br>
+      Search: <input type="text" class="form-control"  name="searchText" placeholder="Search by surname, last name, email, mobile number" [(ngModel)]="searchText">
+    <br><br>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -18,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let donor of donors">
+        <tr *ngFor="let donor of donors | filter : searchText">
           <td>{{donor.id}}</td>
           <td>{{donor.surname}}</td>
           <td>{{donor.lastName}}</td>
