@@ -1,0 +1,48 @@
+<div class="container section">
+  <div class="col-sm-12">
+    <h2> Committee Members List</h2>
+    <button class="btn btn-primary" (click)="goBack()"> Back</button>
+    <button class="btn btn-primary" (click)="getCommitteeMembers()" style="margin-left: 20px;"> Refresh</button>
+    <button class="btn btn-primary" (click)="addCommitteeMembers()" style="margin-left: 20px;"> Add Committee Member</button>
+    <br>
+    <br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="hidden">Id</th>
+          <th>Surname</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Designation</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>AdharNumber</th>
+          <th>fromDate</th>
+          <th>thruDate</th>
+          <th>Photo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let committeeMember of committeeMembers">
+          <td>{{committeeMember.id}}</td>
+          <td>{{committeeMember.surname}}</td>
+          <td>{{committeeMember.lastName}}</td>
+          <td>{{committeeMember.email}}</td>
+          <td>{{committeeMember.mobile}}</td>
+          <td>{{committeeMember.designatio}}</td>
+          <td>{{committeeMember.address}}</td>
+          <td>{{committeeMember.gender}}</td>
+          <td>{{committeeMember.fromDate}}</td>
+          <td>{{committeeMember.thruDate}}</td>
+          <td>{{committeeMember.photo}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="viewCommitteeMember(committeeMember)"> View</button>
+            <button class="btn btn-primary" (click)="editCommitteeMember(committeeMember)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-danger" (click)="deleteCommitteeMember(committeeMember)" style="margin-left: 10px;"> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

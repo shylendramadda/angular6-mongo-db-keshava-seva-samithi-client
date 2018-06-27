@@ -15,6 +15,12 @@ import { ImageListComponent } from './image-list/image-list.component';
 import { AddImageComponent } from './add-image/add-image.component';
 import { VideosListComponent } from './videos-list/videos-list.component';
 import { AddVideoComponent } from './add-video/add-video.component';
+import { StudentlistComponent } from './studentlist/studentlist.component';
+import { StafflistComponent } from './stafflist/stafflist.component';
+import { CommitteememberlistComponent } from './committeememberlist/committeememberlist.component';
+import { AddStudentComponent } from './add-student/add-student.component';
+import { AddstaffComponent } from './addstaff/addstaff.component';
+import { AddcommitteememberComponent } from './addcommitteemember/addcommitteemember.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,7 +34,11 @@ const routes: Routes = [
     path: 'adminHome', component: AdminhomeComponent,
     children: [{
       path: 'registrations', component: RegistrationsComponent,
-      children: [{ path: 'donorList', component: DonorlistComponent }]
+      children: [{ path: 'donorList', component: DonorlistComponent }, { path: 'studentList', component: StudentlistComponent },
+      { path: 'staffList', component: StafflistComponent }, {
+        path: 'commiteeMemberList',
+        component: CommitteememberlistComponent
+      }]
     }, {
       path: 'images', component: ImageListComponent,
       children: [{ path: 'addImage', component: AddImageComponent }]
@@ -37,7 +47,10 @@ const routes: Routes = [
       children: [{ path: 'addVideo', component: AddVideoComponent }]
     }]
   },
-  { path: 'donor', component: DonorComponent }
+  { path: 'donor', component: DonorComponent },
+  { path: 'student', component: AddStudentComponent },
+  { path: 'staff', component: AddstaffComponent},
+  { path: 'committeeMember', component: AddcommitteememberComponent }
 
 
 ];

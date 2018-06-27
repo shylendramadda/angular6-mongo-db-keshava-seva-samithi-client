@@ -1,0 +1,48 @@
+<div class="container section">
+  <div class="col-sm-12">
+    <h2> Staff List</h2>
+    <button class="btn btn-primary" (click)="goBack()"> Back</button>
+    <button class="btn btn-primary" (click)="getStaffs()" style="margin-left: 20px;"> Refresh</button>
+    <button class="btn btn-primary" (click)="addStaffs()" style="margin-left: 20px;"> Add Staff</button>
+    <br>
+    <br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="hidden">Id</th>
+          <th>Surname</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Designation</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>AdharNumber</th>
+          <th>fromDate</th>
+          <th>thruDate</th>
+          <th>Photo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let staff of staffs">
+          <td>{{staff.id}}</td>
+          <td>{{staff.surname}}</td>
+          <td>{{staff.lastName}}</td>
+          <td>{{staff.email}}</td>
+          <td>{{staff.mobile}}</td>
+          <td>{{staff.designatio}}</td>
+          <td>{{staff.address}}</td>
+          <td>{{staff.gender}}</td>
+          <td>{{staff.fromDate}}</td>
+          <td>{{staff.thruDate}}</td>
+          <td>{{staff.photo}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="viewStaff(staff)"> View</button>
+            <button class="btn btn-primary" (click)="editStaff(staff)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-danger" (click)="deleteStaff(staff)" style="margin-left: 10px;"> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

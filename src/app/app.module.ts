@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { YoutubePlayerModule } from 'ng2-youtube-player';
+//import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 
 import { HomeComponent } from './home/home.component';
@@ -24,6 +24,12 @@ import { ImageListComponent } from './image-list/image-list.component';
 import { AddImageComponent } from './add-image/add-image.component';
 import { VideosListComponent } from './videos-list/videos-list.component';
 import { AddVideoComponent } from './add-video/add-video.component';
+import { AddStudentComponent } from './add-student/add-student.component';
+import { StudentlistComponent } from './studentlist/studentlist.component';
+import { AddstaffComponent } from './addstaff/addstaff.component';
+import { StafflistComponent } from './stafflist/stafflist.component';
+import { AddcommitteememberComponent } from './addcommitteemember/addcommitteemember.component';
+import { CommitteememberlistComponent } from './committeememberlist/committeememberlist.component';
 
 
 @NgModule({
@@ -43,7 +49,13 @@ import { AddVideoComponent } from './add-video/add-video.component';
     ImageListComponent,
     AddImageComponent,
     VideosListComponent,
-    AddVideoComponent
+    AddVideoComponent,
+    AddStudentComponent,
+    StudentlistComponent,
+    AddstaffComponent,
+    StafflistComponent,
+    AddcommitteememberComponent,
+    CommitteememberlistComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +64,7 @@ import { AddVideoComponent } from './add-video/add-video.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    YoutubePlayerModule
+  //  YoutubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
