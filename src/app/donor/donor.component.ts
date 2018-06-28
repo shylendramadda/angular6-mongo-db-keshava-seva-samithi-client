@@ -15,6 +15,7 @@ export class DonorComponent implements OnInit {
   donor : any = {};
   submitted = false;
   isUpdate = false;
+  isView = JSON.parse(localStorage.getItem("isView"));
 
   constructor(private donorService: DonorService, private location: Location) {
     this.donor = new Donor();
@@ -22,6 +23,7 @@ export class DonorComponent implements OnInit {
 
   ngOnInit() {
     let donor = JSON.parse(localStorage.getItem("donor"));
+
     if (isUndefined(donor) || donor == null) {
       this.donor = new Donor();
       this.isUpdate = false;
@@ -38,6 +40,10 @@ export class DonorComponent implements OnInit {
 
   update(): void {
     this.donorService.updateDonor(this.donor)
+  }
+
+  editDonor(){
+    this.isView = false;
   }
 
   onSubmit() {

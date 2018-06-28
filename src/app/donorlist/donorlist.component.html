@@ -26,8 +26,8 @@
           <td>{{donor.email}}</td>
           <td>{{donor.mobile}}</td>
           <td>
-            <button class="btn btn-primary" (click)="viewDoner(donor)"> View</button>
-            <button class="btn btn-primary" (click)="editDonor(donor)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-primary" (click)="editDonor(donor, 'true')"> View</button>
+            <button class="btn btn-primary" (click)="editDonor(donor, 'false')" style="margin-left: 10px;"> Edit</button>
             <button class="btn btn-danger" (click)="deleteDonor(donor)" style="margin-left: 10px;"> Delete</button>
           </td>
         </tr>

@@ -1,14 +1,26 @@
-<div *ngIf="currentFileUpload" class="progress">
-    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
-      aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
-      {{progress.percentage}}%</div>
+<div class="container section">
+  <div class="col-md-8" style="text-align: center">
+    <form name="form">
+      <label class="btn btn-default">Description:
+        <input type="text" name="description" [(ngModel)]="description">
+      </label>
+      <label class="btn btn-default"> Image:
+        <input type="file" (change)="selectFile($event)" style="margin-left: 40px;">
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()" style="margin-left: 10px;">Upload</button>
+    </label>
+      <br><br><br><br><br><br>
+    </form>
   </div>
-  <br>
-   <form>
-  <label class="btn btn-default">
-    <input type="file" (change)="selectFile($event)">
-  </label>
-  
-  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()" style="margin-left: 150px;">Upload</button>
-</form>
-  
+</div>
+
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->

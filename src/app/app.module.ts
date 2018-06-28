@@ -1,13 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpModule } from '@angular/http';
-
-import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {
+  MatDialogModule, MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule
+} from '@angular/material';
 
+
+import { SearchPipe } from './search.pipe';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -20,7 +28,7 @@ import { DonorComponent } from './donor/donor.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { RegistrationsComponent } from './registrations/registrations.component';
 import { DonorlistComponent } from './donorlist/donorlist.component';
-import { ImageListComponent } from './image-list/image-list.component';
+import { ImageListComponent, DialogOverviewExampleDialog } from './image-list/image-list.component';
 import { AddImageComponent } from './add-image/add-image.component';
 import { VideosListComponent } from './videos-list/videos-list.component';
 import { AddVideoComponent } from './add-video/add-video.component';
@@ -30,8 +38,6 @@ import { AddstaffComponent } from './addstaff/addstaff.component';
 import { StafflistComponent } from './stafflist/stafflist.component';
 import { AddcommitteememberComponent } from './addcommitteemember/addcommitteemember.component';
 import { CommitteememberlistComponent } from './committeememberlist/committeememberlist.component';
-import { SearchPipe } from './search.pipe';
-
 
 @NgModule({
   declarations: [
@@ -48,6 +54,7 @@ import { SearchPipe } from './search.pipe';
     RegistrationsComponent,
     DonorlistComponent,
     ImageListComponent,
+    DialogOverviewExampleDialog,
     AddImageComponent,
     VideosListComponent,
     AddVideoComponent,
@@ -66,7 +73,12 @@ import { SearchPipe } from './search.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    //  YoutubePlayerModule
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

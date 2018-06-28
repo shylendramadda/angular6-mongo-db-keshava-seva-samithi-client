@@ -17,10 +17,11 @@ export class ImageUploadServiceService {
 
   constructor(private http: Http, private router: Router) { }
 
-  pushFileToStorage(file: File) {
+  pushFileToStorage(file: File, description: string) {
 
     let formData: FormData = new FormData();
     formData.append('file', file, file.name);
+    formData.append('description',description);
 
     return this.http.post(this.upload_image_url + '/upload', formData, options)
       .subscribe(data => {

@@ -13,6 +13,7 @@ import { ImageFile } from '../model/ImageFile';
 export class AddImageComponent implements OnInit {
 
   image: ImageFile;
+  description: string;
   selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };
@@ -43,7 +44,7 @@ export class AddImageComponent implements OnInit {
   upload() {
     this.progress.percentage = 0;
     this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload);
+    this.uploadService.pushFileToStorage(this.currentFileUpload, this.description);
     this.progress.percentage = 100;
     this.selectedFiles = undefined;
   }

@@ -30,17 +30,9 @@ export class DonorlistComponent implements OnInit {
       });
   }
 
-  viewDoner(donor: Donor): void {
-    this.donorlistService.getDonor(donor)
-      .subscribe(data => {
-        console.log(data);
-        this.donor = data;
-        this.router.navigate(['donor']);
-      });
-  }
-
   addDonor(): void {
     localStorage.removeItem("donor");
+    localStorage.setItem("isView", 'false');
     this.router.navigate(['donor']);
   };
 
@@ -48,8 +40,9 @@ export class DonorlistComponent implements OnInit {
     this.location.back();
   }
 
-  editDonor(donor: Donor): void {
+  editDonor(donor: Donor, isView : string): void {
     localStorage.setItem("donor", JSON.stringify(donor));
+    localStorage.setItem("isView", isView);
     this.router.navigate(['donor']);
   }
 
