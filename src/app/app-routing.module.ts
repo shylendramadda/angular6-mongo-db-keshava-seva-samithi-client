@@ -34,11 +34,10 @@ const routes: Routes = [
     path: 'adminHome', component: AdminhomeComponent,
     children: [{
       path: 'registrations', component: RegistrationsComponent,
-      children: [{ path: 'donorList', component: DonorlistComponent }, { path: 'studentList', component: StudentlistComponent },
-      { path: 'staffList', component: StafflistComponent }, {
-        path: 'commiteeMemberList',
-        component: CommitteememberlistComponent
-      }]
+      children: [{ path: 'donorList', component: DonorlistComponent },
+      { path: 'studentList', component: StudentlistComponent },
+      { path: 'staffList', component: StafflistComponent },
+      { path: 'commiteeMemberList', component: CommitteememberlistComponent }]
     }, {
       path: 'images', component: ImageListComponent,
       children: [{ path: 'addImage', component: AddImageComponent }]
@@ -49,7 +48,7 @@ const routes: Routes = [
   },
   { path: 'donor', component: DonorComponent },
   { path: 'student', component: AddStudentComponent },
-  { path: 'staff', component: AddstaffComponent},
+  { path: 'staff', component: AddstaffComponent },
   { path: 'committeeMember', component: AddcommitteememberComponent }
 
 

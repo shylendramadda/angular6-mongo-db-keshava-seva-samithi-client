@@ -3,12 +3,9 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ImageListServiceService } from './image-list-service.service';
 import { ImageFile } from '../model/ImageFile';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialogModule } from '@angular/material/dialog';
+import { ViewImageComponent } from '../view-image/view-image.component';
 
 @Component({
   selector: 'app-image-list',
@@ -23,10 +20,27 @@ export class ImageListComponent implements OnInit {
   name: string;
 
   constructor(private imageListService: ImageListServiceService, private router: Router, private location: Location
-  , private dialog: MatDialog) { }
+    , private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getImages();
+  }
+
+  viewImage(imageFile: ImageFile): void {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = imageFile;
+
+    const dialogRef = this.dialog.open(ViewImageComponent,
+      dialogConfig);
+
+    /* dialogRef.afterClosed().subscribe(
+        val => console.log("Dialog output:", val)
+    ); */
+
   }
 
   getImages() {
@@ -36,20 +50,6 @@ export class ImageListComponent implements OnInit {
         console.log(data);
       });
   }
-
-  addImage(): void {
-    // this.router.navigate(['addImage']);
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
-  }
-  
 
   editImage(image: ImageFile): void {
     localStorage.setItem("image", JSON.stringify(image));
@@ -65,20 +65,4 @@ export class ImageListComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-}
-
-@Component({
-  selector: 'dialog',
-  templateUrl: '../add-image/add-image.component.html'
-})
-export class DialogOverviewExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
 }

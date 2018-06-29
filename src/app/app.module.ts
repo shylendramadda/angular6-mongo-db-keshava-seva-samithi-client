@@ -9,7 +9,8 @@ import {
   MatDialogModule, MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatRippleModule
+  MatRippleModule,
+  MatCardModule,
 } from '@angular/material';
 
 
@@ -28,7 +29,7 @@ import { DonorComponent } from './donor/donor.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { RegistrationsComponent } from './registrations/registrations.component';
 import { DonorlistComponent } from './donorlist/donorlist.component';
-import { ImageListComponent, DialogOverviewExampleDialog } from './image-list/image-list.component';
+import { ImageListComponent } from './image-list/image-list.component';
 import { AddImageComponent } from './add-image/add-image.component';
 import { VideosListComponent } from './videos-list/videos-list.component';
 import { AddVideoComponent } from './add-video/add-video.component';
@@ -38,6 +39,7 @@ import { AddstaffComponent } from './addstaff/addstaff.component';
 import { StafflistComponent } from './stafflist/stafflist.component';
 import { AddcommitteememberComponent } from './addcommitteemember/addcommitteemember.component';
 import { CommitteememberlistComponent } from './committeememberlist/committeememberlist.component';
+import { ViewImageComponent } from './view-image/view-image.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,6 @@ import { CommitteememberlistComponent } from './committeememberlist/committeemem
     RegistrationsComponent,
     DonorlistComponent,
     ImageListComponent,
-    DialogOverviewExampleDialog,
     AddImageComponent,
     VideosListComponent,
     AddVideoComponent,
@@ -64,7 +65,8 @@ import { CommitteememberlistComponent } from './committeememberlist/committeemem
     StafflistComponent,
     AddcommitteememberComponent,
     CommitteememberlistComponent,
-    SearchPipe
+    SearchPipe,
+    ViewImageComponent
   ],
   imports: [
     BrowserModule,
@@ -78,9 +80,11 @@ import { CommitteememberlistComponent } from './committeememberlist/committeemem
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatCardModule,
     BrowserAnimationsModule
   ],
   providers: [],
+  entryComponents: [ViewImageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

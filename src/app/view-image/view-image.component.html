@@ -1,0 +1,14 @@
+<div class="container section">
+  <div class="col-md-10" style="text-align: center">
+
+    <mat-dialog-content>
+      <img width="80%" height="80%" alt="{{imageFile.name}}" src="{{imageFile.filePath}}">
+      <br> {{imageFile.description}}
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <button class="mat-raised-button" (click)="close()"> OK </button>
+      <!--  <button class="mat-raised-button mat-primary" (click)="close()"> Cancel </button> -->
+    </mat-dialog-actions>
+  </div>
+</div>
