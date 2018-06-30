@@ -13,4 +13,20 @@ export class Donor {
     lastName: String;
     mobile: String;
     email: String;
+    country: String;
+    state: String;
+    district: String;
+    mandal: String;
+    houseNo: String;
+    street: String;
+    landMark: String;
+    city: String;
+    postOffice: String;
+    eventOf: String;
+    eventDate: Date;
+    amountFor: number;
+    paymentType: String;
+    amount: String;
+    currentDate: Date;
+
 }

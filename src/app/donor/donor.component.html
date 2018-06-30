@@ -8,45 +8,21 @@
             <form name="form" #f="ngForm" novalidate>
                 <div class="row">
 
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="surname">Surname</label>
-                        <input type="text" class="form-control" name="surname" [(ngModel)]="donor.surname" #surname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && surname.invalid }"
-                            required surname minlength="2" [disabled]="isView" />
-                        <div *ngIf="f.submitted && surname.invalid" class="invalid-feedback">
-                            <div *ngIf="surname.errors.required">Surname is required</div>
-                            <div *ngIf="surname.errors.surname">Surname must be a valid one</div>
-                            <div *ngIf="surname.errors.minlength">Surname must be at least 2 characters</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastName">Name</label>
-                        <input type="text" class="form-control" name="lastName" [(ngModel)]="donor.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
-                            required lastName minlength="3" [disabled]="isView"/>
-                        <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
-                            <div *ngIf="lastName.errors.required">Name is required</div>
-                            <div *ngIf="lastName.errors.lastName">Name must be a valid one</div>
-                            <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
+                    <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control" name="email" [(ngModel)]="donor.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-                                required email [disabled]="isView"/>
-                            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                                <div *ngIf="email.errors.required">Email is required</div>
-                                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                            <label for="surname">Surname</label>
+                            <input type="text" class="form-control" name="surname" [(ngModel)]="donor.surname" #surname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && surname.invalid }"
+                                required surname minlength="2" [disabled]="isView" />
+                            <div *ngIf="f.submitted && surname.invalid" class="invalid-feedback">
+                                <div *ngIf="surname.errors.required">Surname is required</div>
+                                <div *ngIf="surname.errors.surname">Surname must be a valid one</div>
+                                <div *ngIf="surname.errors.minlength">Surname must be at least 2 characters</div>
                             </div>
                         </div>
-    
                         <div class="form-group">
                             <label for="mobile">Mobile Number</label>
                             <input type="number" class="form-control" name="mobile" [(ngModel)]="donor.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
-                                required mobile minlength="10" maxlength="10" [disabled]="isView" />
+                                required mobile minlength="10" maxlength="10" />
                             <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
                                 <div *ngIf="mobile.errors.required">Mobile Number is required</div>
                                 <div *ngIf="mobile.errors.mobile">Mobile Number must be a valid one</div>
@@ -55,18 +31,129 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="lastName">Name</label>
+                            <input type="text" class="form-control" name="lastName" [(ngModel)]="donor.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
+                                required lastName minlength="3" />
+                            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                                <div *ngIf="lastName.errors.required">Name is required</div>
+                                <div *ngIf="lastName.errors.lastName">Name must be a valid one</div>
+                                <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" [(ngModel)]="donor.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                                required email />
+                            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                                <div *ngIf="email.errors.required">Email is required</div>
+                                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="houseNo">House No </label>
+                            <input type="text" class="form-control" name="houseNo" [(ngModel)]="donor.houseNo" #houseNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && houseNo.invalid }"
+                                required houseNo />
+                            <div *ngIf="f.submitted && houseNo.invalid" class="invalid-feedback">
+                                <div *ngIf="houseNo.errors.required">HouseNo is required</div>
+                                <div *ngIf="houseNo.errors.houseNo">HouseNo must be a valid HouseNo address</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="landMark">Land Mark</label>
+                            <input type="text" class="form-control" name="landMark" [(ngModel)]="donor.landMark" #landMark="ngModel" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="street">Street</label>
+                            <input type="text" class="form-control" name="street" [(ngModel)]="donor.street" #street="ngModel" />
+                        </div>
+                        <div class="form-group">
+                            <label for="postOffice">Post Office</label>
+                            <input type="text" class="form-control" name="postOffice" [(ngModel)]="donor.postOffice" #postOffice="ngModel" />
+                        </div>
 
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
-                    <button class="btn btn-primary" *ngIf="isView" (click) = "editDonor()">Edit</button>
-                </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="mandal">Mandal</label>
+                            <input type="text" class="form-control" name="mandal" [(ngModel)]="donor.mandal" #mandal="ngModel" />
+                        </div>
+                        <div class="form-group">
+                            <label for="district">District</label>
+                            <input type="text" class="form-control" name="district" [(ngModel)]="donor.district" #district="ngModel" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="city">City </label>
+                            <input type="text" class="form-control" name="city" [(ngModel)]="donor.city" #city="ngModel" />
+                        </div>
+                        <div class="form-group">
+                            <label for="state">state</label>
+                            <input type="text" class="form-control" name="state" [(ngModel)]="donor.state" #state="ngModel" />
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" class="form-control" name="country" [(ngModel)]="donor.country" #country="ngModel" />
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" class="form-control" name="eventDate" [(ngModel)]="donor.eventDate" #eventDate="ngModel" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="eventOf">For the event of</label>
+                            <select class="input " name="eventOf" [(ngModel)]="donor.eventOf" #eventOf="ngModel">
+                                <option value="Marriage">Marriage</option>
+                                <option value="Birthday">Birthday</option>
+                                <option value="Anniversay">Anniversay</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentDate">Current Date </label>
+                            <input type="date" class="form-control" name="currentDate" [(ngModel)]="donor.currentDate" #currentDate="ngModel" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="amountFor">Amount For</label>
+                            <select class="input " name="amountFor" [(ngModel)]="donor.amountFor" #amountFor="ngModel">
+                                <option value="Marriage">One day meals</option>
+                                <option value="Sponser a child">Sponser a child</option>
+                                <option value="One time deposit">One time deposit</option>
+                                <option value="Sponser a child education">Sponser a child education</option>
+                                <option value=" One day expenses"> One day expenses</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentType">Payment Type</label>
+                            <select class="input " name="paymentType" [(ngModel)]="donor.paymentType" #paymentType="ngModel">
+                                <option value="Marriage">By cash</option>
+                                <option value="Sponser a child">Cheque</option>
+                                <option value="One time deposit">Online</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
+                        <button class="btn btn-primary" *ngIf="isView" (click)="editDonor()">Edit</button>
+                    </div>
             </form>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- <div class="container">
+    <!-- <div class="container">
   <div class="section">
 
       <button class="primary-button" ng-click="showHide()">Add Doner</button>
