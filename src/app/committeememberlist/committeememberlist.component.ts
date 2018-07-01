@@ -42,9 +42,9 @@ export class CommitteememberlistComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-  editCommitteeMember(committeeMember: CommitteeMember): void {
+  editCommitteeMember(committeeMember: CommitteeMember, isView: string): void {
     localStorage.setItem("committeeMember", JSON.stringify(committeeMember));
+    localStorage.setItem("isView", isView);
     this.router.navigate(['committeeMember']);
   }
 

@@ -82,8 +82,8 @@
           <td>{{student.attachments}}</td>
           <td>{{student.photo}}</td>
           <td>
-            <button class="btn btn-primary" (click)="viewStudent(student)"> View</button>
-            <button class="btn btn-primary" (click)="editStudent(student)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-primary" (click)="editStudent(student,'true')"> View</button>
+            <button class="btn btn-primary" (click)="editStudent(student,'false')" style="margin-left: 10px;"> Edit</button>
             <button class="btn btn-danger" (click)="deleteStudent(student)" style="margin-left: 10px;"> Delete</button>
           </td>
         </tr>

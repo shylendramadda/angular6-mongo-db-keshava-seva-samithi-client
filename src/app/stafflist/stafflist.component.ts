@@ -42,9 +42,9 @@ export class StafflistComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-  editStaff(staff: Staff): void {
+  editStaff(staff: Staff, isView : string): void {
     localStorage.setItem("staff", JSON.stringify(staff));
+    localStorage.setItem("isView", isView);
     this.router.navigate(['staff']);
   }
 

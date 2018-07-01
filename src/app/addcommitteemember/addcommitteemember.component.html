@@ -60,7 +60,10 @@
             </div>
             <div class="form-group">
               <label for="gender">Gender</label>
-              <input type="text" class="form-control" name="gender" [(ngModel)]="committeeMember.gender" #gender="ngModel" />
+              <select class="input " name="gender" [(ngModel)]="staff.gender" #gender="ngModel">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
             </div>
           </div>
           <div class="col-sm-6">
@@ -96,7 +99,8 @@
             </div>
             <div class="form-group">
               <label for="postOffice">Post Office</label>
-              <input type="text" class="form-control" name="postOffice" [(ngModel)]="committeeMember.postOffice" #postOffice="ngModel" />
+              <input type="text" class="form-control" name="postOffice" [(ngModel)]="committeeMember.postOffice" #postOffice="ngModel"
+              />
             </div>
           </div>
           <div class="col-sm-6">
@@ -140,7 +144,8 @@
             </div>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary">{{!isUpdate? "Save": "Update"}}</button>
+            <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
+            <button class="btn btn-primary" *ngIf="isView" (click)="editCommitteeMember()">Edit</button>
           </div>
         </div>
       </form>

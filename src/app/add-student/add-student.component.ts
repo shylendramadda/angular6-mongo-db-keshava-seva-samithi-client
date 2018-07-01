@@ -14,6 +14,7 @@ export class AddStudentComponent implements OnInit {
   student: any = {};
   submitted = false;
   isUpdate = false;
+  isView = JSON.parse(localStorage.getItem("isView"));
 
   constructor(private studentService: StudentService, private location: Location) {
     this.student = new Student();
@@ -43,7 +44,9 @@ export class AddStudentComponent implements OnInit {
   update(): void {
     this.studentService.updateStudent(this.student)
   }
-
+editStudent() {
+    this.isView = false;
+  }
   onSubmit() {
     this.submitted = true;
     if (this.isUpdate) {

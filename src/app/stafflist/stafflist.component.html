@@ -37,8 +37,8 @@
           <td>{{staff.thruDate}}</td>
           <td>{{staff.photo}}</td>
           <td>
-            <button class="btn btn-primary" (click)="viewStaff(staff)"> View</button>
-            <button class="btn btn-primary" (click)="editStaff(staff)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-primary" (click)="editStaff(staff,'true')"> View</button>
+            <button class="btn btn-primary" (click)="editStaff(staff,'false')" style="margin-left: 10px;"> Edit</button>
             <button class="btn btn-danger" (click)="deleteStaff(staff)" style="margin-left: 10px;"> Delete</button>
           </td>
         </tr>

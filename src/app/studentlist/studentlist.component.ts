@@ -46,8 +46,9 @@ export class StudentlistComponent implements OnInit {
     this.location.back();
   }
 
-  editStudent(student: Student): void {
+  editStudent(student: Student ,isView : string): void {
     localStorage.setItem("student", JSON.stringify(student));
+    localStorage.setItem("isView", isView);
     this.router.navigate(['student']);
   }
 

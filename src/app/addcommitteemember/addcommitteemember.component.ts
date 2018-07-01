@@ -13,11 +13,11 @@ export class AddcommitteememberComponent implements OnInit {
   committeeMember: any = {};
   submitted = false;
   isUpdate = false;
+  isView = JSON.parse(localStorage.getItem("isView"));
 
-
-  constructor(private committeeMemberService:CommitteeMemberService,private location:Location) {
+  constructor(private committeeMemberService: CommitteeMemberService, private location: Location) {
     this.committeeMember = new CommitteeMember();
-   }
+  }
 
   ngOnInit() {
     let committeeMember = JSON.parse(localStorage.getItem("committeeMember"));
@@ -42,7 +42,9 @@ export class AddcommitteememberComponent implements OnInit {
   update(): void {
     this.committeeMemberService.updateCommitteeMember(this.committeeMember)
   }
-
+  editStaff() {
+    this.isView = false;
+  }
   onSubmit() {
     this.submitted = true;
     if (this.isUpdate) {
@@ -55,6 +57,6 @@ export class AddcommitteememberComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  }
+}
 
 

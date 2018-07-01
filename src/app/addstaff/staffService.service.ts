@@ -18,7 +18,10 @@ export class StaffService {
   constructor(private http: Http, private router: Router, private location: Location) { }
 
   saveStaff(staff: Staff) {
-    return this.http.post(this.staff_url, staff, options)
+    // let formData: FormData = new FormData();
+    // formData.append('file', staff.photoFile);
+
+    return this.http.post(this.staff_url, staff,options)
       .subscribe(data => {
         console.log(data);
         if (data.json().code == 200) {

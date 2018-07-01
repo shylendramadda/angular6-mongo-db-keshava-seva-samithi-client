@@ -28,5 +28,8 @@ export class Staff {
     fromDate:Date;
     thruDate:Date;
     photo:String;
+    photoFile:File;
+
+
     
 }

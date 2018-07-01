@@ -37,8 +37,8 @@
           <td>{{committeeMember.thruDate}}</td>
           <td>{{committeeMember.photo}}</td>
           <td>
-            <button class="btn btn-primary" (click)="viewCommitteeMember(committeeMember)"> View</button>
-            <button class="btn btn-primary" (click)="editCommitteeMember(committeeMember)" style="margin-left: 10px;"> Edit</button>
+            <button class="btn btn-primary" (click)="editCommitteeMember(committeeMember,'true')"> View</button>
+            <button class="btn btn-primary" (click)="editCommitteeMember(committeeMember,'false')" style="margin-left: 10px;"> Edit</button>
             <button class="btn btn-danger" (click)="deleteCommitteeMember(committeeMember)" style="margin-left: 10px;"> Delete</button>
           </td>
         </tr>

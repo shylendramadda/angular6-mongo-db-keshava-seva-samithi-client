@@ -53,7 +53,10 @@
           <div class="col-sm-6">
             <div class="form-group">
               <label for="gender">Gender</label>
-              <input type="text" class="form-control" name="gender" [(ngModel)]="student.gender" #sex="ngModel" />
+              <select class="input " name="gender" [(ngModel)]="staff.gender" #gender="ngModel">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="education">Education</label>
@@ -103,104 +106,105 @@
               <input type="text" class="form-control" name="fatherName" [(ngModel)]="student.fatherName" #fatherName="ngModel" />
             </div>
           </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="motherAdharNumber">Mother Adhar Number</label>
-            <input type="text" class="form-control" name="motherAdharNumber" [(ngModel)]="student.motherAdharNumber" #motherAdharNumber="ngModel"
-            />
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="motherAdharNumber">Mother Adhar Number</label>
+              <input type="text" class="form-control" name="motherAdharNumber" [(ngModel)]="student.motherAdharNumber" #motherAdharNumber="ngModel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="motherOccupation">Mother Occupation</label>
+              <input type="text" class="form-control" name="motherOccupation" [(ngModel)]="student.motherOccupation" #motherOccupation="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="fatherAdharNumber">Father Adhar Number</label>
+              <input type="text" class="form-control" name="fatherAdharNumber" [(ngModel)]="student.fatherAdharNumber" #fatherAdharNumber="ngModel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="fatherOccupation">Father Occupation</label>
+              <input type="text" class="form-control" name="fatherOccupation" [(ngModel)]="student.fatherOccupation" #fatherOccupation="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="motherDeathDate">Mother Death Date</label>
+              <input type="date" class="form-control" name="motherDeathDate" [(ngModel)]="student.motherDeathDate" #motherDeathDate="ngModel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="monthPlaceOfDeath">Mother Place Of Death</label>
+              <input type="text" class="form-control" name="monthPlaceOfDeath" [(ngModel)]="student.monthPlaceOfDeath" #monthPlaceOfDeath="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="fatherDeathDate">Father Death Date</label>
+              <input type="date" class="form-control" name="fatherDeathDate" [(ngModel)]="student.fatherDeathDate" #fatherDeathDate="ngModel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="fatherPlaceOfDeath">Father Place Of Death</label>
+              <input type="text" class="form-control" name="fatherPlaceOfDeath" [(ngModel)]="student.fatherPlaceOfDeath" #fatherPlaceOfDeath="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="gaurdianName">Gaurdian Name</label>
+              <input type="text" class="form-control" name="gaurdianName" [(ngModel)]="student.gaurdianName" #gaurdianName="ngModel" />
+            </div>
+            <div class="form-group">
+              <label for="gaurdianAdharNumber">Gaurdian Adhar Number</label>
+              <input type="number" class="form-control" name="gaurdianAdharNumber" [(ngModel)]="student.gaurdianAdharNumber" #gaurdianAdharNumber="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="gaurdianOccupation">Gaurdian Occupation</label>
+              <input type="text" class="form-control" name="gaurdianOccupation" [(ngModel)]="student.lastName" #lastName="ngModel" />
+            </div>
+            <div class="form-group">
+              <label for="gaurdianMobileNumber">Gaurdian Mobile Number</label>
+              <input type="text" class="form-control" name="gaurdianMobileNumber" [(ngModel)]="student.gaurdianMobileNumber" #gaurdianMobileNumber="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="gaurdianEmailId">Gaurdian EmailId</label>
+              <input type="text" class="form-control" name="gaurdianEmailId" [(ngModel)]="student.gaurdianEmailId" #gaurdianEmailId="ngModel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="gaurdianPresentAddress">Gaurdian Present Address</label>
+              <input type="text" class="form-control" name="gaurdianPresentAddress" [(ngModel)]="student.gaurdianPresentAddress" #gaurdianPresentAddress="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="gaurdianPermanentAddress">Gaurdian Permanent Address</label>
+              <input type="text" class="form-control" name="gaurdianPermanentAddress" [(ngModel)]="student.gaurdianPermanentAddress" #gaurdianPermanentAddress="ngModel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="attachments">Attachments</label>
+              <input type="text" class="form-control" name="attachments" [(ngModel)]="student.attachments" #attachments="ngModel" />
+            </div>
           </div>
           <div class="form-group">
-            <label for="motherOccupation">Mother Occupation</label>
-            <input type="text" class="form-control" name="motherOccupation" [(ngModel)]="student.motherOccupation" #motherOccupation="ngModel"
-            />
+            <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
+            <button class="btn btn-primary" *ngIf="isView" (click)="editStudent()">Edit</button>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="fatherAdharNumber">Father Adhar Number</label>
-            <input type="text" class="form-control" name="fatherAdharNumber" [(ngModel)]="student.fatherAdharNumber" #fatherAdharNumber="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <label for="fatherOccupation">Father Occupation</label>
-            <input type="text" class="form-control" name="fatherOccupation" [(ngModel)]="student.fatherOccupation" #fatherOccupation="ngModel"
-            />
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="motherDeathDate">Mother Death Date</label>
-            <input type="date" class="form-control" name="motherDeathDate" [(ngModel)]="student.motherDeathDate" #motherDeathDate="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <label for="monthPlaceOfDeath">Mother Place Of Death</label>
-            <input type="text" class="form-control" name="monthPlaceOfDeath" [(ngModel)]="student.monthPlaceOfDeath" #monthPlaceOfDeath="ngModel"
-            />
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="fatherDeathDate">Father Death Date</label>
-            <input type="date" class="form-control" name="fatherDeathDate" [(ngModel)]="student.fatherDeathDate" #fatherDeathDate="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <label for="fatherPlaceOfDeath">Father Place Of Death</label>
-            <input type="text" class="form-control" name="fatherPlaceOfDeath" [(ngModel)]="student.fatherPlaceOfDeath" #fatherPlaceOfDeath="ngModel"
-            />
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="gaurdianName">Gaurdian Name</label>
-            <input type="text" class="form-control" name="gaurdianName" [(ngModel)]="student.gaurdianName" #gaurdianName="ngModel" />
-          </div>
-          <div class="form-group">
-            <label for="gaurdianAdharNumber">Gaurdian Adhar Number</label>
-            <input type="number" class="form-control" name="gaurdianAdharNumber" [(ngModel)]="student.gaurdianAdharNumber" #gaurdianAdharNumber="ngModel"
-            />
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="gaurdianOccupation">Gaurdian Occupation</label>
-            <input type="text" class="form-control" name="gaurdianOccupation" [(ngModel)]="student.lastName" #lastName="ngModel"/>
-          </div>
-          <div class="form-group">
-            <label for="gaurdianMobileNumber">Gaurdian Mobile Number</label>
-            <input type="text" class="form-control" name="gaurdianMobileNumber" [(ngModel)]="student.gaurdianMobileNumber" #gaurdianMobileNumber="ngModel"
-            />
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="gaurdianEmailId">Gaurdian EmailId</label>
-            <input type="text" class="form-control" name="gaurdianEmailId" [(ngModel)]="student.gaurdianEmailId" #gaurdianEmailId="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <label for="gaurdianPresentAddress">Gaurdian Present Address</label>
-            <input type="text" class="form-control" name="gaurdianPresentAddress" [(ngModel)]="student.gaurdianPresentAddress" #gaurdianPresentAddress="ngModel"
-            />
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="gaurdianPermanentAddress">Gaurdian Permanent Address</label>
-            <input type="text" class="form-control" name="gaurdianPermanentAddress" [(ngModel)]="student.gaurdianPermanentAddress" #gaurdianPermanentAddress="ngModel"
-            />
-          </div>
-          <div class="form-group">
-            <label for="attachments">Attachments</label>
-            <input type="text" class="form-control" name="attachments" [(ngModel)]="student.attachments" #attachments="ngModel" />
-          </div>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary">{{isUpdate? "Update": "Save"}}</button>
-        </div>
+      </form>
     </div>
-    </form>
   </div>
-</div>
 </div>

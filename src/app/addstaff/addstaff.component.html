@@ -57,7 +57,10 @@
             </div>
             <div class="form-group">
               <label for="gender">Gender</label>
-              <input type="text" class="form-control" name="gender" [(ngModel)]="staff.gender" #gender="ngModel" />
+              <select class="input " name="gender" [(ngModel)]="staff.gender" #gender="ngModel">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
             </div>
           </div>
           <div class="col-sm-6">
@@ -134,9 +137,16 @@
               <label for="photo">Photo</label>
               <input type="text" class="form-control" name="photo" [(ngModel)]="staff.photo" #fromDate="ngModel" />
             </div>
+            <div class="form-group">
+              <label class="btn btn-default"> Image:
+                <input type="file" (change)="selectFile($event)" style="margin-left: 40px;">
+                <!-- <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()" style="margin-left: 10px;">Upload</button> -->
+              </label>
+            </div>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary">{{!isUpdate? "Save": "Update"}}</button>
+            <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
+            <button class="btn btn-primary" *ngIf="isView" (click)="editStaff()">Edit</button>
           </div>
         </div>
       </form>
