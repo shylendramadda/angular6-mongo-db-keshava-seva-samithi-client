@@ -1,0 +1,198 @@
+<div class="conatiner">
+    <div class="section" id="receipt">
+        <div id="invoice-POS">
+            <div class="center" id="top" style="border-bottom: 1px solid #EEE;">
+                <div style="text-align: center; background-color: orange !important;">
+                    <div class="logo"></div>
+                    <div class="info">
+                        <h1 style="font-size:35px; margin:0; padding:0; color: black">Keshava Seva Samithi</h1>
+                        <p style="color: black">Plot No:45/1&amp;3, Upperguda, Moula-Ali, Hyderabad - 500040, Telangana.
+                            <br> Ph:040-27241204, Mobile No: 8885055231. </p>
+                        <h1>Receipt</h1>
+                    </div>
+                    <!--End Info-->
+                </div>
+            </div>
+            <!--End InvoiceTop-->
+            <div id="mid" style="border-bottom: 1px solid #EEE;">
+                <div class="info" style="padding: 15px">
+                    <p>
+                        <span style="float:left;">
+                            Estd : 12/1989
+                            <br> Regd No : 189/1990
+                        </span>
+                        <span style="float:right;">
+                            Receipt No : {{donor.id}}
+                            <br> Date : {{today | date}}
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <!--End Invoice Mid-->
+            <div id="bot" style="border-bottom: 1px solid #EEE;">
+                <div id="table">
+                    <table>
+                        <tr class="tabletitle">
+                            <td width="35%" class="Hours">
+                                <h2>Received from Smt/Sri</h2>
+                            </td>
+                            <td class="Rate">
+                                <h2>{{donor.surname + " " + donor.lastName}}</h2>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Address: H.No/Flat No:</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.houseNo + ", " + donor.street + ", " + donor.landMark + ", " + donor.city + ", "
+                                    + donor.district + ", " + donor.state}} </p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">City</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.city}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">State</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.state}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Pin Code</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.postOffice}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Mobile Number</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.mobile}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Res: Phone Number</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.mobile}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">E-Mail ID</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.email}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">PAN Number</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.pan}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Checque/Draft/DD No:</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.checque}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Checque/Draft/DD Date:</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.checqueDate | date}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Bank</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.bank}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Date of Birth</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.dob}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Event Name and Date</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.eventName + ", on " + (donor.eventDate | date)}}</p>
+                            </td>
+                        </tr>
+                        <tr class="service">
+                            <td class="tableitem">
+                                <p class="itemtext">Rupees</p>
+                            </td>
+                            <td class="tableitem">
+                                <p class="itemtext">{{donor.amount}}</p>
+                            </td>
+                        </tr>
+                        <tr class="tabletitle">
+                            <td class="Rate">
+                                <h2>Rs:</h2>
+                            </td>
+                            <td class="payment">
+                                <h2>Rs: {{donor.amount}}</h2>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <div class="info">
+                        <p>
+                            <span style="float:left;">
+                                Donor's Signature: _______________________
+                            </span>
+                            <span style="float:right;">
+                                Receiver's Signature: ____________________
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <!--End Table-->
+                <div id="legalcopy" style="text-align: center; background-color: orange">
+                    <p class="legal" style="color: black">
+                        <strong>Cheques are subject to realisation</strong>
+                    </p>
+                    <p class="legal" style="color: black">
+                        <strong>PAN No: AAATK3508R, FCRA No; 010220077, Dtd: 22-09-1998</strong>
+                    </p>
+                    <p class="legal" style="color: black">All contributions are exempted from Income Tax U/s 80G, Letter No: DIT (E)/HYD/80G/69(11)10-11 Dt:20-5-2011</p>
+                </div>
+            </div>
+            <!--End InvoiceBot-->
+
+            <!--End Invoice-->
+        </div>
+        <br>
+        <button class="btn btn-primary" (click)="goBack()"> Back </button>
+        <button class="btn btn-primary" (click)="printReceipt()" style="margin-left: 20px;"> Print Receipt </button>
+    </div>
+</div>

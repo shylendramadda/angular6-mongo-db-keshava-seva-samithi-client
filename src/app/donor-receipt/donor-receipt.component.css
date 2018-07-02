@@ -1,0 +1,120 @@
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        invoice-POS {
+            box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 0 auto;
+            width: 650px;
+            background: #FFF;
+            border: 1px solid #eee;
+        }
+
+        ::selection {
+            background: #f31544;
+            color: #FFF;
+        }
+
+        ::moz-selection {
+            background: #f31544;
+            color: #FFF;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            color: #222;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            font-weight: 300;
+            line-height: 2em;
+        }
+
+        p {
+            font-size: 15px;
+            color: #666;
+            line-height: 20px;
+        }
+
+        top,
+        mid,
+        bot {
+            /* Targets all id with 'col-' */
+            border-bottom: 1px solid #EEE;
+        }
+
+        top {
+            min-height: 100px;
+            padding: 15px;
+            background: #fa672d;
+            color: #fff;
+        }
+
+        top h1,
+        top p {
+            color: #fff;
+        }
+
+        mid {
+            min-height: 80px;
+        }
+
+        bot {
+            min-height: 50px;
+        }
+
+        top.logo {
+            /* float: left; */
+        }
+
+        .clientlogo {}
+
+        .info {
+            display: block; 
+            /* float:left; */
+            margin-left: 0;
+        }
+
+        .title {
+            float: right;
+        }
+
+        .title p {
+            text-align: right;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 0px 0 0px 15px;
+            border: 1px solid #EEE
+        }
+
+        .tabletitle {
+            /* padding: 5px; */
+            font-size: .5em;
+            background: #EEE;
+        }
+
+        .service {
+            border-bottom: 1px solid #EEE;
+        }
+
+        .itemtext {
+            font-size: 14px;
+        }
+
+        legalcopy {
+            margin-top: 5mm;
+        }

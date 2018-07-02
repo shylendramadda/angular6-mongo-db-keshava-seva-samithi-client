@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import {
   MatDialogModule, MatButtonModule,
   MatFormFieldModule,
@@ -40,6 +39,7 @@ import { StafflistComponent } from './stafflist/stafflist.component';
 import { AddcommitteememberComponent } from './addcommitteemember/addcommitteemember.component';
 import { CommitteememberlistComponent } from './committeememberlist/committeememberlist.component';
 import { ViewImageComponent } from './view-image/view-image.component';
+import { DonorReceiptComponent } from './donor-receipt/donor-receipt.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,8 @@ import { ViewImageComponent } from './view-image/view-image.component';
     AddcommitteememberComponent,
     CommitteememberlistComponent,
     SearchPipe,
-    ViewImageComponent
+    ViewImageComponent,
+    DonorReceiptComponent
   ],
   imports: [
     BrowserModule,

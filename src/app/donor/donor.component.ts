@@ -4,6 +4,7 @@ import { DonorService } from './donorservice.service';
 import { Location } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { isUndefined } from 'util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-donor',
@@ -12,14 +13,14 @@ import { isUndefined } from 'util';
 })
 export class DonorComponent implements OnInit {
 
-  donor : any = {};
+  donor: any = {};
   submitted = false;
   isUpdate = false;
   isView = JSON.parse(localStorage.getItem("isView"));
 
-  constructor(private donorService: DonorService, private location: Location) {
+  constructor(private donorService: DonorService, private location: Location, private router: Router) {
     this.donor = new Donor();
-   }
+  }
 
   ngOnInit() {
     let donor = JSON.parse(localStorage.getItem("donor"));
@@ -42,15 +43,20 @@ export class DonorComponent implements OnInit {
     this.donorService.updateDonor(this.donor)
   }
 
-  editDonor(){
+  editDonor() {
     this.isView = false;
+  }
+
+  printReceipt(donor: Donor) {
+    localStorage.setItem("donor", JSON.stringify(donor));
+    this.router.navigate(['adminHome/receipt']);
   }
 
   onSubmit() {
     this.submitted = true;
-    if(this.isUpdate) {
+    if (this.isUpdate) {
       this.update();
-    } else{
+    } else {
       this.save();
     }
   }
