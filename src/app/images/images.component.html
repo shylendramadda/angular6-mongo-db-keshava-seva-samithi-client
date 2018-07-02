@@ -1,0 +1,12 @@
+<div class="container section">
+  <div class="col-sm-12">
+    <div class="row">
+      <div *ngFor="let image of images">
+        <div class="clolumn" style="padding: 10px">
+          <img width="200" height="200" alt="{{image.name}}" src="{{image.filePath}}" (click)="viewImage(image)">
+          <p style="align-content: center">{{image.description}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

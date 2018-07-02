@@ -22,6 +22,10 @@ export class DonorListService {
   getDonors() {
     return this.httpClient.get<Donor[]>(this.donor_url + "/");
   }
+  
+  getDonorByInput(inputString : string) {
+    return this.httpClient.get<Donor[]>(this.donor_url + "/search/" + inputString);
+  }
 
   getDonor(donor: Donor) {
     return this.httpClient.get<Donor>(this.donor_url + "/" + donor.uid);

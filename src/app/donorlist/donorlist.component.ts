@@ -1,4 +1,4 @@
-import { Location } from '@angular/common';
+import { Location, DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
@@ -41,6 +41,12 @@ export class DonorlistComponent implements OnInit {
   }
 
   editDonor(donor: Donor, isView : string): void {
+    // let date = parseInt(donor.eventDate.toString());
+    // var datePipe = new DatePipe("en-us");
+    // // var newDate = new Date(date);
+    // let d = datePipe.transform(new Date(date), 'yyyy-MM-dd');
+    // donor.eventDate = new Date(d);
+
     localStorage.setItem("donor", JSON.stringify(donor));
     localStorage.setItem("isView", isView);
     this.router.navigate(['donor']);
@@ -50,6 +56,14 @@ export class DonorlistComponent implements OnInit {
     if (confirm("Are you sure want to delete " + donor.surname + " " + donor.lastName)) {
       this.donorlistService.deleteDonor(donor);
     }
+  }
+
+  searchDonor(inputString : string) : void {
+    this.donorlistService.getDonorByInput(inputString)
+    .subscribe(data => {
+      this.donors = data;
+      console.log(data);
+    });
   }
 
 }

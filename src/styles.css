@@ -37,6 +37,7 @@ OWL THEME
 /*----------------------------*\
 	typography
 \*----------------------------*/
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 body {
     font-family: 'Roboto', sans-serif;

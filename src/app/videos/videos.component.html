@@ -1,0 +1,12 @@
+<div class="container section">
+  <div class="col-sm-12">
+    <div class="row">
+      <div *ngFor="let video of videos">
+        <div class="column" style="padding: 10px">
+          <iframe width="310" height="150" [src]="getTrustedURL(video.url)" frameborder="0" allowfullscreen></iframe>
+          <p style="align-content: center"> {{video.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,6 +27,5 @@ export class Donor {
     amountFor: number;
     paymentType: String;
     amount: String;
-    currentDate: Date;
 
 }

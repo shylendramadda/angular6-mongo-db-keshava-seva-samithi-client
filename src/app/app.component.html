@@ -4,14 +4,20 @@
       <h1>
         Welcome to {{ title }}!
       </h1>
-      <img width="100" height="120" alt="VatsalyaSindhu Logo" src="/assets/images/bharathamatha.jpg">
 
       <div class="navbar-header">
         <nav>
+          <img width="100" height="100" alt="VatsalyaSindhu Logo" src="/assets/images/bharathamatha.jpg" style="padding-right: 20px">
           <a routerLink="/home">Home</a>
           <a routerLink="/aboutUs">About Us</a>
           <a routerLink="/vatsalyaSindhu">Activities</a>
-          <a routerLink="/home">Gallery</a>
+          <a routerLink="/images">Images</a>
+          <a routerLink="/videos">Videos</a>
+          <!-- <button mat-button [matMenuTriggerFor]="menu">Gallery</button>
+          <mat-menu #menu="/home">
+            <button mat-menu-item (click)="getImages()">Images</button>
+            <button mat-menu-item (click)="getVideos()">Videos</button>
+          </mat-menu> -->
           <a routerLink="/contactUs">Contact Us</a>
           <a routerLink="/donate">Donate</a>
           <a routerLink="/login">Login</a>

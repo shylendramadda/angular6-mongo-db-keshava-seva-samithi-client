@@ -5,11 +5,14 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatDialogModule, MatButtonModule,
+  MatDialogModule,
+  MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
   MatRippleModule,
   MatCardModule,
+  MatMenuModule,
+  MatIconModule,
 } from '@angular/material';
 
 
@@ -40,6 +43,9 @@ import { AddcommitteememberComponent } from './addcommitteemember/addcommitteeme
 import { CommitteememberlistComponent } from './committeememberlist/committeememberlist.component';
 import { ViewImageComponent } from './view-image/view-image.component';
 import { DonorReceiptComponent } from './donor-receipt/donor-receipt.component';
+import { ImagesComponent } from './images/images.component';
+import { VideosComponent } from './videos/videos.component';
+import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
 
 @NgModule({
   declarations: [
@@ -67,7 +73,9 @@ import { DonorReceiptComponent } from './donor-receipt/donor-receipt.component';
     CommitteememberlistComponent,
     SearchPipe,
     ViewImageComponent,
-    DonorReceiptComponent
+    DonorReceiptComponent,
+    ImagesComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +90,10 @@ import { DonorReceiptComponent } from './donor-receipt/donor-receipt.component';
     MatInputModule,
     MatRippleModule,
     MatCardModule,
-    BrowserAnimationsModule
+    MatMenuModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    Angular2ImageGalleryModule
   ],
   providers: [],
   entryComponents: [ViewImageComponent],

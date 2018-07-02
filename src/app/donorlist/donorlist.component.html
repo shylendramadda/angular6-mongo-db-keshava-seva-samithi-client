@@ -4,9 +4,18 @@
     <button class="btn btn-primary" (click)="goBack()"> Back</button>
     <button class="btn btn-primary" (click)="getDonors()" style="margin-left: 20px;"> Refresh</button>
     <button class="btn btn-primary" (click)="addDonor()" style="margin-left: 20px;"> Add Donor</button>
-    <br><br>
-      Search: <input type="text" class="form-control"  name="searchText" placeholder="Search by surname, last name, email, mobile number" [(ngModel)]="searchText">
-    <br><br>
+    <br>
+    <br>
+    <div class="row">
+        Search Donor: 
+        <input type="text" class="form-control" name="searchText" placeholder="Search by surname, name, email, mobile number"
+          [(ngModel)]="searchText">
+      </div>
+      <p>(Hint: If you not found donor while typing click on search button)</p>
+        <br>
+        <button class="btn btn-primary" (click)="searchDonor(searchText)" style="padding-left: 20px">Search</button>
+    <br>
+    <br>
     <table class="table table-striped">
       <thead>
         <tr>

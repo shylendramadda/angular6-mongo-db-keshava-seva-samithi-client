@@ -1,7 +1,7 @@
-<div class="conatiner">
+<div class="conatiner col-md-8">
     <div class="section" id="receipt">
         <div id="invoice-POS">
-            <div class="center" id="top" style="border-bottom: 1px solid #EEE;">
+            <div class="center" id="top">
                 <div style="text-align: center; background-color: orange !important;">
                     <div class="logo"></div>
                     <div class="info">
@@ -14,8 +14,8 @@
                 </div>
             </div>
             <!--End InvoiceTop-->
-            <div id="mid" style="border-bottom: 1px solid #EEE;">
-                <div class="info" style="padding: 15px">
+            <div id="mid" style="padding-bottom: 10px">
+                <div class="info" style="padding: 10px">
                     <p>
                         <span style="float:left;">
                             Estd : 12/1989
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <!--End Invoice Mid-->
-            <div id="bot" style="border-bottom: 1px solid #EEE;">
+            <div id="bot" style="border-bottom: 1px solid #EEE">
                 <div id="table">
                     <table>
                         <tr class="tabletitle">
@@ -177,7 +177,7 @@
                 <br>
                 <br>
                 <!--End Table-->
-                <div id="legalcopy" style="text-align: center; background-color: orange">
+                <div id="legalcopy" style="text-align: center; background-color: orange; padding: 5px">
                     <p class="legal" style="color: black">
                         <strong>Cheques are subject to realisation</strong>
                     </p>
@@ -191,7 +191,9 @@
 
             <!--End Invoice-->
         </div>
-        <br>
+    </div>
+    <br>
+    <div style="text-align: center">
         <button class="btn btn-primary" (click)="goBack()"> Back </button>
         <button class="btn btn-primary" (click)="printReceipt()" style="margin-left: 20px;"> Print Receipt </button>
     </div>
