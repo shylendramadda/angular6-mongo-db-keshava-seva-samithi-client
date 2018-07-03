@@ -45,7 +45,9 @@ import { ViewImageComponent } from './view-image/view-image.component';
 import { DonorReceiptComponent } from './donor-receipt/donor-receipt.component';
 import { ImagesComponent } from './images/images.component';
 import { VideosComponent } from './videos/videos.component';
-import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
+import { MailMessageComponent } from './mail-message/mail-message.component';
+import { MailComponent } from './mail/mail.component';
+import { SmsComponent } from './sms/sms.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,10 @@ import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
     ViewImageComponent,
     DonorReceiptComponent,
     ImagesComponent,
-    VideosComponent
+    VideosComponent,
+    MailMessageComponent,
+    MailComponent,
+    SmsComponent
   ],
   imports: [
     BrowserModule,
@@ -92,8 +97,7 @@ import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    BrowserAnimationsModule,
-    Angular2ImageGalleryModule
+    BrowserAnimationsModule
   ],
   providers: [],
   entryComponents: [ViewImageComponent],

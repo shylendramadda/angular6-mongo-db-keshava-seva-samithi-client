@@ -40,7 +40,7 @@ export class DonorlistComponent implements OnInit {
     this.location.back();
   }
 
-  editDonor(donor: Donor, isView : string): void {
+  editDonor(donor: Donor, isView: string): void {
     // let date = parseInt(donor.eventDate.toString());
     // var datePipe = new DatePipe("en-us");
     // // var newDate = new Date(date);
@@ -58,12 +58,16 @@ export class DonorlistComponent implements OnInit {
     }
   }
 
-  searchDonor(inputString : string) : void {
-    this.donorlistService.getDonorByInput(inputString)
-    .subscribe(data => {
-      this.donors = data;
-      console.log(data);
-    });
+  searchDonor(inputString: string): void {
+    if (inputString != null && inputString) {
+      this.donorlistService.getDonorByInput(inputString)
+        .subscribe(data => {
+          this.donors = data;
+          console.log(data);
+        });
+    } else {
+      alert('Please enter some text');
+    }
   }
 
 }

@@ -24,6 +24,9 @@ import { AddcommitteememberComponent } from './addcommitteemember/addcommitteeme
 import { DonorReceiptComponent } from './donor-receipt/donor-receipt.component';
 import { ImagesComponent } from './images/images.component';
 import { VideosComponent } from './videos/videos.component';
+import { MailMessageComponent } from './mail-message/mail-message.component';
+import { MailComponent } from './mail/mail.component';
+import { SmsComponent } from './sms/sms.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,8 +50,12 @@ const routes: Routes = [
     }, {
       path: 'videos', component: VideosListComponent,
       children: [{ path: 'addVideo', component: AddVideoComponent }]
-    }, {  
-      path:'receipt', component: DonorReceiptComponent
+    }, {
+      path: 'receipt', component: DonorReceiptComponent
+    }, {
+      path: 'mailOrMessage', component: MailMessageComponent,
+      children: [{ path: 'mail', component: MailComponent },
+      { path: 'sms', component: SmsComponent }]
     }]
   },
   { path: 'donor', component: DonorComponent },
