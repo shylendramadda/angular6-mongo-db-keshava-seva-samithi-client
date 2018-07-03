@@ -20,11 +20,11 @@
       <tbody>
         <tr *ngFor="let video of videos">
           <td>{{video.id}}</td>
-          <td>{{video.description}}</td>
-          <td>
+          <td width="50%">{{video.description}}</td>
+          <td width="30%">
             <iframe width="310" height="150" [src]="getTrustedURL(video.url)" frameborder="0" allowfullscreen></iframe>
           </td>
-          <td>
+          <td width="20%">
             <button class="btn btn-primary" (click)="editVideo(video)" style="margin-left: 10px;"> Edit</button>
             <button class="btn btn-danger" (click)="deleteVideo(video)" style="margin-left: 10px;"> Delete</button>
           </td>

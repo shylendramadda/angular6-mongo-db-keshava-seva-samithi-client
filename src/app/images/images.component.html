@@ -3,8 +3,8 @@
     <div class="row">
       <div *ngFor="let image of images">
         <div class="clolumn" style="padding: 10px">
-          <img width="200" height="200" alt="{{image.name}}" src="{{image.filePath}}" (click)="viewImage(image)">
-          <p style="align-content: center">{{image.description}} </p>
+          <img width="200px" height="200px" alt="{{image.name}}" src="{{image.filePath}}" (click)="viewImage(image)">
+          <p style="word-wrap: break-word; width: 200px; overflow: hidden; max-height: 5.6em;line-height: 1.8em; text-overflow: ellipsis;">{{image.description}} </p>
         </div>
       </div>
     </div>
