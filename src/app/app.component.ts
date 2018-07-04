@@ -14,12 +14,4 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  getImages(): void {
-    alert('images')
-  }
-
-  getVideos(): void {
-    alert('videos')
-  }
 }

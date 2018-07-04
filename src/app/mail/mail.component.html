@@ -1,3 +1,54 @@
-<p>
-  mail works!
-</p>
+<div class="container section">
+  <div class="col-md-6 offset-md-3">
+    <h4>Send Mail</h4>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+      <div class="form-group">
+        <label for="from">From Email</label>
+        <input type="email" class="form-control" name="from" [(ngModel)]="myEmail.from" #from="ngModel" required from />
+        <div *ngIf="f.submitted && from.invalid" class="invalid-feedback">
+          <div *ngIf="from.errors.required">From Email is required</div>
+          <div *ngIf="from.errors.email">From Email must be a valid email address</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="toWhome">Select users to send mail</label>
+        <select class="input" name="toWhome" [(ngModel)]="myEmail.toWhome" #toWhome="ngModel" required toWhome>
+          <option value="Select">Select</option>
+          <option value="Donors">Donors</option>
+          <option value="Students">Students</option>
+          <option value="CommiteeMembers">Commitee Members</option>
+          <option value="Staff">Staff</option>
+        </select>
+        <div *ngIf="f.submitted && toWhome.invalid" class="invalid-feedback">
+            <div *ngIf="toWhome.errors.required">This is is required</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" name="subject" [(ngModel)]="myEmail.subject" #subject="ngModel" required subject minlength="5"
+        />
+        <div *ngIf="f.submitted && subject.invalid" class="invalid-feedback">
+          <div *ngIf="subject.errors.required">Subject is required</div>
+          <div *ngIf="subject.errors.minlength">Subject is too short</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="body">Message Body</label>
+        <input type="text" class="form-control" name="body" [(ngModel)]="myEmail.body" #body="ngModel" required body minlength="5"
+        />
+        <div *ngIf="f.submitted && body.invalid" class="invalid-feedback">
+          <div *ngIf="body.errors.required">Message body is required</div>
+          <div *ngIf="body.errors.minlength">Message body is too short</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary">Send Mail's</button>
+      </div>
+    </form>
+  </div>
+</div>

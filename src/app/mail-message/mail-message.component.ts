@@ -17,7 +17,7 @@ export class MailMessageComponent implements OnInit {
   constructor(private donorlistService: DonorListService, private router: Router, private location: Location) { }
 
   ngOnInit() {
-    this.getDonors();
+    // this.getDonors();
   }
 
   getDonors() {

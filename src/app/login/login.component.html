@@ -4,7 +4,7 @@
         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" name="email" [(ngModel)]="user.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                <input type="email" class="form-control" name="email" [(ngModel)]="user.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
                     required email />
                 <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
                     <div *ngIf="email.errors.required">Email is required</div>

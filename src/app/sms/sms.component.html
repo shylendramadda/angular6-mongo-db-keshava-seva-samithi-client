@@ -1,3 +1,28 @@
-<p>
-  sms works!
-</p>
+<div class="container section">
+  <div class="col-md-6 offset-md-3">
+    <h4>Send SMS</h4>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="col-sm-8">
+        <div class="form-group">
+          <label for="toWhome">Select users to send SMS</label>
+          <select class="input" name="toWhome" [(ngModel)]="toWhome" #eventOf="ngModel">
+            <option value="Select" selected="true">Select</option>
+            <option value="Donors">Donors</option>
+            <option value="Students">Students</option>
+            <option value="CommiteeMembers">Commitee Members</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="form-group">
+        <button class="btn btn-primary">Send SMS's</button>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </form>
+  </div>
+</div>
