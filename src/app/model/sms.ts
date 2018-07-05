@@ -1,7 +1,7 @@
 export class SMS {
 
-    from: String;
+    toNumber: String;
     toWhome: String;
     body: String;
-    
+
 }
