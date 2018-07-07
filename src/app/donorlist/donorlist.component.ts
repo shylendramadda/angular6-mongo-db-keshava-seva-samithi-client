@@ -62,8 +62,12 @@ export class DonorlistComponent implements OnInit {
     if (inputString != null && inputString) {
       this.donorlistService.getDonorByInput(inputString)
         .subscribe(data => {
-          this.donors = data;
           console.log(data);
+          if (data != null && data.length != 0) {
+            this.donors = data;
+          } else {
+            alert('No donors found with given query');
+          }
         });
     } else {
       alert('Please enter some text');
