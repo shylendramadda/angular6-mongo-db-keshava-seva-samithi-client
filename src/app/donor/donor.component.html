@@ -11,27 +11,15 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="surname">Surname</label>
-                            <input type="text" style="text-transform: capitalize;" class="form-control" name="surname" [(ngModel)]="donor.surname" #surname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && surname.invalid }"
-                                required surname minlength="1" [disabled]="isView" />
+                            <input type="text" style="text-transform: capitalize;" class="form-control" name="surname" [(ngModel)]="donor.surname" #surname="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && surname.invalid }" required surname minlength="1" [disabled]="isView"
+                            />
                             <div *ngIf="f.submitted && surname.invalid" class="invalid-feedback">
                                 <div *ngIf="surname.errors.required">Surname is required</div>
                                 <div *ngIf="surname.errors.surname">Surname must be a valid one</div>
                                 <div *ngIf="surname.errors.minlength">Surname must be at least 1 character</div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="mobile">Mobile Number</label>
-                            <input type="number" class="form-control" name="mobile" [(ngModel)]="donor.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
-                                required mobile minlength="10" maxlength="10" [disabled]="isView" />
-                            <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
-                                <div *ngIf="mobile.errors.required">Mobile Number is required</div>
-                                <div *ngIf="mobile.errors.mobile">Mobile Number must be a valid one</div>
-                                <div *ngIf="mobile.errors.minlength">Mobile Number must be at least 10 digits</div>
-                                <div *ngIf="mobile.errors.maxlength">Mobile Number must be not more than 10 digits</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="lastName">Name</label>
                             <input type="text" class="form-control" name="lastName" [(ngModel)]="donor.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
@@ -51,8 +39,17 @@
                                 <div *ngIf="email.errors.email">Email must be a valid email address</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="number" class="form-control" name="mobile" [(ngModel)]="donor.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+                                required mobile minlength="10" maxlength="10" [disabled]="isView" />
+                            <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
+                                <div *ngIf="mobile.errors.required">Mobile Number is required</div>
+                                <div *ngIf="mobile.errors.mobile">Mobile Number must be a valid one</div>
+                                <div *ngIf="mobile.errors.minlength">Mobile Number must be at least 10 digits</div>
+                                <div *ngIf="mobile.errors.maxlength">Mobile Number must be not more than 10 digits</div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="houseNo">House No </label>
                             <input type="text" class="form-control" name="houseNo" [(ngModel)]="donor.houseNo" #houseNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && houseNo.invalid }"
@@ -67,8 +64,6 @@
                             <input type="text" class="form-control" name="landMark" [(ngModel)]="donor.landMark" #landMark="ngModel" [disabled]="isView"
                             />
                         </div>
-                    </div>
-                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="street">Street</label>
                             <input type="text" class="form-control" name="street" [(ngModel)]="donor.street" #street="ngModel" [disabled]="isView" />
@@ -80,7 +75,9 @@
                         </div>
 
                     </div>
+
                     <div class="col-sm-6">
+
                         <div class="form-group">
                             <label for="mandal">Mandal</label>
                             <input type="text" class="form-control" name="mandal" [(ngModel)]="donor.mandal" #mandal="ngModel" [disabled]="isView" />
@@ -90,8 +87,6 @@
                             <input type="text" class="form-control" name="district" [(ngModel)]="donor.district" #district="ngModel" [disabled]="isView"
                             />
                         </div>
-                    </div>
-                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="city">City </label>
                             <input type="text" class="form-control" name="city" [(ngModel)]="donor.city" #city="ngModel" [disabled]="isView" />
@@ -100,9 +95,6 @@
                             <label for="state">state</label>
                             <input type="text" class="form-control" name="state" [(ngModel)]="donor.state" #state="ngModel" [disabled]="isView" />
                         </div>
-
-                    </div>
-                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="country">Country</label>
                             <input type="text" class="form-control" name="country" [(ngModel)]="donor.country" #country="ngModel" [disabled]="isView"
@@ -113,8 +105,6 @@
                             <input type="date" class="form-control" name="eventDate" [(ngModel)]="donor.eventDate" #eventDate="ngModel" [disabled]="isView"
                             />
                         </div>
-                    </div>
-                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="eventOf">For the event of</label>
                             <select class="input " name="eventOf" [(ngModel)]="donor.eventOf" #eventOf="ngModel" [disabled]="isView">
@@ -123,8 +113,6 @@
                                 <option value="Anniversay">Anniversay</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="amountFor">Amount For</label>
                             <select class="input " name="amountFor" [(ngModel)]="donor.amountFor" #amountFor="ngModel" [disabled]="isView">
@@ -143,7 +131,9 @@
                                 <option value="One time deposit">Online</option>
                             </select>
                         </div>
+
                     </div>
+
                 </div>
                 <br>
                 <div class="form-group">

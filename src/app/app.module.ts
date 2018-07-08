@@ -48,6 +48,7 @@ import { VideosComponent } from './videos/videos.component';
 import { MailMessageComponent } from './mail-message/mail-message.component';
 import { MailComponent } from './mail/mail.component';
 import { SmsComponent } from './sms/sms.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { SmsComponent } from './sms/sms.component';
     VideosComponent,
     MailMessageComponent,
     MailComponent,
-    SmsComponent
+    SmsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
