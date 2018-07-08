@@ -26,7 +26,11 @@ export class DonorService {
           // this.router.navigate(['donorList']);
           this.location.back();
         } else {
-          alert(data.json().message + ' Error code: ' + data.json().code);
+          if (data.json().message == "Donor already exists") {
+            alert(data.json().message + ' Donor already exist with this matching data. Go and search by surname or mobile number or email.');
+          } else {
+            alert(data.json().message + ' Error code: ' + data.json().code);
+          }
         }
       });
   }
