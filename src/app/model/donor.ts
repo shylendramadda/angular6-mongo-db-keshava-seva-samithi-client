@@ -23,7 +23,7 @@ export class Donor {
     city: String;
     postOffice: String;
     eventOf: String;
-    eventDate: Date;
+    eventDate: String;
     amountFor: number;
     paymentType: String;
     amount: String;

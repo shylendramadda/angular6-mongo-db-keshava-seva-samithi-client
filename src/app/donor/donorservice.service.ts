@@ -28,6 +28,10 @@ export class DonorService {
         } else {
           if (data.json().message == "Donor already exists") {
             alert(data.json().message + ' Donor already exist with this matching data. Go and search by surname or mobile number or email.');
+            localStorage.setItem("donor", JSON.stringify(data.json().entity));
+            localStorage.setItem("isView", 'true');
+            this.router.navigate(['donor']);
+            location.reload();          
           } else {
             alert(data.json().message + ' Error code: ' + data.json().code);
           }
