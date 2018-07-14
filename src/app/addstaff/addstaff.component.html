@@ -6,147 +6,149 @@
     <h4>Staff Registration</h4>
     <div [hidden]="submitted">
       <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="surName">Surname</label>
-              <input type="text" class="form-control" name="surName" [(ngModel)]="staff.surName" #surName="ngModel" />
-              <!-- <div *ngIf="f.submitted && surName.invalid" class="invalid-feedback">
+        <div class="col-sm-10">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="surName">Surname</label>
+                <input type="text" class="form-control" name="surName" [(ngModel)]="staff.surName" #surName="ngModel" />
+                <!-- <div *ngIf="f.submitted && surName.invalid" class="invalid-feedback">
                 <div *ngIf="surName.errors.required">surName is required</div>
                 <div *ngIf="surName.errors.surName">surName must be a valid one</div>
                 <div *ngIf="surName.errors.minlength">surName must be at least 2 characters</div>
               </div> -->
-            </div>
-            <div class="form-group">
-              <label for="lastName">Name</label>
-              <input type="text" class="form-control" name="lastName" [(ngModel)]="staff.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
-                required lastName minlength="3" />
-              <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
-                <div *ngIf="lastName.errors.required">Name is required</div>
-                <div *ngIf="lastName.errors.lastName">Name must be a valid one</div>
-                <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters</div>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Name</label>
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="staff.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
+                  required lastName minlength="3" />
+                <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                  <div *ngIf="lastName.errors.required">Name is required</div>
+                  <div *ngIf="lastName.errors.lastName">Name must be a valid one</div>
+                  <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" class="form-control" name="email" [(ngModel)]="staff.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-                required email />
-              <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                <div *ngIf="email.errors.required">Email is required</div>
-                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" [(ngModel)]="staff.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                  required email />
+                <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required">Email is required</div>
+                  <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="number" class="form-control" name="mobile" [(ngModel)]="staff.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+                  required mobile minlength="10" maxlength="10" />
+                <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
+                  <div *ngIf="mobile.errors.required">Mobile Number is required</div>
+                  <div *ngIf="mobile.errors.mobile">Mobile Number must be a valid one</div>
+                  <div *ngIf="mobile.errors.minlength">Mobile Number must be at least 10 digits</div>
+                  <div *ngIf="mobile.errors.maxlength">Mobile Number must be not more than 10 digits</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="designation">Age</label>
+                <input type="number" class="form-control" name="designation" [(ngModel)]="staff.designation" #designation="ngModel" />
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="input " name="gender" [(ngModel)]="staff.gender" #gender="ngModel">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" [(ngModel)]="staff.address" #address="ngModel" />
+              </div>
+              <div class="form-group">
+                <label for="adharNumber">Adhar Number</label>
+                <input type="text" class="form-control" name="adharNumber" [(ngModel)]="staff.adharNumber" #adharNumber="ngModel" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="houseNo">House No </label>
+                <input type="text" class="form-control" name="houseNo" [(ngModel)]="staff.houseNo" #houseNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && houseNo.invalid }"
+                  required houseNo />
+                <div *ngIf="f.submitted && houseNo.invalid" class="invalid-feedback">
+                  <div *ngIf="houseNo.errors.required">HouseNo is required</div>
+                  <div *ngIf="houseNo.errors.houseNo">HouseNo must be a valid HouseNo address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="landMark">Land Mark</label>
+                <input type="text" class="form-control" name="landMark" [(ngModel)]="staff.landMark" #landMark="ngModel" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" name="street" [(ngModel)]="staff.street" #street="ngModel" />
+              </div>
+              <div class="form-group">
+                <label for="postOffice">Post Office</label>
+                <input type="text" class="form-control" name="postOffice" [(ngModel)]="staff.postOffice" #postOffice="ngModel" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="mandal">Mandal</label>
+                <input type="text" class="form-control" name="mandal" [(ngModel)]="staff.mandal" #mandal="ngModel" />
+              </div>
+              <div class="form-group">
+                <label for="district">District</label>
+                <input type="text" class="form-control" name="district" [(ngModel)]="staff.district" #district="ngModel" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="city">City </label>
+                <input type="text" class="form-control" name="city" [(ngModel)]="staff.city" #city="ngModel" />
+              </div>
+              <div class="form-group">
+                <label for="state">state</label>
+                <input type="text" class="form-control" name="state" [(ngModel)]="staff.state" #state="ngModel" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" name="country" [(ngModel)]="staff.country" #country="ngModel" />
+              </div>
+              <div class="form-group">
+                <label for="fromDate">From Date</label>
+                <input type="date" class="form-control" name="fromDate" [(ngModel)]="staff.fromDate" #fromDate="ngModel" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="thruDate">Thru Date</label>
+                <input type="date" class="form-control" name="thruDate" [(ngModel)]="staff.thruDate" #thruDate="ngModel" />
+              </div>
+              <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="text" class="form-control" name="photo" [(ngModel)]="staff.photo" #fromDate="ngModel" />
+              </div>
+              <div class="form-group">
+                <label class="btn btn-default"> Image:
+                  <input type="file" (change)="selectFile($event)" style="margin-left: 40px;">
+                  <!-- <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()" style="margin-left: 10px;">Upload</button> -->
+                </label>
               </div>
             </div>
             <div class="form-group">
-              <label for="mobile">Mobile Number</label>
-              <input type="number" class="form-control" name="mobile" [(ngModel)]="staff.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
-                required mobile minlength="10" maxlength="10" />
-              <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
-                <div *ngIf="mobile.errors.required">Mobile Number is required</div>
-                <div *ngIf="mobile.errors.mobile">Mobile Number must be a valid one</div>
-                <div *ngIf="mobile.errors.minlength">Mobile Number must be at least 10 digits</div>
-                <div *ngIf="mobile.errors.maxlength">Mobile Number must be not more than 10 digits</div>
-              </div>
+              <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
+              <button class="btn btn-primary" *ngIf="isView" (click)="editStaff()">Edit</button>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="designation">Age</label>
-              <input type="number" class="form-control" name="designation" [(ngModel)]="staff.designation" #designation="ngModel" />
-            </div>
-            <div class="form-group">
-              <label for="gender">Gender</label>
-              <select class="input " name="gender" [(ngModel)]="staff.gender" #gender="ngModel">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" name="address" [(ngModel)]="staff.address" #address="ngModel" />
-            </div>
-            <div class="form-group">
-              <label for="adharNumber">Adhar Number</label>
-              <input type="text" class="form-control" name="adharNumber" [(ngModel)]="staff.adharNumber" #adharNumber="ngModel" />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="houseNo">House No </label>
-              <input type="text" class="form-control" name="houseNo" [(ngModel)]="staff.houseNo" #houseNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && houseNo.invalid }"
-                required houseNo />
-              <div *ngIf="f.submitted && houseNo.invalid" class="invalid-feedback">
-                <div *ngIf="houseNo.errors.required">HouseNo is required</div>
-                <div *ngIf="houseNo.errors.houseNo">HouseNo must be a valid HouseNo address</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="landMark">Land Mark</label>
-              <input type="text" class="form-control" name="landMark" [(ngModel)]="staff.landMark" #landMark="ngModel" />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="street">Street</label>
-              <input type="text" class="form-control" name="street" [(ngModel)]="staff.street" #street="ngModel" />
-            </div>
-            <div class="form-group">
-              <label for="postOffice">Post Office</label>
-              <input type="text" class="form-control" name="postOffice" [(ngModel)]="staff.postOffice" #postOffice="ngModel" />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="mandal">Mandal</label>
-              <input type="text" class="form-control" name="mandal" [(ngModel)]="staff.mandal" #mandal="ngModel" />
-            </div>
-            <div class="form-group">
-              <label for="district">District</label>
-              <input type="text" class="form-control" name="district" [(ngModel)]="staff.district" #district="ngModel" />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="city">City </label>
-              <input type="text" class="form-control" name="city" [(ngModel)]="staff.city" #city="ngModel" />
-            </div>
-            <div class="form-group">
-              <label for="state">state</label>
-              <input type="text" class="form-control" name="state" [(ngModel)]="staff.state" #state="ngModel" />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="country">Country</label>
-              <input type="text" class="form-control" name="country" [(ngModel)]="staff.country" #country="ngModel" />
-            </div>
-            <div class="form-group">
-              <label for="fromDate">From Date</label>
-              <input type="date" class="form-control" name="fromDate" [(ngModel)]="staff.fromDate" #fromDate="ngModel" />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="thruDate">Thru Date</label>
-              <input type="date" class="form-control" name="thruDate" [(ngModel)]="staff.thruDate" #thruDate="ngModel" />
-            </div>
-            <div class="form-group">
-              <label for="photo">Photo</label>
-              <input type="text" class="form-control" name="photo" [(ngModel)]="staff.photo" #fromDate="ngModel" />
-            </div>
-            <div class="form-group">
-              <label class="btn btn-default"> Image:
-                <input type="file" (change)="selectFile($event)" style="margin-left: 40px;">
-                <!-- <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()" style="margin-left: 10px;">Upload</button> -->
-              </label>
-            </div>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
-            <button class="btn btn-primary" *ngIf="isView" (click)="editStaff()">Edit</button>
           </div>
         </div>
       </form>

@@ -28,6 +28,7 @@ import { MailMessageComponent } from './mail-message/mail-message.component';
 import { MailComponent } from './mail/mail.component';
 import { SmsComponent } from './sms/sms.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AddDonationComponent } from './add-donation/add-donation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -60,7 +61,10 @@ const routes: Routes = [
       { path: 'sms', component: SmsComponent }]
     }]
   },
-  { path: 'donor', component: DonorComponent },
+  {
+    path: 'donor', component: DonorComponent,
+    children: [{ path: 'addDonation', component: AddDonationComponent }]
+  },
   { path: 'student', component: AddStudentComponent },
   { path: 'staff', component: AddstaffComponent },
   { path: 'committeeMember', component: AddcommitteememberComponent },

@@ -49,6 +49,7 @@ import { MailMessageComponent } from './mail-message/mail-message.component';
 import { MailComponent } from './mail/mail.component';
 import { SmsComponent } from './sms/sms.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AddDonationComponent } from './add-donation/add-donation.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MailMessageComponent,
     MailComponent,
     SmsComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    AddDonationComponent
   ],
   imports: [
     BrowserModule,

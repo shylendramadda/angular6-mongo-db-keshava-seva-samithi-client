@@ -52,6 +52,10 @@ export class DonorComponent implements OnInit {
     this.router.navigate(['adminHome/receipt']);
   }
 
+  addDonation(donor: Donor){
+    this.router.navigate(['donor/addDonation']);
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.isUpdate) {

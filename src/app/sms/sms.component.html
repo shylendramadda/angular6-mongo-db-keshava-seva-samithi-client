@@ -2,7 +2,7 @@
   <div class="col-md-6 offset-md-3">
     <h4>Send SMS</h4>
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="col-sm-8">
+      <div class="col-sm-10">
         <div class="form-group">
           <label for="toWhome">Select users to send SMS</label>
           <select class="input" name="toWhome" [(ngModel)]="sms.toWhome" #toWhome="ngModel">
@@ -15,8 +15,8 @@
 
         <div class="form-group">
           <label for="toNumber">Enter Mobile number</label>
-          <input type="number" class="form-control" name="toNumber" [(ngModel)]="sms.toNumber" #toNumber="ngModel" required toNumber minlength="10"
-            maxlength="10" />
+          <input type="number" class="form-control" name="toNumber" [(ngModel)]="sms.toNumber" #toNumber="ngModel" required toNumber
+            minlength="10" maxlength="10" />
           <div *ngIf="f.submitted && toNumber.invalid" class="invalid-feedback">
             <div *ngIf="toNumber.errors.required">Mobile number is required</div>
             <div *ngIf="toNumber.errors.minlength">Mobile number is too short</div>
@@ -25,8 +25,7 @@
 
         <div class="form-group">
           <label for="body">Message Body</label>
-          <input type="text" class="form-control" name="message" [(ngModel)]="sms.body" #body="ngModel" required body minlength="5"
-          />
+          <textarea type="text" class="form-control" name="message" [(ngModel)]="sms.body" #body="ngModel" required body minlength="5"> </textarea>
           <div *ngIf="f.submitted && body.invalid" class="invalid-feedback">
             <div *ngIf="body.errors.required">Message body is required</div>
             <div *ngIf="body.errors.minlength">Message body is too short</div>
