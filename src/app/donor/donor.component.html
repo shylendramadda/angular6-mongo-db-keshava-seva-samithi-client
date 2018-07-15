@@ -139,7 +139,7 @@
 
                             <div class="form-group">
                                 <label for="amount">Donation Amount</label>
-                                <input type="number" class="form-control" name="amount" [(ngModel)]="donor.amount" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+                                <input type="number" class="form-control" name="amount" [(ngModel)]="donor.amount" #amount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && amount.invalid }"
                                     required amount minlength="2" maxlength="10" [disabled]="isView" />
                                 <div *ngIf="f.submitted && amount.invalid" class="invalid-feedback">
                                     <div *ngIf="amount.errors.required">Amount is required</div>
