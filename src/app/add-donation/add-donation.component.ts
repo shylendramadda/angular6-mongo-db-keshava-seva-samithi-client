@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Donation } from '../model/donation';
+import { DonationService } from './donation.service';
 
 @Component({
   selector: 'app-add-donation',
@@ -7,13 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDonationComponent implements OnInit {
 
-  constructor() { }
+  donorUid = String;
+  donation: any = {};
 
-  ngOnInit() {
+  constructor(private donationService: DonationService) {
+    this.donation = new Donation();
   }
 
-  saveDonation () {
-    alert('Coming soon...');
+  ngOnInit() {
+    let donorUid = JSON.parse(localStorage.getItem("donorUid"));
+    if (donorUid != null) {
+      this.donation.donorUid = donorUid;
+    }
+  }
+
+  saveDonation() {
+    this.donationService.saveDonation(this.donation);
   }
 
 }

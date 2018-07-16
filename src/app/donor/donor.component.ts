@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { isUndefined } from 'util';
 import { Router } from '@angular/router';
+import { DonationService } from '../add-donation/donation.service';
+import { Donation } from '../model/donation';
 
 @Component({
   selector: 'app-donor',
@@ -14,11 +16,12 @@ import { Router } from '@angular/router';
 export class DonorComponent implements OnInit {
 
   donor: any = {};
+  donations: Donation[];
   submitted = false;
   isUpdate = false;
   isView = JSON.parse(localStorage.getItem("isView"));
 
-  constructor(private donorService: DonorService, private location: Location, private router: Router) {
+  constructor(private donorService: DonorService, private location: Location, private router: Router, private donationService: DonationService) {
     this.donor = new Donor();
   }
 
@@ -33,6 +36,8 @@ export class DonorComponent implements OnInit {
       this.donor = donor;
       this.isUpdate = true;
     }
+
+    this.getDonations();
   }
 
   save(): void {
@@ -51,8 +56,9 @@ export class DonorComponent implements OnInit {
     localStorage.setItem("donor", JSON.stringify(donor));
     this.router.navigate(['adminHome/receipt']);
   }
-
-  addDonation(donor: Donor){
+  
+  addDonation(){
+    localStorage.setItem("donorUid", JSON.stringify(this.donor.uid));
     this.router.navigate(['donor/addDonation']);
   }
 
@@ -67,6 +73,14 @@ export class DonorComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  getDonations() {
+    this.donationService.getDonations(this.donor.uid)
+      .subscribe(data => {
+        this.donations = data;
+        console.log(data);
+      });
   }
 
 }

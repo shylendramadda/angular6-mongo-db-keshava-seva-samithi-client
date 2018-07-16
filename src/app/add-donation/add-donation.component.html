@@ -1,5 +1,6 @@
 <div class="container section">
   <div class="col-md-12" style="text-align: center">
+
     <h4>Add Another Donation:</h4>
     <div>
       <form name="form" #f="ngForm" novalidate>
@@ -9,12 +10,12 @@
 
               <div class="form-group">
                 <label for="eventDate">Event Date</label>
-                <input type="date" class="form-control" name="eventDate" [(ngModel)]="donor.eventDate" #eventDate="ngModel" [disabled]="isView"
+                <input type="text" class="form-control" name="eventDate" [(ngModel)]="donation.eventDate" #eventDate="ngModel" [disabled]="isView"
                 />
               </div>
               <div class="form-group">
                 <label for="eventOf">For the event of</label>
-                <select class="input " name="eventOf" [(ngModel)]="donor.eventOf" #eventOf="ngModel" [disabled]="isView">
+                <select class="input " name="eventOf" [(ngModel)]="donation.eventOf" #eventOf="ngModel" [disabled]="isView">
                   <option value="Marriage">Marriage</option>
                   <option value="Birthday">Birthday</option>
                   <option value="Anniversay">Anniversay</option>
@@ -22,7 +23,7 @@
               </div>
               <div class="form-group">
                 <label for="amountFor">Amount For</label>
-                <select class="input " name="amountFor" [(ngModel)]="donor.amountFor" #amountFor="ngModel" [disabled]="isView">
+                <select class="input " name="amountFor" [(ngModel)]="donation.amountFor" #amountFor="ngModel" [disabled]="isView">
                   <option value="Marriage">One day meals</option>
                   <option value="Sponser a child">Sponser a child</option>
                   <option value="One time deposit">One time deposit</option>
@@ -32,22 +33,22 @@
               </div>
               <div class="form-group">
                 <label for="paymentType">Payment Type</label>
-                <select class="input " name="paymentType" [(ngModel)]="donor.paymentType" #paymentType="ngModel" [disabled]="isView">
+                <select class="input " name="paymentType" [(ngModel)]="donation.paymentType" #paymentType="ngModel" [disabled]="isView">
                   <option value="Marriage">By cash</option>
                   <option value="Sponser a child">Cheque</option>
                   <option value="One time deposit">Online</option>
                 </select>
               </div>
               <div class="form-group">
-                  <label for="amount">Donation Amount</label>
-                  <input type="number" class="form-control" name="amount" [(ngModel)]="donor.amount" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
-                      required amount minlength="2" maxlength="10" [disabled]="isView" />
-                  <div *ngIf="f.submitted && amount.invalid" class="invalid-feedback">
-                      <div *ngIf="amount.errors.required">Amount is required</div>
-                      <div *ngIf="amount.errors.amount">Amount must be a valid one</div>
-                      <div *ngIf="amount.errors.minlength">Amount must be at least 1 digits</div>
-                      <div *ngIf="amount.errors.maxlength">Amount must be not more than 10 digits</div>
-                  </div>
+                <label for="amount">Donation Amount</label>
+                <input type="number" class="form-control" name="amount" [(ngModel)]="donation.amount" #amount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && amount.invalid }"
+                  required amount minlength="2" maxlength="10" [disabled]="isView" />
+                <div *ngIf="f.submitted && amount.invalid" class="invalid-feedback">
+                  <div *ngIf="amount.errors.required">Amount is required</div>
+                  <div *ngIf="amount.errors.amount">Amount must be a valid one</div>
+                  <div *ngIf="amount.errors.minlength">Amount must be at least 1 digits</div>
+                  <div *ngIf="amount.errors.maxlength">Amount must be not more than 10 digits</div>
+                </div>
               </div>
 
             </div>
@@ -60,5 +61,6 @@
         </div>
       </form>
     </div>
+
   </div>
 </div>
