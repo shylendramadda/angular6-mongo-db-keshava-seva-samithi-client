@@ -93,18 +93,23 @@
                                 <input type="text" class="form-control" name="city" [(ngModel)]="donor.city" #city="ngModel" [disabled]="isView" />
                             </div>
                             <div class="form-group">
-                                <label for="state">state</label>
+                                <label for="state">State</label>
                                 <input type="text" class="form-control" name="state" [(ngModel)]="donor.state" #state="ngModel" [disabled]="isView" />
-                            </div>
-                            <div class="form-group">
-                                <label for="country">Country</label>
-                                <input type="text" class="form-control" name="country" [(ngModel)]="donor.country" #country="ngModel" [disabled]="isView"
-                                />
                             </div>
 
                         </div>
 
                         <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" name="country" [(ngModel)]="donor.country" #country="ngModel" [disabled]="isView"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="pincode">Pincode</label>
+                                <input type="number" class="form-control" name="pincode" [(ngModel)]="donor.pincode" #pincode="ngModel" [disabled]="isView"
+                                    minlength="6" maxlength="6" />
+                            </div>
                             <div class="form-group">
                                 <label for="eventDate">Event Date</label>
                                 <input type="date" class="form-control" name="eventDate" [(ngModel)]="donor.eventDate" #eventDate="ngModel" [disabled]="isView"

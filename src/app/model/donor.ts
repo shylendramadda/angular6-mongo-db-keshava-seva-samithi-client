@@ -27,5 +27,6 @@ export class Donor {
     amountFor: number;
     paymentType: String;
     amount: String;
+    pincode: number;
 
 }
