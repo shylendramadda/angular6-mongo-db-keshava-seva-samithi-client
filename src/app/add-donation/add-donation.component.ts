@@ -24,7 +24,15 @@ export class AddDonationComponent implements OnInit {
   }
 
   saveDonation() {
+    this.donation.eventDate = this.convertDateToString(this.donation.eventDate)
     this.donationService.saveDonation(this.donation);
+  }
+
+  convertDateToString(str) {
+    var date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join("-");
   }
 
 }

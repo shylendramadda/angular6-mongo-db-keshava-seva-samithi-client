@@ -7,6 +7,7 @@ import { isUndefined } from 'util';
 import { Router } from '@angular/router';
 import { DonationService } from '../add-donation/donation.service';
 import { Donation } from '../model/donation';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-donor',
@@ -41,10 +42,12 @@ export class DonorComponent implements OnInit {
   }
 
   save(): void {
+    this.donor.eventDate = this.convertDateToString(this.donor.eventDate)
     this.donorService.saveDonor(this.donor)
   }
 
   update(): void {
+    this.donor.eventDate = this.convertDateToString(this.donor.eventDate)
     this.donorService.updateDonor(this.donor)
   }
 
@@ -56,8 +59,8 @@ export class DonorComponent implements OnInit {
     localStorage.setItem("donor", JSON.stringify(donor));
     this.router.navigate(['adminHome/receipt']);
   }
-  
-  addDonation(){
+
+  addDonation() {
     localStorage.setItem("donorUid", JSON.stringify(this.donor.uid));
     this.router.navigate(['donor/addDonation']);
   }
@@ -81,6 +84,13 @@ export class DonorComponent implements OnInit {
         this.donations = data;
         console.log(data);
       });
+  }
+
+  convertDateToString(str) {
+    var date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join("-");
   }
 
 }
