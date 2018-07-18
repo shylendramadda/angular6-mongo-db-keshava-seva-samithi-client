@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Url } from 'url';
+import { NgProgress } from '@ngx-progressbar/core';
 
 @Component({
   selector: 'app-videos-list',
@@ -15,9 +16,10 @@ export class VideosListComponent implements OnInit {
 
   videos: Video[];
   constructor(private videoListService: VideoListService, private router: Router, private location: Location,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer, public ngProgress: NgProgress) { }
 
   ngOnInit() {
+    this.ngProgress.start();
     this.getVideos()
   }
 
@@ -25,6 +27,7 @@ export class VideosListComponent implements OnInit {
     this.videoListService.getVideos()
       .subscribe(data => {
         this.videos = data;
+        this.ngProgress.complete();
         console.log(data);
       });
   }

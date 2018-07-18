@@ -42,10 +42,10 @@ import {
   MatTreeModule,
 } from '@angular/material';
 
-
 import { SearchPipe } from './search.pipe';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { NgProgressModule } from '@ngx-progressbar/core';
 
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -112,7 +112,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     MailComponent,
     SmsComponent,
     ForgotPasswordComponent,
-    AddDonationComponent
+    AddDonationComponent,
   ],
   imports: [
     BrowserModule,
@@ -157,6 +157,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    NgProgressModule.forRoot(), 
   ],
   providers: [],
   entryComponents: [ViewImageComponent],

@@ -1,5 +1,6 @@
 <div class="container section">
     <div class="col-md-6 offset-md-3">
+        <ng-progress></ng-progress>
         <h4>Login Form</h4>
         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="form-group">
@@ -22,7 +23,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-primary">Login</button>
-                <button class="btn btn-primary" style="margin-left: 10px" >Forgot password?</button>
+                <button class="btn btn-primary" style="margin-left: 10px">Forgot password?</button>
             </div>
         </form>
     </div>

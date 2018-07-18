@@ -4,6 +4,7 @@ import { Headers, Http, RequestOptions } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { NgProgress } from '@ngx-progressbar/core';
 
 let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
 let options = new RequestOptions({ headers: headers });
@@ -16,17 +17,19 @@ export class LoginService {
 
   private login_url = 'http://localhost:8080/api/user/login';  // URL to web API
 
-  constructor(private http: Http, private router: Router) { }
+  constructor(private http: Http, private router: Router, public ngProgress: NgProgress) { }
 
   doLogin(user: User) {
-
+    this.ngProgress.start();
     return this.http.post(this.login_url, user, options)
       .subscribe(data => {
         if (data.json().code == 200) {
           console.log(data);
+          this.ngProgress.complete();
           alert(data.json().message);
           this.router.navigate(['adminHome']);
         } else {
+          this.ngProgress.complete();
           alert(data.json().message + ' Error code: ' + data.json().code);
           this.router.navigate(['login']);
         }

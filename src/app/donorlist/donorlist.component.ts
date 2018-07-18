@@ -4,6 +4,7 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 import { DonorListService } from './donorlistservice.service';
 import { Donor } from '../model/donor';
+import { NgProgress } from '@ngx-progressbar/core';
 
 @Component({
   selector: 'app-donorlist',
@@ -16,16 +17,24 @@ export class DonorlistComponent implements OnInit {
   donor: Donor;
   donors: Donor[];
 
-  constructor(private donorlistService: DonorListService, private router: Router, private location: Location) { }
+  constructor(private donorlistService: DonorListService, private router: Router, private location: Location,
+    public ngProgress: NgProgress) { }
 
   ngOnInit() {
+    this.ngProgress.start();
     this.getDonors();
   }
 
   getDonors() {
     this.donorlistService.getDonors()
       .subscribe(data => {
-        this.donors = data;
+        if (data != null && data.length != 0) {
+          this.donors = data;
+          this.ngProgress.complete();
+        } else {
+          this.ngProgress.complete();
+          alert('No donors found. Click on add to register a donor');
+        }
         console.log(data);
       });
   }
