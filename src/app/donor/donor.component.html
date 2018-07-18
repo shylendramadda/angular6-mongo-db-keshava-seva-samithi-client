@@ -209,7 +209,7 @@
                     <br>
                     <div class="form-group">
                         <button class="btn btn-primary" (click)="goBack()"> Back</button>
-                        <button class="btn btn-primary" *ngIf="!isView" (click)="f.ngForm.valid && onSubmit()" style="margin-left: 20px;">{{!isUpdate? "Save": "Update"}}</button>
+                        <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()" style="margin-left: 20px;">{{!isUpdate? "Save": "Update"}}</button>
                         <button class="btn btn-primary" *ngIf="isView" (click)="editDonor()" style="margin-left: 20px;">Edit</button>
                         <button class="btn btn-primary" *ngIf="isView" (click)="printReceipt(donor)" style="margin-left: 20px;">Print Receipt</button>
                         <button class="btn btn-primary" *ngIf="isUpdate" (click)="addDonation()" style="margin-left: 20px;">Add Another Donation</button>

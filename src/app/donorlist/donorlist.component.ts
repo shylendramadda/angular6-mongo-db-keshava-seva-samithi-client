@@ -74,4 +74,8 @@ export class DonorlistComponent implements OnInit {
     }
   }
 
+  downloadPdf() {
+    this.donorlistService.downloadPdf();
+  }
+
 }

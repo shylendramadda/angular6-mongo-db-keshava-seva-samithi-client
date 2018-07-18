@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Donor } from 'src/app/model/donor';
-import { Headers, Http, RequestOptions } from '@angular/http';
+import { Headers, Http, RequestOptions, ResponseContentType } from '@angular/http';
 import { HttpHeaders, HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
 
-let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+let headers = new Headers();
+headers.append('Content-Type', 'application/json;charset=UTF-8');
+headers.append('Accept', 'application/pdf');
 let options = new RequestOptions({ headers: headers });
 
 @Injectable({
@@ -22,8 +24,8 @@ export class DonorListService {
   getDonors() {
     return this.httpClient.get<Donor[]>(this.donor_url + "/");
   }
-  
-  getDonorByInput(inputString : string) {
+
+  getDonorByInput(inputString: string) {
     return this.httpClient.get<Donor[]>(this.donor_url + "/search/" + inputString);
   }
 
@@ -53,6 +55,16 @@ export class DonorListService {
         } else {
           alert(data.json().message + ' Error code: ' + data.json().code);
         }
+      });
+  }
+
+  downloadPdf() {
+    this.http.get(this.donor_url + "/downloadPdf", { responseType: ResponseContentType.ArrayBuffer })
+      .subscribe(data => {
+        console.log(data);
+        var blob = new Blob([data.blob()], { type: 'application/pdf' });
+        var url = window.URL.createObjectURL(blob);
+        window.open(url);
       });
   }
 
