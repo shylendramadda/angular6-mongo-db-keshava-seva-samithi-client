@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoserviceService } from './videoservice.service';
-import { Video } from '../model/video';
 import { Location } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { isUndefined } from 'util';
+import { Video } from '../model/Video';
 
 @Component({
   selector: 'app-add-video',
