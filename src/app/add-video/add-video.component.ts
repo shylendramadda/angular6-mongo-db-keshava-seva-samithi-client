@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoserviceService } from './videoservice.service';
-import { Video } from '../model/Video';
+import { Video } from '../model/video';
 import { Location } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { isUndefined } from 'util';
