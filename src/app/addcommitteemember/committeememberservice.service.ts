@@ -4,8 +4,12 @@ import { Headers, Http, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommitteeMember } from '../model/committeeMember';
+import { HttpHeaders, HttpRequest } from '@angular/common/http'
 
-let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+let headers = new Headers();
+headers.append('enctype', 'multipart/form-data');
+headers.append('Accept', 'application/json');
+// headers.append('Content-Type', 'application/json;charset=UTF-8');
 let options = new RequestOptions({ headers: headers });
 
 @Injectable({
@@ -14,16 +18,23 @@ let options = new RequestOptions({ headers: headers });
 
 export class CommitteeMemberService {
 
+  photo: File;
   private committeeMember_url = 'http://localhost:8080/api/committeeMember';  // URL to web API
   constructor(private http: Http, private router: Router, private location: Location) { }
 
   saveCommitteeMember(committeeMember: CommitteeMember) {
+
     return this.http.post(this.committeeMember_url, committeeMember, options)
       .subscribe(data => {
         console.log(data);
+
         if (data.json().code == 200) {
-          alert(data.json().message);
-          this.location.back();
+          if (this.photo != null) {
+            this.uploadPhoto(data.json().entity.uid);
+          } else {
+            alert(data.json().message);
+            this.location.back();
+          }
         } else {
           alert(data.json().message + ' Error code: ' + data.json().code);
         }
@@ -35,7 +46,29 @@ export class CommitteeMemberService {
       .subscribe(data => {
         console.log(data);
         if (data.json().code == 200) {
-          alert(data.json().message);
+          if (this.photo != null) {
+            this.uploadPhoto(data.json().entity.uid);
+          } else {
+            alert(data.json().message);
+            this.location.back();
+          }
+        } else {
+          alert(data.json().message + ' Error code: ' + data.json().code);
+        }
+      });
+  }
+
+  uploadPhoto(memberId: any) {
+    
+    let formData: FormData = new FormData();
+    formData.append('file', this.photo, this.photo.name);
+    formData.append('memberId', memberId);
+
+    this.http.post(this.committeeMember_url + '/upload', formData, options)
+      .subscribe(data => {
+        console.log(data);
+        if (data.json().code == 200) {
+          alert('Committe member and ' + data.json().message);
           this.location.back();
         } else {
           alert(data.json().message + ' Error code: ' + data.json().code);

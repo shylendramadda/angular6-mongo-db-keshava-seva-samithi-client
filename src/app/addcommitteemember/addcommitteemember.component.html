@@ -4,18 +4,19 @@
     <br>
     <br>
     <h4>Committe Member Registration</h4>
-    <div [hidden]="submitted">
+    <div>
       <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="row">
-          <div class="col-sm-6">
+
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="surName">Surname</label>
               <input type="text" class="form-control" name="surName" [(ngModel)]="committeeMember.surName" #surName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && surName.invalid }"
                 required surName minlength="2" [disabled]="isView" />
               <div *ngIf="f.submitted && surName.invalid" class="invalid-feedback">
-                <div *ngIf="surName.errors.required">surName is required</div>
-                <div *ngIf="surName.errors.surName">surName must be a valid one</div>
-                <div *ngIf="surName.errors.minlength">surName must be at least 2 characters</div>
+                <div *ngIf="surName.errors.required">Surname is required</div>
+                <div *ngIf="surName.errors.surName">Surname must be a valid one</div>
+                <div *ngIf="surName.errors.minlength">Surname must be at least 2 characters</div>
               </div>
             </div>
             <div class="form-group">
@@ -28,8 +29,6 @@
                 <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters</div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6">
             <div class="form-group">
               <label for="email">Email</label>
               <input type="text" class="form-control" name="email" [(ngModel)]="committeeMember.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
@@ -39,7 +38,6 @@
                 <div *ngIf="email.errors.email">Email must be a valid email address</div>
               </div>
             </div>
-
             <div class="form-group">
               <label for="mobile">Mobile Number</label>
               <input type="number" class="form-control" name="mobile" [(ngModel)]="committeeMember.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
@@ -51,25 +49,24 @@
                 <div *ngIf="mobile.errors.maxlength">Mobile Number must be not more than 10 digits</div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6">
             <div class="form-group">
-              <label for="designation">Age</label>
-              <input type="number" class="form-control" name="designation" [(ngModel)]="committeeMember.designation" #designation="ngModel"
-                [disabled]="isView" />
+              <label for="age">Age</label>
+              <input type="number" class="form-control" name="age" [(ngModel)]="committeeMember.age" #age="ngModel" [ngClass]="{ 'is-invalid': f.submitted && age.invalid }"
+                [disabled]="isView" required />
+              <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
+                <div *ngIf="age.errors.required">Age is required</div>
+              </div>
             </div>
             <div class="form-group">
               <label for="gender">Gender</label>
-              <select class="input " name="gender" [(ngModel)]="committeeMember.gender" #gender="ngModel" >
+              <select class="input " name="gender" [(ngModel)]="committeeMember.gender" #gender="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gender.invalid }"
+                [disabled]="isView" required>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" name="address" [(ngModel)]="committeeMember.address" #address="ngModel" [disabled]= "isView" />
+              <div *ngIf="f.submitted && gender.invalid" class="invalid-feedback">
+                <div *ngIf="gender.errors.required">Gender is required</div>
+              </div>
             </div>
             <div class="form-group">
               <label for="adharNumber">Adhar Number</label>
@@ -77,7 +74,8 @@
                 [disabled]="isView" />
             </div>
           </div>
-          <div class="col-sm-6">
+
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="houseNo">House No </label>
               <input type="text" class="form-control" name="houseNo" [(ngModel)]="committeeMember.houseNo" #houseNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && houseNo.invalid }"
@@ -92,8 +90,6 @@
               <input type="text" class="form-control" name="landMark" [(ngModel)]="committeeMember.landMark" #landMark="ngModel" [disabled]="isView"
               />
             </div>
-          </div>
-          <div class="col-sm-6">
             <div class="form-group">
               <label for="street">Street</label>
               <input type="text" class="form-control" name="street" [(ngModel)]="committeeMember.street" #street="ngModel" [disabled]="isView"
@@ -104,59 +100,84 @@
               <input type="text" class="form-control" name="postOffice" [(ngModel)]="committeeMember.postOffice" #postOffice="ngModel"
                 [disabled]="isView" />
             </div>
-          </div>
-          <div class="col-sm-6">
             <div class="form-group">
-              <label for="mandal">Mandal</label>
-              <input type="text" class="form-control" name="mandal" [(ngModel)]="committeeMember.mandal" #mandal="ngModel" [disabled]="isView"
-              />
-            </div>
-            <div class="form-group">
-              <label for="district">District</label>
-              <input type="text" class="form-control" name="district" [(ngModel)]="committeeMember.district" #district="ngModel" [disabled]="isView"
-              />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="city">City </label>
+              <label for="postOffice">City</label>
               <input type="text" class="form-control" name="city" [(ngModel)]="committeeMember.city" #city="ngModel" [disabled]="isView"
               />
             </div>
             <div class="form-group">
-              <label for="state">state</label>
+              <label for="mandal">Mandal</label>
+              <input type="text" class="form-control" name="mandal" [(ngModel)]="committeeMember.mandal" #mandal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mandal.invalid }"
+                required mandal minlength="3" [disabled]="isView" />
+              <div *ngIf="f.submitted && mandal.invalid" class="invalid-feedback">
+                <div *ngIf="mandal.errors.required">Mandal is required</div>
+                <div *ngIf="mandal.errors.minlength">Mandal must be at least 3 characters</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="district">District</label>
+              <input type="text" class="form-control" name="district" [(ngModel)]="committeeMember.district" #district="ngModel" [ngClass]="{ 'is-invalid': f.submitted && district.invalid }"
+                required district minlength="3" [disabled]="isView" />
+              <div *ngIf="f.submitted && district.invalid" class="invalid-feedback">
+                <div *ngIf="district.errors.required">District is required</div>
+                <div *ngIf="district.errors.minlength">District must be at least 3 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
               <input type="text" class="form-control" name="state" [(ngModel)]="committeeMember.state" #state="ngModel" [disabled]="isView"
               />
             </div>
-          </div>
-          <div class="col-sm-6">
             <div class="form-group">
               <label for="country">Country</label>
               <input type="text" class="form-control" name="country" [(ngModel)]="committeeMember.country" #country="ngModel" [disabled]="isView"
               />
             </div>
             <div class="form-group">
-              <label for="fromDate">From Date</label>
-              <input type="date" class="form-control" name="fromDate" [(ngModel)]="committeeMember.fromDate" #fromDate="ngModel" [disabled]="isView"
-              />
+              <label for="designation">Designation</label>
+              <select class="input " name="designation" [(ngModel)]="committeeMember.designation" #designation="ngModel" [disabled]="isView">
+                <option value="Member">Member</option>
+                <option value="President">President</option>
+                <option value="Director">Director</option>
+              </select>
             </div>
-          </div>
-          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="fromDate">From Date</label>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker1" class="form-control" name="fromDate" [(ngModel)]="committeeMember.fromDate" #fromDate="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && fromDate.invalid }" required fromDate [disabled]="isView" />
+                <div *ngIf="f.submitted && fromDate.invalid" class="invalid-feedback">
+                  <div *ngIf="fromDate.errors.required">FromDate is required</div>
+                </div>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
             <div class="form-group">
               <label for="thruDate">Thru Date</label>
-              <input type="date" class="form-control" name="thruDate" [(ngModel)]="committeeMember.thruDate" #thruDate="ngModel" [disabled]="isView"
-              />
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker2" class="form-control" name="thruDate" [(ngModel)]="committeeMember.thruDate" #thruDate="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && thruDate.invalid }" required thruDate [disabled]="isView" />
+                <div *ngIf="f.submitted && thruDate.invalid" class="invalid-feedback">
+                  <div *ngIf="thruDate.errors.required">ThruDate is required</div>
+                </div>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
             </div>
             <div class="form-group">
               <label for="photo">Photo</label>
-              <input type="text" class="form-control" name="photo" [(ngModel)]="committeeMember.photo" #fromDate="ngModel" [disabled]="isView"
+              <input type="file" (change)="selectFile($event)" style="margin-left: 40px;" [(ngModel)]="committeeMember.photo" [disabled]="isView"
               />
             </div>
           </div>
-          <div class="form-group">
-            <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
-            <button class="btn btn-primary" *ngIf="isView" (click)="editCommitteeMember()">Edit</button>
-          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" *ngIf="!isView" type="submit">{{!isUpdate? "Save": "Update"}}</button>
+          <button class="btn btn-primary" *ngIf="isView" (click)="editCommitteeMember()">Edit</button>
         </div>
       </form>
     </div>

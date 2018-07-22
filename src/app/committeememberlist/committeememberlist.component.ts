@@ -36,6 +36,7 @@ export class CommitteememberlistComponent implements OnInit {
 
   addCommitteeMembers(): void {
     localStorage.removeItem("committeeMember");
+    localStorage.setItem("isView", 'false');
     this.router.navigate(['committeeMember']);
   };
 

@@ -11,14 +11,25 @@ export class CommitteeMember {
 
     surName:String;
     lastName: String;
-    designation: String;
-    emailId:String;
-    address:String;
-    mobileNumber:number;
+    email:String;
+    mobile:number;
+    age:number;
     gender:String;
-    adharNumber:number;
-    fromDate:Date;
-    thruDate:Date;
+
+    adharNumber:String;
+    houseNumber:String;
+    landMark:String;
+    street:String;
+    postOffice:String;
+    city:String;
+    mandal:String;
+    district:String;
+    state:String;
+    country:String;
+
+    designation: String;
+    fromDate:String;
+    thruDate:String;
     photo:String;
     
 }
