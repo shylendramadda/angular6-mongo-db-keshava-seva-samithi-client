@@ -10,32 +10,32 @@
       <thead>
         <tr>
           <th class="hidden">Id</th>
-          <th>Surname</th>
+          <!-- <th>Surname</th> -->
           <th>Name</th>
-          <th>Email</th>
+          <!-- <th>Email</th> -->
           <th>Mobile</th>
           <th>Designation</th>
-          <th>Address</th>
+          <!-- <th>Address</th>
           <th>Gender</th>
           <th>AdharNumber</th>
           <th>fromDate</th>
-          <th>thruDate</th>
-          <th>Photo</th>
+          <th>thruDate</th> 
+          <th>Photo</th>-->
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let committeeMember of committeeMembers">
           <td>{{committeeMember.id}}</td>
-          <td>{{committeeMember.surname}}</td>
           <td>{{committeeMember.lastName}}</td>
-          <td>{{committeeMember.email}}</td>
+          <!-- <td>{{committeeMember.surName}}</td>
+          <td>{{committeeMember.email}}</td> -->
           <td>{{committeeMember.mobile}}</td>
           <td>{{committeeMember.designatio}}</td>
-          <td>{{committeeMember.address}}</td>
+          <!-- <td>{{committeeMember.address}}</td>
           <td>{{committeeMember.gender}}</td>
           <td>{{committeeMember.fromDate}}</td>
           <td>{{committeeMember.thruDate}}</td>
-          <td>{{committeeMember.photo}}</td>
+          <td>{{committeeMember.photo}}</td> -->
           <td>
             <button class="btn btn-primary" (click)="editCommitteeMember(committeeMember,'true')"> View</button>
             <button class="btn btn-primary" (click)="editCommitteeMember(committeeMember,'false')" style="margin-left: 10px;"> Edit</button>

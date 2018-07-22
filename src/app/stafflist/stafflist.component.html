@@ -10,32 +10,32 @@
       <thead>
         <tr>
           <th class="hidden">Id</th>
-          <th>Surname</th>
+          <!-- <th>Surname</th> -->
           <th>Name</th>
-          <th>Email</th>
-          <th>Mobile</th>
+          <!-- <th>Email</th>-->
+          <th>Mobile</th> 
           <th>Designation</th>
-          <th>Address</th>
+          <!-- <th>Address</th>
           <th>Gender</th>
           <th>AdharNumber</th>
           <th>fromDate</th>
           <th>thruDate</th>
-          <th>Photo</th>
+          <th>Photo</th> -->
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let staff of staffs">
           <td>{{staff.id}}</td>
-          <td>{{staff.surname}}</td>
+          <!-- <td>{{staff.surname}}</td> -->
           <td>{{staff.lastName}}</td>
-          <td>{{staff.email}}</td>
+          <!-- <td>{{staff.email}}</td> -->
           <td>{{staff.mobile}}</td>
           <td>{{staff.designatio}}</td>
-          <td>{{staff.address}}</td>
+          <!-- <td>{{staff.address}}</td>
           <td>{{staff.gender}}</td>
           <td>{{staff.fromDate}}</td>
           <td>{{staff.thruDate}}</td>
-          <td>{{staff.photo}}</td>
+          <td>{{staff.photo}}</td> -->
           <td>
             <button class="btn btn-primary" (click)="editStaff(staff,'true')"> View</button>
             <button class="btn btn-primary" (click)="editStaff(staff,'false')" style="margin-left: 10px;"> Edit</button>
