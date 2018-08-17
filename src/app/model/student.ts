@@ -11,7 +11,7 @@ export class Student {
 
     admissionNumber: String;
     sname: String;
-    dateOfBirth: Date;
+    dateOfBirth: String;
     age: String;
     caste: String;
     orphan: String;
@@ -29,7 +29,7 @@ export class Student {
     motherOccupation: String;
     fatherAdharNumber: String;
     fatherOccupation: String;
-    motherDeathDate: Date;
+    motherDeathDate: String;
     motherPlaceOfDeath: String;
     fatherDeathDate: Date;
     fatherPlaceOfDeath: String;
@@ -40,7 +40,6 @@ export class Student {
     gaurdianEmailId: String;
     gaurdianPresentAddress: String;
     gaurdianPermanentAddress: String;
-    attachments: String;
     photo: String;
 
 }

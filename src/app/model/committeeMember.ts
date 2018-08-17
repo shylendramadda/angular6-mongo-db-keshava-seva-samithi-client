@@ -12,8 +12,8 @@ export class CommitteeMember {
     surName:String;
     lastName: String;
     email:String;
-    mobile:number;
-    age:number;
+    mobile:String;
+    age:String;
     gender:String;
 
     adharNumber:String;

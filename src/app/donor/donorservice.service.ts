@@ -27,7 +27,7 @@ export class DonorService {
           this.location.back();
         } else {
           if (data.json().message == "Donor already exists") {
-            alert(data.json().message + ' Donor already exist with this matching data. Go and search by surname or mobile number or email.');
+            alert(data.json().message);
             localStorage.setItem("donor", JSON.stringify(data.json().entity));
             localStorage.setItem("isView", 'true');
             this.router.navigate(['donor']);

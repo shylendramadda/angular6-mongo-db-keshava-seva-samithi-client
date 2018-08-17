@@ -4,6 +4,7 @@ import { Student } from '../model/student';
 import { Location } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { isUndefined } from 'util';
+import { ImageFile } from '../model/ImageFile';
 
 @Component({
   selector: 'app-add-student',
@@ -15,6 +16,9 @@ export class AddStudentComponent implements OnInit {
   submitted = false;
   isUpdate = false;
   isView = JSON.parse(localStorage.getItem("isView"));
+  image: ImageFile;
+  currentFileUpload: File;
+
 
   constructor(private studentService: StudentService, private location: Location) {
     this.student = new Student();
@@ -37,11 +41,12 @@ export class AddStudentComponent implements OnInit {
   }
 
   save(): void {
-    alert("sadkjl");
+    this.student.frmDate = this.convertDateToString(this.student.frmDate);
     this.studentService.saveStudent(this.student)
   }
 
   update(): void {
+    this.student.frmDate = this.convertDateToString(this.student.frmDate);
     this.studentService.updateStudent(this.student)
   }
 editStudent() {
@@ -59,5 +64,20 @@ editStudent() {
   goBack(): void {
     this.location.back();
   }
+  convertDateToString(str) {
+    var date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join("-");
+  }
 
+  selectFile(event) {
+    const file = event.target.files.item(0);
+    if (file.type.match('image.*')) {
+      this.currentFileUpload = event.target.files.item(0);
+      this.studentService.photo = this.currentFileUpload;
+    } else {
+      alert('invalid format!');
+    }
+  }
 }

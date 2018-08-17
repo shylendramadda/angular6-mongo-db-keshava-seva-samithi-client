@@ -11,13 +11,13 @@
           <a routerLink="/home">Home</a>
           <a routerLink="/aboutUs">About Us</a>
           <a routerLink="/vatsalyaSindhu">Activities</a>
-          <a routerLink="/images">Images</a>
-          <a routerLink="/videos">Videos</a>
-          <!-- <button mat-button [matMenuTriggerFor]="menu">Gallery</button>
-          <mat-menu #menu="/home">
-            <button mat-menu-item (click)="getImages()">Images</button>
-            <button mat-menu-item (click)="getVideos()">Videos</button>
-          </mat-menu> -->
+          <!-- <a routerLink="/images">Images</a>
+          <a routerLink="/videos">Videos</a> -->
+          <button mat-button [matMenuTriggerFor]="Gallary">Gallary</button>
+          <mat-menu #Gallary="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item [routerLink] ="['/images']">Images</button>
+            <button mat-menu-item [routerLink] ="['/videos']">Videos</button>
+          </mat-menu>
           <a routerLink="/contactUs">Contact Us</a>
           <a routerLink="/donate">Donate</a>
           <a routerLink="/login">Login</a>

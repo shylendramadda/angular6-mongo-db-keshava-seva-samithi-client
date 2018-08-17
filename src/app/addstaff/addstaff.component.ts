@@ -13,20 +13,14 @@ import { ImageUploadServiceService } from '../add-image/image-upload-service.ser
 })
 export class AddstaffComponent implements OnInit {
   staff: any = {};
-  submitted = false;
   isUpdate = false;
+  submitted = false;
   isView = JSON.parse(localStorage.getItem("isView"));
-
   image: ImageFile;
-  description: string;
-  selectedFiles: FileList;
   currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };
 
-
-  constructor(private uploadService: ImageUploadServiceService,private staffService: StaffService, private location: Location) {
+  constructor(private staffService: StaffService, private location: Location) {
     this.staff = new Staff();
-    this.image = new ImageFile();
   }
 
   ngOnInit() {
@@ -39,43 +33,21 @@ export class AddstaffComponent implements OnInit {
       this.staff = staff;
       this.isUpdate = true;
     }
-    let image = JSON.parse(localStorage.getItem("image"));
-    if (isUndefined(image) || image == null) {
-      this.image = new ImageFile();
-    } else {
-      this.image = image;
-    }
   }
-  selectFile(event) {
-    const file = event.target.files.item(0);
-
-    if (file.type.match('image.*')) {
-      this.selectedFiles= event.target.files;
-      // this.currentFileUpload = this.selectedFiles.item(0);
-      this.staff.photoFile = this.selectedFiles.item(0);
-    } else {
-      alert('invalid format!');
-    }
-  }
-
-  upload() {
-    this.progress.percentage = 0;
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload, this.description);
-    this.progress.percentage = 100;
-    this.selectedFiles = undefined;
-  }
-
+  
+  
   newUser(): void {
-    this.submitted = false;
+  //  this.submitted = false;
     this.staff = new Staff();
   }
 
   save(): void {
+    this.staff.frmDate = this.convertDateToString(this.staff.frmDate);
     this.staffService.saveStaff(this.staff)
   }
 
   update(): void {
+    this.staff.frmDate = this.convertDateToString(this.staff.frmDate);
     this.staffService.updateStaff(this.staff)
   }
   editStaff() {
@@ -92,6 +64,22 @@ export class AddstaffComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+  convertDateToString(str) {
+    var date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join("-");
+  }
+
+  selectFile(event) {
+    const file = event.target.files.item(0);
+    if (file.type.match('image.*')) {
+      this.currentFileUpload = event.target.files.item(0);
+      this.staffService.photo = this.currentFileUpload;
+    } else {
+      alert('invalid format!');
+    }
   }
 
 }

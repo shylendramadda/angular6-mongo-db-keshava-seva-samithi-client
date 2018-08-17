@@ -24,9 +24,9 @@ export class Donor {
     postOffice: String;
     eventOf: String;
     eventDate: String;
-    amountFor: number;
+    amountFor: String;
     paymentType: String;
     amount: String;
-    pincode: number;
+    pincode: String;
 
 }

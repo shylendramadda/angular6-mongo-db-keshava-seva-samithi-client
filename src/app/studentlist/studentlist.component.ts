@@ -4,6 +4,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Student } from '../model/student';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { NgProgress } from '../../../node_modules/@ngx-progressbar/core';
 
 @Component({
   selector: 'app-studentlist',
@@ -14,16 +15,24 @@ export class StudentlistComponent implements OnInit {
   student: Student;
   students: Student[];
 
-  constructor(private studentlistService: StudentListService, private router: Router, private location: Location) { }
+  constructor(private studentlistService: StudentListService, private router: Router, private location: Location,
+    public ngProgress: NgProgress) { }
 
   ngOnInit() {
+    this.ngProgress.start();
     this.getStudents();
   }
 
-  getStudents() {
+    getStudents() {
     this.studentlistService.getStudents()
       .subscribe(data => {
-        this.students = data;
+        if (data != null && data.length != 0) {
+          this.students = data;
+          this.ngProgress.complete();
+        } else {
+          this.ngProgress.complete();
+          alert('No Students found. Click on add to register a donor');
+        }
         console.log(data);
       });
   }
@@ -59,4 +68,23 @@ export class StudentlistComponent implements OnInit {
     }
   }
 
+  searchDonor(inputString: string): void {
+    if (inputString != null && inputString) {
+      this.studentlistService.getStudentByInput(inputString)
+        .subscribe(data => {
+          console.log(data);
+          if (data != null && data.length != 0) {
+            this.students = data;
+          } else {
+            alert('No student found with given type');
+          }
+        });
+    } else {
+      alert('Please enter some text');
+    }
+  }
+
+  downloadPdf() {
+    this.studentlistService.downloadPdf();
+  }
 }

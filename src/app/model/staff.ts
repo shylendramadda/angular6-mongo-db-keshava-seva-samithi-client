@@ -14,6 +14,7 @@ export class Staff {
     designation: String;
     emailId:String;
     mobileNumber:String;
+    age:String;
     gender:String;
     country: String;
     state: String;
@@ -25,10 +26,9 @@ export class Staff {
     city: String;
     postOffice: String;
     adharNumber:String;
-    fromDate:Date;
-    thruDate:Date;
+    fromDate:String;
+    thruDate:String;
     photo:String;
-    photoFile:File;
 
 
     

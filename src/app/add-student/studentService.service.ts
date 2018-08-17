@@ -14,7 +14,7 @@ let options = new RequestOptions({ headers: headers });
 })
 
 export class StudentService {
-
+  photo: File;
   private student_url = 'http://localhost:8080/api/student';  // URL to web API
   constructor(private http: Http, private router: Router, private location: Location) { }
 
@@ -37,6 +37,23 @@ export class StudentService {
         console.log(data);
         if (data.json().code == 200) {
           alert(data.json().message);
+          this.location.back();
+        } else {
+          alert(data.json().message + ' Error code: ' + data.json().code);
+        }
+      });
+  }
+  uploadPhoto(studentId: any) {
+    
+    let formData: FormData = new FormData();
+    formData.append('file', this.photo, this.photo.name);
+    formData.append('studentId', studentId);
+
+    this.http.post(this.student_url + '/upload', formData, options)
+      .subscribe(data => {
+        console.log(data);
+        if (data.json().code == 200) {
+          alert('student member and ' + data.json().message);
           this.location.back();
         } else {
           alert(data.json().message + ' Error code: ' + data.json().code);

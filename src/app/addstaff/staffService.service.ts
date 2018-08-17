@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Staff } from '../model/staff';
 
-let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+let headers = new Headers();
+headers.append('enctype', 'multipart/form-data');
+headers.append('Accept', 'application/json');
+//let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
 let options = new RequestOptions({ headers: headers });
 
 @Injectable({
@@ -13,20 +16,23 @@ let options = new RequestOptions({ headers: headers });
 })
 
 export class StaffService {
-
+  photo: File;
   private staff_url = 'http://localhost:8080/api/staff';  // URL to web API
   constructor(private http: Http, private router: Router, private location: Location) { }
 
   saveStaff(staff: Staff) {
-    // let formData: FormData = new FormData();
-    // formData.append('file', staff.photoFile);
 
-    return this.http.post(this.staff_url, staff,options)
+    return this.http.post(this.staff_url, staff, options)
       .subscribe(data => {
         console.log(data);
+
         if (data.json().code == 200) {
-          alert(data.json().message);
-          this.location.back();
+          if (this.photo != null) {
+            this.uploadPhoto(data.json().entity.uid);
+          } else {
+            alert(data.json().message);
+            this.location.back();
+          }
         } else {
           alert(data.json().message + ' Error code: ' + data.json().code);
         }
@@ -38,7 +44,29 @@ export class StaffService {
       .subscribe(data => {
         console.log(data);
         if (data.json().code == 200) {
-          alert(data.json().message);
+          if (this.photo != null) {
+            this.uploadPhoto(data.json().entity.uid);
+          } else {
+            alert(data.json().message);
+            this.location.back();
+          }
+        } else {
+          alert(data.json().message + ' Error code: ' + data.json().code);
+        }
+      });
+  }
+
+  uploadPhoto(staffId: any) {
+    
+    let formData: FormData = new FormData();
+    formData.append('file', this.photo, this.photo.name);
+    formData.append('staffId', staffId);
+
+    this.http.post(this.staff_url + '/upload', formData, options)
+      .subscribe(data => {
+        console.log(data);
+        if (data.json().code == 200) {
+          alert('Staff member and ' + data.json().message);
           this.location.back();
         } else {
           alert(data.json().message + ' Error code: ' + data.json().code);

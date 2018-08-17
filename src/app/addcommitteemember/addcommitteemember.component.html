@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
               <label for="mobile">Mobile Number</label>
-              <input type="number" class="form-control" name="mobile" [(ngModel)]="committeeMember.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+              <input type="text" class="form-control" name="mobile" [(ngModel)]="committeeMember.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
                 required mobile minlength="10" maxlength="10" [disabled]="isView" />
               <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
                 <div *ngIf="mobile.errors.required">Mobile Number is required</div>
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
               <label for="age">Age</label>
-              <input type="number" class="form-control" name="age" [(ngModel)]="committeeMember.age" #age="ngModel" [ngClass]="{ 'is-invalid': f.submitted && age.invalid }"
+              <input type="text" class="form-control" name="age" [(ngModel)]="committeeMember.age" #age="ngModel" [ngClass]="{ 'is-invalid': f.submitted && age.invalid }"
                 [disabled]="isView" required />
               <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
                 <div *ngIf="age.errors.required">Age is required</div>
@@ -59,14 +59,8 @@
             </div>
             <div class="form-group">
               <label for="gender">Gender</label>
-              <select class="input " name="gender" [(ngModel)]="committeeMember.gender" #gender="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gender.invalid }"
-                [disabled]="isView" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-              <div *ngIf="f.submitted && gender.invalid" class="invalid-feedback">
-                <div *ngIf="gender.errors.required">Gender is required</div>
-              </div>
+              <input type="radio" value="male" name="gender" [ngModel]="committeeMember.gender" required #gender="ngModel"> Male
+                <input type="radio" value="female" name="gender" [ngModel]="committeeMember.gender" required #gender="ngModel"> Female
             </div>
             <div class="form-group">
               <label for="adharNumber">Adhar Number</label>
@@ -147,25 +141,25 @@
             <div class="form-group">
               <label for="fromDate">From Date</label>
               <mat-form-field>
-                <input matInput [matDatepicker]="picker1" class="form-control" name="fromDate" [(ngModel)]="committeeMember.fromDate" #fromDate="ngModel"
+                <input matInput [matDatepicker]="picker5" class="form-control" name="fromDate" [(ngModel)]="committeeMember.fromDate" #fromDate="ngModel"
                   [ngClass]="{ 'is-invalid': f.submitted && fromDate.invalid }" required fromDate [disabled]="isView" />
                 <div *ngIf="f.submitted && fromDate.invalid" class="invalid-feedback">
                   <div *ngIf="fromDate.errors.required">FromDate is required</div>
                 </div>
-                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                <mat-datepicker #picker1></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                <mat-datepicker #picker5></mat-datepicker>
               </mat-form-field>
             </div>
             <div class="form-group">
               <label for="thruDate">Thru Date</label>
               <mat-form-field>
-                <input matInput [matDatepicker]="picker2" class="form-control" name="thruDate" [(ngModel)]="committeeMember.thruDate" #thruDate="ngModel"
+                <input matInput [matDatepicker]="picker6" class="form-control" name="thruDate" [(ngModel)]="committeeMember.thruDate" #thruDate="ngModel"
                   [ngClass]="{ 'is-invalid': f.submitted && thruDate.invalid }" required thruDate [disabled]="isView" />
                 <div *ngIf="f.submitted && thruDate.invalid" class="invalid-feedback">
                   <div *ngIf="thruDate.errors.required">ThruDate is required</div>
                 </div>
-                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                <mat-datepicker #picker6></mat-datepicker>
               </mat-form-field>
             </div>
             <div class="form-group">

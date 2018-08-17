@@ -6,43 +6,25 @@
     <button class="btn btn-primary" (click)="addStudents()" style="margin-left: 20px;"> Add Student</button>
     <br>
     <br>
+    <ng-progress></ng-progress>
+    <div class="row">
+      Search Student: 
+      <input type="text" class="form-control" name="searchText" placeholder="Search by surname, name"
+        [(ngModel)]="searchText">
+    </div>
+    <br>
+    <p>(Hint: While typing if you not a found Student click on search button to get from all Students)</p>
+      <button class="btn btn-primary" (click)="searchStudent(searchText)">Search</button>
+      <button class="btn btn-primary" (click)="downloadPdf()" style="margin-left: 20px">Download PDF</button>
+  <br>
+  <br>
     <table class="table table-striped">
       <thead>
         <tr>
           <th class="hidden">Id</th>
           <th>Name</th>
           <th>Admission Number</th>
-          <!-- <th>dateOfBirth</th>
-          <th>age</th>
-          <th>caste</th>
-          <th>orphan</th>
-          <th>Gender</th> -->
           <th>education</th>
-          <!-- <th>class</th> -->
-          <!-- <th>schoolAddress</th>
-          <th>adharNumber</th>
-          <th>mobileNumber</th>
-          <th>presentAddress</th>
-          <th>permanentAddress</th>
-          <th>motherName</th>
-          <th>fatherName</th>
-          <th>motherAdharNumber</th>
-          <th>motherOccupation</th>
-          <th>fatherAdharNumber</th>
-          <th>fatherOccupation</th>
-          <th>motherDeathDate</th>
-          <th>motherPlaceOfDeath</th>
-          <th>fatherDeathDate</th>
-          <th>fatherPlaceOfDeath</th>
-          <th>gaurdianName</th>
-          <th>gaurdianAdharNumer</th>
-          <th>gaurdianOccupation</th>
-          <th>gaurdianMobileNumber</th>
-          <th>gaurdianEmailId</th>
-          <th>gaurdianPresentAddress</th>
-          <th>gaurdianPermanentAddress</th>
-          <th>attachments</th>
-          <th>photo</th> -->
         </tr>
       </thead>
       <tbody>
@@ -50,37 +32,7 @@
           <td>{{student.id}}</td>
           <td>{{student.sname}}</td>
           <td>{{student.admissionNumber}}</td>
-          <!-- <td>{{student.dateOfBirth}}</td>
-          <td>{{student.age}}</td>
-          <td>{{student.caste}}</td>
-          <td>{{student.orphan}}</td>
-          <td>{{student.gender}}</td> -->
           <td>{{student.education}}</td>
-          <!-- <td>{{student.class}}</td>
-          <td>{{student.schoolAddress}}</td>
-          <td>{{student.adharNumber}}</td>
-          <td>{{student.mobileNumber}}</td>
-          <td>{{student.presentAddress}}</td>
-          <td>{{student.permanentAddress}}</td>
-          <td>{{student.motherName}}</td>
-          <td>{{student.fatherName}}</td>
-          <td>{{student.motherAdharNumber}}</td>
-          <td>{{student.motherOccupation}}</td>
-          <td>{{student.fatherAdharNumber}}</td>
-          <td>{{student.fatherOccupation}}</td>
-          <td>{{student.motherDeathDate}}</td>
-          <td>{{student.motherPlaceOfDeath}}</td>
-          <td>{{student.fatherDeathDate}}</td>
-          <td>{{student.fatherPlaceOfDeath}}</td>
-          <td>{{student.gaurdianName}}</td>
-          <td>{{student.gaurdianAdharNumer}}</td>
-          <td>{{student.gaurdianOccupation}}</td>
-          <td>{{student.gaurdianMobileNumber}}</td>
-          <td>{{student.gaurdianEmailId}}</td>
-          <td>{{student.gaurdianPresentAddress}}</td>
-          <td>{{student.gaurdianPermanentAddress}}</td>
-          <td>{{student.attachments}}</td>
-          <td>{{student.photo}}</td> -->
           <td>
             <button class="btn btn-primary" (click)="editStudent(student,'true')"> View</button>
             <button class="btn btn-primary" (click)="editStudent(student,'false')" style="margin-left: 10px;"> Edit</button>

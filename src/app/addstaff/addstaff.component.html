@@ -4,14 +4,15 @@
     <br>
     <br>
     <h4>Staff Registration</h4>
-    <div [hidden]="submitted">
+    <div>
       <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="col-sm-10">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="surName">Surname</label>
-                <input type="text" class="form-control" name="surName" [(ngModel)]="staff.surName" #surName="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="surName" [(ngModel)]="staff.surName" #surName="ngModel" [disabled]="isView"
+                />
                 <!-- <div *ngIf="f.submitted && surName.invalid" class="invalid-feedback">
                 <div *ngIf="surName.errors.required">surName is required</div>
                 <div *ngIf="surName.errors.surName">surName must be a valid one</div>
@@ -21,64 +22,69 @@
               <div class="form-group">
                 <label for="lastName">Name</label>
                 <input type="text" class="form-control" name="lastName" [(ngModel)]="staff.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
-                  required lastName minlength="3"  [disabled]="isView"/>
-                <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                  required lastName minlength="3" [disabled]="isView" />
+                <!-- <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
                   <div *ngIf="lastName.errors.required">Name is required</div>
                   <div *ngIf="lastName.errors.lastName">Name must be a valid one</div>
                   <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters</div>
+                </div> -->
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="emailId">Email</label>
+                <input type="text" class="form-control" name="emailId" [(ngModel)]="staff.emailId" #emailId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                  required email [disabled]="isView" />
+                <div *ngIf="f.submitted && emailId.invalid" class="invalid-feedback">
+                  <div *ngIf="emailId.errors.required">Email is required</div>
+                  <div *ngIf="emailId.errors.emailId">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="text">Mobile Number</label>
+                <input type="text" class="form-control" name="mobileNumber" [(ngModel)]="staff.mobileNumber" #mobileNumber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+                  required mobile minlength="10" maxlength="10" [disabled]="isView" />
+                <div *ngIf="f.submitted && mobileNumber.invalid" class="invalid-feedback">
+                  <div *ngIf="mobileNumber.errors.required">Mobile Number is required</div>
+                  <div *ngIf="mobileNumber.errors.mobile">Mobile Number must be a valid one</div>
+                  <div *ngIf="mobileNumber.errors.minlength">Mobile Number must be at least 10 digits</div>
+                  <div *ngIf="mobileNumber.errors.maxlength">Mobile Number must be not more than 10 digits</div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" name="email" [(ngModel)]="staff.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-                  required email  [disabled]="isView"/>
-                <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                  <div *ngIf="email.errors.required">Email is required</div>
-                  <div *ngIf="email.errors.email">Email must be a valid email address</div>
-                </div>
+                <label for="age">Age</label>
+                <input type="text" class="form-control" name="age" [(ngModel)]="staff.age" #age="ngModel" [disabled]="isView" />
               </div>
               <div class="form-group">
-                <label for="mobile">Mobile Number</label>
-                <input type="number" class="form-control" name="mobile" [(ngModel)]="staff.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
-                  required mobile minlength="10" maxlength="10"  [disabled]="isView"/>
-                <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
-                  <div *ngIf="mobile.errors.required">Mobile Number is required</div>
-                  <div *ngIf="mobile.errors.mobile">Mobile Number must be a valid one</div>
-                  <div *ngIf="mobile.errors.minlength">Mobile Number must be at least 10 digits</div>
-                  <div *ngIf="mobile.errors.maxlength">Mobile Number must be not more than 10 digits</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="designation">Age</label>
-                <input type="number" class="form-control" name="designation" [(ngModel)]="staff.designation" #designation="ngModel"  [disabled]="isView"/>
+                <label for="designation">Designation</label>
+                <input type="text" class="form-control" name="designation" [(ngModel)]="staff.designation" #designation="ngModel" [disabled]="isView"
+                />
               </div>
               <div class="form-group">
                 <label for="gender">Gender</label>
-                <select class="input " name="gender" [(ngModel)]="staff.gender" #gender="ngModel"  [disabled]="isView">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
+                <input type="radio" value="male" name="gender" [ngModel]="staff.gender" required #gender="ngModel"> Male
+                <input type="radio" value="female" name="gender" [ngModel]="staff.gender" required #gender="ngModel"> Female
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" name="address" [(ngModel)]="staff.address" #address="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="address" [(ngModel)]="staff.address" #address="ngModel" [disabled]="isView"
+                />
               </div>
               <div class="form-group">
                 <label for="adharNumber">Adhar Number</label>
-                <input type="text" class="form-control" name="adharNumber" [(ngModel)]="staff.adharNumber" #adharNumber="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="adharNumber" [(ngModel)]="staff.adharNumber" #adharNumber="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="houseNo">House No </label>
                 <input type="text" class="form-control" name="houseNo" [(ngModel)]="staff.houseNo" #houseNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && houseNo.invalid }"
-                  required houseNo  [disabled]="isView"/>
+                  required houseNo [disabled]="isView" />
                 <div *ngIf="f.submitted && houseNo.invalid" class="invalid-feedback">
                   <div *ngIf="houseNo.errors.required">HouseNo is required</div>
                   <div *ngIf="houseNo.errors.houseNo">HouseNo must be a valid HouseNo address</div>
@@ -86,70 +92,88 @@
               </div>
               <div class="form-group">
                 <label for="landMark">Land Mark</label>
-                <input type="text" class="form-control" name="landMark" [(ngModel)]="staff.landMark" #landMark="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="landMark" [(ngModel)]="staff.landMark" #landMark="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="street">Street</label>
-                <input type="text" class="form-control" name="street" [(ngModel)]="staff.street" #street="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="street" [(ngModel)]="staff.street" #street="ngModel" [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="postOffice">Post Office</label>
-                <input type="text" class="form-control" name="postOffice" [(ngModel)]="staff.postOffice" #postOffice="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="postOffice" [(ngModel)]="staff.postOffice" #postOffice="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="mandal">Mandal</label>
-                <input type="text" class="form-control" name="mandal" [(ngModel)]="staff.mandal" #mandal="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="mandal" [(ngModel)]="staff.mandal" #mandal="ngModel" [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="district">District</label>
-                <input type="text" class="form-control" name="district" [(ngModel)]="staff.district" #district="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="district" [(ngModel)]="staff.district" #district="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="city">City </label>
-                <input type="text" class="form-control" name="city" [(ngModel)]="staff.city" #city="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="city" [(ngModel)]="staff.city" #city="ngModel" [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="state">state</label>
-                <input type="text" class="form-control" name="state" [(ngModel)]="staff.state" #state="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="state" [(ngModel)]="staff.state" #state="ngModel" [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="country">Country</label>
-                <input type="text" class="form-control" name="country" [(ngModel)]="staff.country" #country="ngModel"  [disabled]="isView"/>
+                <input type="text" class="form-control" name="country" [(ngModel)]="staff.country" #country="ngModel" [disabled]="isView"
+                />
               </div>
               <div class="form-group">
                 <label for="fromDate">From Date</label>
-                <input type="date" class="form-control" name="fromDate" [(ngModel)]="staff.fromDate" #fromDate="ngModel"  [disabled]="isView"/>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker3" class="form-control" name="fromDate" [(ngModel)]="staff.fromDate" #fromDate="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && fromDate.invalid }" required fromDate [disabled]="isView" />
+                  <div *ngIf="f.submitted && fromDate.invalid" class="invalid-feedback">
+                    <div *ngIf="fromDate.errors.required">FromDate is required</div>
+                  </div>
+                  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                  <mat-datepicker #picker3></mat-datepicker>
+                </mat-form-field>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="thruDate">Thru Date</label>
-                <input type="date" class="form-control" name="thruDate" [(ngModel)]="staff.thruDate" #thruDate="ngModel"  [disabled]="isView"/>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker4" class="form-control" name="thruDate" [(ngModel)]="staff.thruDate" #thruDate="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && thruDate.invalid }" required thruDate [disabled]="isView" />
+                  <div *ngIf="f.submitted && thruDate.invalid" class="invalid-feedback">
+                    <div *ngIf="thruDate.errors.required">ThruDate is required</div>
+                  </div>
+                  <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                  <mat-datepicker #picker4></mat-datepicker>
+                </mat-form-field>
               </div>
               <div class="form-group">
-                <label for="photo">Photo</label>
-                <input type="text" class="form-control" name="photo" [(ngModel)]="staff.photo" #fromDate="ngModel"  [disabled]="isView"/>
-              </div>
-              <div class="form-group">
-                <label class="btn btn-default"> Image:
-                  <input type="file" (change)="selectFile($event)" style="margin-left: 40px;">
+                <label class="btn btn-default"> Photo:
+                  <input type="file" (change)="selectFile($event)" style="margin-left: 40px;" [(ngModel)]="staff.photo" [disabled]="isView"
+                  />
                   <!-- <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()" style="margin-left: 10px;">Upload</button> -->
                 </label>
               </div>
             </div>
-            <div class="form-group">
-              <button class="btn btn-primary" *ngIf="!isView" (click)="f.form.valid && onSubmit()">{{!isUpdate? "Save": "Update"}}</button>
-              <button class="btn btn-primary" *ngIf="isView" (click)="editStaff()">Edit</button>
-            </div>
+
           </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" *ngIf="!isView" type="submit" >{{!isUpdate? "Save": "Update"}}</button>
+          <button class="btn btn-primary" *ngIf="isView" (click)="editStaff()">Edit</button>
         </div>
       </form>
     </div>

@@ -12,7 +12,7 @@
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" name="sname" [(ngModel)]="student.sname" #sname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sname.invalid }"
-                  required sname minlength="2" [disabled]="isView"/>
+                  required sname minlength="2" [disabled]="isView" />
                 <div *ngIf="f.submitted && sname.invalid" class="invalid-feedback">
                   <div *ngIf="sname.errors.required">Name is required</div>
                   <div *ngIf="sname.errors.sname">Name must be a valid one</div>
@@ -21,7 +21,7 @@
               </div>
               <div class="form-group">
                 <label for="admissionNumber">Admission Number</label>
-                <input type="number" class="form-control" name="admissionNumber" [(ngModel)]="student.admissionNumber" #admissionNumber="ngModel"
+                <input type="text" class="form-control" name="admissionNumber" [(ngModel)]="student.admissionNumber" #admissionNumber="ngModel"
                   [ngClass]="{ 'is-invalid': f.submitted && admissionNumber.invalid }" required admissionNumber minlength="3"
                   [disabled]="isView" />
                 <div *ngIf="f.submitted && admissionNumber.invalid" class="invalid-feedback">
@@ -34,170 +34,192 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="dateOfBirth">Date Of Birth</label>
-                <input type="date" class="form-control" name="dateOfBirth" [(ngModel)]="student.dateOfBirth" #dateOfBirth="ngModel" [disabled]="isView"/>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="dateOfBirth" name="dateOfBirth" [(ngModel)]="student.dateOfBirth" #dateOfBirth="ngModel"
+                    [disabled]="isView" placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+                  <mat-datepicker #dateOfBirth></mat-datepicker>
+                </mat-form-field>
               </div>
               <div class="form-group">
                 <label for="age">Age</label>
-                <input type="number" class="form-control" name="age" [(ngModel)]="student.age" #age="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="age" [(ngModel)]="student.age" #age="ngModel" [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="caste">Caste</label>
-                <input type="text" class="form-control" name="caste" [(ngModel)]="student.age" #caste="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="caste" [(ngModel)]="student.age" #caste="ngModel" [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="orphan">Orphan/Semi Orphan</label>
-                <input type="text" class="form-control" name="orphan" [(ngModel)]="student.orphan" #orphan="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="orphan" [(ngModel)]="student.orphan" #orphan="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="gender">Gender</label>
-                <select class="input " name="gender" [(ngModel)]="student.gender" #gender="ngModel" [disabled]="isView">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
+                <label for="gender">Gender</label><br>
+                <input type="radio" value="male" name="gender" [ngModel]="student.gender" required #gender="ngModel"> Male
+                <input type="radio" value="female" name="gender" [ngModel]="student.gender" required #gender="ngModel"> Female
               </div>
               <div class="form-group">
                 <label for="education">Education</label>
-                <input type="text" class="form-control" name="education" [(ngModel)]="student.education" #education="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="education" [(ngModel)]="student.education" #education="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="class">Class</label>
-                <input type="text" class="form-control" name="class" [(ngModel)]="student.class" #class="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="class" [(ngModel)]="student.class" #class="ngModel" [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="schoolAddress">School Address</label>
-                <input type="text" class="form-control" name="schoolAddress" [(ngModel)]="student.schoolAddress" #schoolAddress="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="schoolAddress" [(ngModel)]="student.schoolAddress" #schoolAddress="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="adharNumber">Adhar Number</label>
-                <input type="text" class="form-control" name="adharNumber" [(ngModel)]="student.adharNumber" #adharNumber="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="adharNumber" [(ngModel)]="student.adharNumber" #adharNumber="ngModel" [disabled]="isView"
+                />
               </div>
               <div class="form-group">
                 <label for="mobileNumber">Mobile Number</label>
-                <input type="text" class="form-control" name="mobileNumber" [(ngModel)]="student.mobileNumber" #mobileNumber="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="mobileNumber" [(ngModel)]="student.mobileNumber" #mobileNumber="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="permanentNumber">Permanent Address</label>
-                <input type="text" class="form-control" name="permanentNumber" [(ngModel)]="student.permanentNumber" #permanentNumber="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="permanentNumber" [(ngModel)]="student.permanentNumber" #permanentNumber="ngModel"
+                  [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="prasentAddress">Prasent Address</label>
-                <input type="text" class="form-control" name="prasentAddress" [(ngModel)]="student.prasentAddress" #prasentAddress="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="prasentAddress" [(ngModel)]="student.prasentAddress" #prasentAddress="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="motherName">Mother Name</label>
-                <input type="text" class="form-control" name="motherName" [(ngModel)]="student.motherName" #motherName="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="motherName" [(ngModel)]="student.motherName" #motherName="ngModel" [disabled]="isView"
+                />
               </div>
               <div class="form-group">
                 <label for="fatherName">Father Name</label>
-                <input type="text" class="form-control" name="fatherName" [(ngModel)]="student.fatherName" #fatherName="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="fatherName" [(ngModel)]="student.fatherName" #fatherName="ngModel" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="motherAdharNumber">Mother Adhar Number</label>
-                <input type="text" class="form-control" name="motherAdharNumber" [(ngModel)]="student.motherAdharNumber" #motherAdharNumber="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="motherAdharNumber" [(ngModel)]="student.motherAdharNumber" #motherAdharNumber="ngModel"
+                  [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="motherOccupation">Mother Occupation</label>
-                <input type="text" class="form-control" name="motherOccupation" [(ngModel)]="student.motherOccupation" #motherOccupation="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="motherOccupation" [(ngModel)]="student.motherOccupation" #motherOccupation="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="fatherAdharNumber">Father Adhar Number</label>
-                <input type="text" class="form-control" name="fatherAdharNumber" [(ngModel)]="student.fatherAdharNumber" #fatherAdharNumber="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="fatherAdharNumber" [(ngModel)]="student.fatherAdharNumber" #fatherAdharNumber="ngModel"
+                  [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="fatherOccupation">Father Occupation</label>
-                <input type="text" class="form-control" name="fatherOccupation" [(ngModel)]="student.fatherOccupation" #fatherOccupation="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="fatherOccupation" [(ngModel)]="student.fatherOccupation" #fatherOccupation="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="motherDeathDate">Mother Death Date</label>
-                <input type="date" class="form-control" name="motherDeathDate" [(ngModel)]="student.motherDeathDate" #motherDeathDate="ngModel" [disabled]="isView"
-                />
+                <mat-form-field>
+                  <input matInput [matDatepicker]="motherDeathDate" name="motherDeathDate" [(ngModel)]="student.motherDeathDate" #motherDeathDate="ngModel"
+                    [disabled]="isView" placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="motherDeathDate"></mat-datepicker-toggle>
+                  <mat-datepicker #motherDeathDate></mat-datepicker>
+                </mat-form-field>
               </div>
               <div class="form-group">
                 <label for="monthPlaceOfDeath">Mother Place Of Death</label>
-                <input type="text" class="form-control" name="monthPlaceOfDeath" [(ngModel)]="student.monthPlaceOfDeath" #monthPlaceOfDeath="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="monthPlaceOfDeath" [(ngModel)]="student.monthPlaceOfDeath" #monthPlaceOfDeath="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="fatherDeathDate">Father Death Date</label>
-                <input type="date" class="form-control" name="fatherDeathDate" [(ngModel)]="student.fatherDeathDate" #fatherDeathDate="ngModel" [disabled]="isView"
-                />
+                <mat-form-field>
+                  <input matInput [matDatepicker]="fatherDeathDate" name="fatherDeathDate" [(ngModel)]="student.fatherDeathDate" #fatherDeathDate="ngModel"
+                    [disabled]="isView" placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="fatherDeathDate"></mat-datepicker-toggle>
+                  <mat-datepicker #fatherDeathDate></mat-datepicker>
+                </mat-form-field>
               </div>
               <div class="form-group">
                 <label for="fatherPlaceOfDeath">Father Place Of Death</label>
-                <input type="text" class="form-control" name="fatherPlaceOfDeath" [(ngModel)]="student.fatherPlaceOfDeath" #fatherPlaceOfDeath="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="fatherPlaceOfDeath" [(ngModel)]="student.fatherPlaceOfDeath" #fatherPlaceOfDeath="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="gaurdianName">Gaurdian Name</label>
-                <input type="text" class="form-control" name="gaurdianName" [(ngModel)]="student.gaurdianName" #gaurdianName="ngModel"  [disabled]="isView" />
+                <input type="text" class="form-control" name="gaurdianName" [(ngModel)]="student.gaurdianName" #gaurdianName="ngModel" [disabled]="isView"
+                />
               </div>
               <div class="form-group">
                 <label for="gaurdianAdharNumber">Gaurdian Adhar Number</label>
-                <input type="number" class="form-control" name="gaurdianAdharNumber" [(ngModel)]="student.gaurdianAdharNumber" #gaurdianAdharNumber="ngModel"  [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="gaurdianAdharNumber" [(ngModel)]="student.gaurdianAdharNumber" #gaurdianAdharNumber="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="gaurdianOccupation">Gaurdian Occupation</label>
-                <input type="text" class="form-control" name="gaurdianOccupation" [(ngModel)]="student.lastName" #lastName="ngModel" [disabled]="isView"/>
+                <input type="text" class="form-control" name="gaurdianOccupation" [(ngModel)]="student.lastName" #lastName="ngModel" [disabled]="isView"
+                />
               </div>
               <div class="form-group">
                 <label for="gaurdianMobileNumber">Gaurdian Mobile Number</label>
-                <input type="text" class="form-control" name="gaurdianMobileNumber" [(ngModel)]="student.gaurdianMobileNumber" #gaurdianMobileNumber="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="gaurdianMobileNumber" [(ngModel)]="student.gaurdianMobileNumber" #gaurdianMobileNumber="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="gaurdianEmailId">Gaurdian EmailId</label>
-                <input type="text" class="form-control" name="gaurdianEmailId" [(ngModel)]="student.gaurdianEmailId" #gaurdianEmailId="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="gaurdianEmailId" [(ngModel)]="student.gaurdianEmailId" #gaurdianEmailId="ngModel"
+                  [disabled]="isView" />
               </div>
               <div class="form-group">
                 <label for="gaurdianPresentAddress">Gaurdian Present Address</label>
-                <input type="text" class="form-control" name="gaurdianPresentAddress" [(ngModel)]="student.gaurdianPresentAddress" #gaurdianPresentAddress="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="gaurdianPresentAddress" [(ngModel)]="student.gaurdianPresentAddress" #gaurdianPresentAddress="ngModel"
+                  [disabled]="isView" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="gaurdianPermanentAddress">Gaurdian Permanent Address</label>
-                <input type="text" class="form-control" name="gaurdianPermanentAddress" [(ngModel)]="student.gaurdianPermanentAddress" #gaurdianPermanentAddress="ngModel" [disabled]="isView"
-                />
+                <input type="text" class="form-control" name="gaurdianPermanentAddress" [(ngModel)]="student.gaurdianPermanentAddress" #gaurdianPermanentAddress="ngModel"
+                  [disabled]="isView" />
               </div>
               <div class="form-group">
-                <label for="attachments">Attachments</label>
-                <input type="text" class="form-control" name="attachments" [(ngModel)]="student.attachments" #attachments="ngModel" [disabled]="isView"/>
+                <label for="attachments">Photo</label>
+                <!-- <input type="text" class="form-control" name="attachments" [(ngModel)]="student.attachments" #attachments="ngModel" [disabled]="isView"
+                /> -->
+                <input type="file" (change)="selectFile($event)" style="margin-left: 40px;" [(ngModel)]="student.photo" [disabled]="isView"
+                />
               </div>
             </div>
             <div class="form-group">

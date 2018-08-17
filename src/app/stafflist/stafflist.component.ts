@@ -36,6 +36,7 @@ export class StafflistComponent implements OnInit {
 
   addStaffs(): void {
     localStorage.removeItem("staff");
+    localStorage.setItem("isView", 'false');
     this.router.navigate(['staff']);
   };
 
