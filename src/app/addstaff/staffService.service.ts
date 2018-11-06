@@ -1,9 +1,10 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { Staff } from 'src/app/model/staff';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Staff } from '../model/staff';
 
 let headers = new Headers();
 headers.append('enctype', 'multipart/form-data');
@@ -57,7 +58,7 @@ export class StaffService {
   }
 
   uploadPhoto(staffId: any) {
-    
+
     let formData: FormData = new FormData();
     formData.append('file', this.photo, this.photo.name);
     formData.append('staffId', staffId);

@@ -9,7 +9,7 @@ export class Staff {
     createdOn: String;
     updatedOn: String;
 
-    surName:String;
+    surname:String;
     lastName: String;
     designation: String;
     emailId:String;

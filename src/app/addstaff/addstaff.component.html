@@ -4,30 +4,31 @@
     <br>
     <br>
     <h4>Staff Registration</h4>
-    <div>
+    <div [hidden]="submitted">
       <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="col-sm-10">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="surName">Surname</label>
-                <input type="text" class="form-control" name="surName" [(ngModel)]="staff.surName" #surName="ngModel" [disabled]="isView"
+                <label for="surname">Surname</label>
+                <input type="text" style="text-transform: capitalize;" class="form-control" name="surname" [(ngModel)]="staff.surname" #surname="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && surname.invalid }" required surname minlength="1" [disabled]="isView"
                 />
-                <!-- <div *ngIf="f.submitted && surName.invalid" class="invalid-feedback">
-                <div *ngIf="surName.errors.required">surName is required</div>
-                <div *ngIf="surName.errors.surName">surName must be a valid one</div>
-                <div *ngIf="surName.errors.minlength">surName must be at least 2 characters</div>
-              </div> -->
+                <div *ngIf="f.submitted && surname.invalid" class="invalid-feedback">
+                  <div *ngIf="surname.errors.required">Surname is required</div>
+                  <div *ngIf="surname.errors.surname">Surname must be a valid one</div>
+                  <div *ngIf="surname.errors.minlength">Surname must be at least 1 character</div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="lastName">Name</label>
                 <input type="text" class="form-control" name="lastName" [(ngModel)]="staff.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
                   required lastName minlength="3" [disabled]="isView" />
-                <!-- <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
                   <div *ngIf="lastName.errors.required">Name is required</div>
                   <div *ngIf="lastName.errors.lastName">Name must be a valid one</div>
                   <div *ngIf="lastName.errors.minlength">Name must be at least 3 characters</div>
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
@@ -42,7 +43,7 @@
               </div>
               <div class="form-group">
                 <label for="text">Mobile Number</label>
-                <input type="text" class="form-control" name="mobileNumber" [(ngModel)]="staff.mobileNumber" #mobileNumber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+                <input type="text" class="form-control" name="c" [(ngModel)]="staff.mobileNumber" #mobileNumber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobileNumber.invalid }"
                   required mobile minlength="10" maxlength="10" [disabled]="isView" />
                 <div *ngIf="f.submitted && mobileNumber.invalid" class="invalid-feedback">
                   <div *ngIf="mobileNumber.errors.required">Mobile Number is required</div>
@@ -162,18 +163,18 @@
               </div>
               <div class="form-group">
                 <label class="btn btn-default"> Photo:
-                  <input type="file" (change)="selectFile($event)" style="margin-left: 40px;" [(ngModel)]="staff.photo" [disabled]="isView"
+                  <input type="file" (change)="selectFile($event)" style="margin-left: 40px;" name="photo" [(ngModel)]="staff.photo" [disabled]="isView"
                   />
                   <!-- <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()" style="margin-left: 10px;">Upload</button> -->
                 </label>
               </div>
             </div>
 
+            <div class="form-group">
+              <button class="btn btn-primary" *ngIf="!isView" type="submit">{{!isUpdate? "Save": "Update"}}</button>
+              <button class="btn btn-primary" *ngIf="isView" (click)="editStaff()">Edit</button>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary" *ngIf="!isView" type="submit" >{{!isUpdate? "Save": "Update"}}</button>
-          <button class="btn btn-primary" *ngIf="isView" (click)="editStaff()">Edit</button>
         </div>
       </form>
     </div>

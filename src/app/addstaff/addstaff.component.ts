@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { StaffService } from './staffService.service';
 import { Staff } from '../model/staff';
-import { isUndefined } from 'util';
 import { Location } from '@angular/common';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { isUndefined } from 'util';
 import { ImageFile } from '../model/ImageFile';
 import { ImageUploadServiceService } from '../add-image/image-upload-service.service';
 

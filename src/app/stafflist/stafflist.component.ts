@@ -50,7 +50,7 @@ export class StafflistComponent implements OnInit {
   }
 
   deleteStaff(staff: Staff): void {
-    if (confirm("Are you sure want to delete " + staff.surName + " " + staff.lastName)) {
+    if (confirm("Are you sure want to delete " + staff.surname + " " + staff.lastName)) {
       this.stafflistService.deleteStaff(staff);
     }
   }
